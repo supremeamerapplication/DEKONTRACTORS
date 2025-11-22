@@ -210,20 +210,20 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
-            display: flex;
-            align-items: center;
         }
 
         .logo span {
             color: var(--secondary);
         }
 
-        .logo-icon {
+        .logo-img {
+            height: 50px;
             margin-right: 10px;
-            font-size: 1.5rem;
         }
 
         .nav-links {
@@ -317,6 +317,68 @@
             background: var(--primary);
             border-radius: 50%;
             opacity: 0.3;
+        }
+
+        /* Birthday Elements */
+        .birthday-notice {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            z-index: 1001;
+            box-shadow: var(--shadow-dark);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary);
+            opacity: 0.7;
+            z-index: 1002;
+            pointer-events: none;
+        }
+
+        /* TikTok Floating Button */
+        .tiktok-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background: #000;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: var(--shadow-dark);
+            z-index: 999;
+            transition: var(--transition);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .tiktok-float:hover {
+            transform: scale(1.1);
+            background: var(--primary);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
 
         /* About Section */
@@ -784,6 +846,63 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* Birthday Modal */
+        .birthday-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-slow);
+        }
+
+        .birthday-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .birthday-content {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            max-width: 500px;
+            position: relative;
+            transform: scale(0.8);
+            transition: var(--transition-slow);
+        }
+
+        .birthday-modal.active .birthday-content {
+            transform: scale(1);
+        }
+
+        .birthday-content h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .birthday-content p {
+            margin-bottom: 20px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
         /* Responsive Design */
         @media (max-width: 992px) {
             h1 {
@@ -860,6 +979,14 @@
             .footer-content {
                 grid-template-columns: 1fr;
             }
+            
+            .tiktok-float {
+                bottom: 20px;
+                left: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -882,6 +1009,11 @@
             .contact-form {
                 padding: 20px;
             }
+            
+            .birthday-content {
+                padding: 20px;
+                margin: 20px;
+            }
         }
     </style>
 </head>
@@ -891,12 +1023,22 @@
         <div class="loader"></div>
     </div>
 
+    <!-- Birthday Notice -->
+    <div class="birthday-notice">
+        <i class="fas fa-birthday-cake"></i> Birthday: November 26th
+    </div>
+
+    <!-- TikTok Floating Button -->
+    <a href="https://www.tiktok.com/@OnaemeJoy" target="_blank" class="tiktok-float">
+        <i class="fab fa-tiktok"></i>
+    </a>
+
     <!-- Header -->
     <header id="header">
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="logo">
-                    <i class="fas fa-play-circle logo-icon"></i>
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM1LjQxNjcgMTYuNjY2N0gzMy4zMzM0VjI2LjA0MTdDMzMuMzMzNCAyOC43OTE3IDMxLjEyNSAzMS4wNDE3IDI4LjMzMzQgMzEuMDQxN0MyNS41NDE3IDMxLjA0MTcgMjMuMzMzNCAyOC43OTE3IDIzLjMzMzQgMjYuMDQxN0MyMy4zMzM0IDIzLjI5MTcgMjUuNTQxNyAyMS4wNDE3IDI4LjMzMzQgMjEuMDQxN0MyOS4yNzA5IDIxLjA0MTcgMzAuMTQ1OSAyMS4zMzM0IDMwLjg1NDIgMjEuODMzNEwyOC43NzA5IDE2LjY2NjdIMjYuNjg3NVYyNi4wNDE3QzI2LjY4NzUgMjkuODc1IDI5LjY2NjcgMzIuOTE2NyAzMy4zMzM0IDMyLjkxNjdDMzcuMDAwMSAzMi45MTY3IDQwIDI5Ljg3NSA0MCAyNi4wNDE3VjE2LjY2NjdIMzUuNDE2N1pNMjAgMTYuNjY2N0gxNS40MTY3VjMyLjkxNjdIMjBWMjkuMTY2N0gyMy4zMzM0VjI1LjQxNjdIMjBWMjEuNjY2N0gyMy4zMzM0VjE2LjY2NjdIMjBaIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXJfMF8xKSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzBfMSIgeDE9IjE1LjQxNjciIHkxPSIxNi42NjY3IiB4Mj0iNDAiIHkyPSIxNi42NjY3IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRjAwNTAiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDBGMkVBIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+" alt="Onaeme Joy Logo" class="logo-img">
                     Onaeme<span>Joy</span>
                 </a>
                 <ul class="nav-links">
@@ -1093,11 +1235,11 @@
                     
                     <div class="contact-item fade-in">
                         <div class="contact-icon">
-                            <i class="fas fa-calendar-alt"></i>
+                            <i class="fab fa-whatsapp"></i>
                         </div>
                         <div>
-                            <h3>Book a Session</h3>
-                            <p>Available for 1-on-1 coaching and consultations</p>
+                            <h3>WhatsApp</h3>
+                            <p>+1234567890</p>
                         </div>
                     </div>
                 </div>
@@ -1105,18 +1247,18 @@
                 <div class="contact-form fade-in">
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
+                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject">
+                            <input type="text" class="form-control" id="subject" placeholder="Subject">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                            <textarea class="form-control" id="message" placeholder="Your Message" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Send Message</button>
+                        <button type="submit" class="btn">Send Message via WhatsApp</button>
                     </form>
                 </div>
             </div>
@@ -1129,12 +1271,12 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <i class="fas fa-play-circle logo-icon"></i>
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM1LjQxNjcgMTYuNjY2N0gzMy4zMzM0VjI2LjA0MTdDMzMuMzMzNCAyOC43OTE3IDMxLjEyNSAzMS4wNDE3IDI4LjMzMzQgMzEuMDQxN0MyNS41NDE3IDMxLjA0MTcgMjMuMzMzNCAyOC43OTE3IDIzLjMzMzQgMjYuMDQxN0MyMy4zMzM0IDIzLjI5MTcgMjUuNTQxNyAyMS4wNDE3IDI4LjMzMzQgMjEuMDQxN0MyOS4yNzA5IDIxLjA0MTcgMzAuMTQ1OSAyMS4zMzM0IDMwLjg1NDIgMjEuODMzNEwyOC43NzA5IDE2LjY2NjdIMjYuNjg3NVYyNi4wNDE3QzI2LjY4NzUgMjkuODc1IDI5LjY2NjcgMzIuOTE2NyAzMy4zMzM0IDMyLjkxNjdDMzcuMDAwMSAzMi45MTY3IDQwIDI5Ljg3NSA0MCAyNi4wNDE3VjE2LjY2NjdIMzUuNDE2N1pNMjAgMTYuNjY2N0gxNS40MTY3VjMyLjkxNjdIMjBWMjkuMTY2N0gyMy4zMzM0VjI1LjQxNjdIMjBWMjEuNjY2N0gyMy4zMzM0VjE2LjY2NjdIMjBaIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXJfMF8xKSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzBfMSIgeDE9IjE1LjQxNjciIHkxPSIxNi42NjY3IiB4Mj0iNDAiIHkyPSIxNi42NjY3IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRjAwNTAiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDBGMkVBIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+" alt="Onaeme Joy Logo" class="logo-img">
                         Onaeme<span>Joy</span>
                     </div>
                     <p>Empowering creators to thrive on TikTok while fostering meaningful conversations about life.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.tiktok.com/@OnaemeJoy" target="_blank" class="social-link"><i class="fab fa-tiktok"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
@@ -1165,7 +1307,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Onaeme Joy. All Rights Reserved.</p>
+                <p>&copy; 2023 Onaeme Joy. All Rights Reserved. | Happy Birthday Onaeme! 🎉</p>
             </div>
         </div>
     </footer>
@@ -1175,6 +1317,25 @@
         <i class="fas fa-chevron-up"></i>
     </div>
 
+    <!-- Birthday Modal -->
+    <div class="birthday-modal" id="birthdayModal">
+        <div class="birthday-content">
+            <button class="close-modal" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Happy Birthday Onaeme! 🎂</h2>
+            <p>Wishing you a fantastic birthday filled with joy, success, and all the happiness you bring to others!</p>
+            <p>Thank you for being an amazing TikTok coach and community builder.</p>
+            <p>May your special day be as wonderful as you are!</p>
+            <button class="btn" id="playBirthdaySound">Play Birthday Song</button>
+        </div>
+    </div>
+
+    <!-- Audio Element for Birthday Sound -->
+    <audio id="birthdayAudio" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-443.mp3" type="audio/mpeg">
+    </audio>
+
     <script>
         // Loading Screen
         window.addEventListener('load', function() {
@@ -1182,6 +1343,28 @@
             setTimeout(() => {
                 loading.classList.add('hidden');
             }, 1000);
+            
+            // Show birthday modal after a delay
+            setTimeout(() => {
+                document.getElementById('birthdayModal').classList.add('active');
+            }, 1500);
+        });
+
+        // Close birthday modal
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('birthdayModal').classList.remove('active');
+        });
+
+        // Play birthday sound
+        document.getElementById('playBirthdaySound').addEventListener('click', function() {
+            const audio = document.getElementById('birthdayAudio');
+            if (audio.paused) {
+                audio.play();
+                this.innerHTML = 'Pause Birthday Song';
+            } else {
+                audio.pause();
+                this.innerHTML = 'Play Birthday Song';
+            }
         });
 
         // Mobile Navigation Toggle
@@ -1254,10 +1437,22 @@
             showSlide(currentSlide + 1);
         }, 5000);
         
-        // Form submission
+        // WhatsApp Form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your message! Onaeme will get back to you soon.');
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Format the message for WhatsApp
+            const whatsappMessage = `Hello Onaeme!%0A%0AName: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}%0A%0AI found you through your portfolio website and would like to connect!`;
+            
+            // Open WhatsApp with the pre-filled message
+            window.open(`https://wa.me/1234567890?text=${whatsappMessage}`, '_blank');
+            
+            // Reset form
             this.reset();
         });
         
@@ -1306,6 +1501,33 @@
             }
         }
         
+        // Confetti animation
+        function createConfetti() {
+            const colors = ['#ff0050', '#00f2ea', '#ffcc00', '#00cc66', '#9966ff'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const size = Math.random() * 10 + 5;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 10 + 5;
+                
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.left = `${posX}%`;
+                confetti.style.top = `-10px`;
+                confetti.style.backgroundColor = color;
+                confetti.style.animationDelay = `${delay}s`;
+                confetti.style.animationDuration = `${duration}s`;
+                confetti.style.animation = `fall ${duration}s linear ${delay}s infinite`;
+                
+                document.body.appendChild(confetti);
+            }
+        }
+        
         // Add floating animation for particles
         const style = document.createElement('style');
         style.textContent = `
@@ -1315,11 +1537,17 @@
                 50% { transform: translate(-5px, -10px) rotate(-5deg); }
                 75% { transform: translate(-10px, 5px) rotate(3deg); }
             }
+            
+            @keyframes fall {
+                0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+            }
         `;
         document.head.appendChild(style);
         
-        // Initialize particles
+        // Initialize particles and confetti
         createParticles();
+        createConfetti();
     </script>
 </body>
 </html>
