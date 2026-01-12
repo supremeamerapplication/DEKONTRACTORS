@@ -85,12 +85,12 @@
       align-items: flex-end;
     }
 
-    /* Main Navigation Bar (replaces left nav) */
+    /* Main Navigation Bar */
     .main-nav {
       background: linear-gradient(to right, #1a237e 0%, #7c43bd 100%);
       box-shadow: 0 2px 12px #1a237e33;
       position: sticky;
-      top: 76px; /* Height of header */
+      top: 76px;
       z-index: 999;
     }
 
@@ -217,30 +217,6 @@
       background: #e5e7eb;
     }
 
-    /* Welcome card improvements */
-    .welcome-card {
-      animation: bounceIn 0.9s;
-      background: linear-gradient(135deg, #fff 0%, #f0f4ff 100%);
-      border-radius: 20px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 10px 40px rgba(123, 67, 189, 0.25);
-      text-align: center;
-      position: relative;
-      border: 1px solid rgba(123, 67, 189, 0.1);
-    }
-
-    @keyframes bounceIn {
-      0% { transform: scale(0.7); opacity: 0; }
-      80% { transform: scale(1.05); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .welcome-icon {
-      font-size: 3rem;
-      color: #7c43bd;
-      margin-bottom: 1rem;
-    }
-
     /* Button improvements */
     .btn {
       display: inline-flex;
@@ -310,7 +286,7 @@
       transform: translateY(-2px);
     }
 
-    /* Dashboard improvements - UPDATED BALANCES DISPLAY */
+    /* Dashboard improvements */
     .balance-overview {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -386,77 +362,6 @@
       flex-wrap: wrap;
     }
 
-    /* Marketplace improvements */
-    .ad-card {
-      border: 1px solid #e5e7eb;
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-      transition: var(--transition);
-      background: #fff;
-    }
-
-    .ad-card:hover {
-      border-color: #7c43bd;
-      box-shadow: 0 4px 20px rgba(123, 67, 189, 0.1);
-    }
-
-    .ad-image {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-      height: 160px;
-      object-fit: cover;
-    }
-
-    .ad-title {
-      font-size: 1.125rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #1a237e;
-    }
-
-    .ad-meta {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      font-size: 0.875rem;
-      color: #6b7280;
-    }
-
-    .ad-meta span {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-
-    /* Form improvements */
-    .form-group {
-      margin-bottom: 1.25rem;
-    }
-
-    .form-label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-      color: #374151;
-    }
-
-    .form-input {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1px solid #d1d5db;
-      border-radius: 12px;
-      transition: var(--transition);
-      font-size: 1rem;
-    }
-
-    .form-input:focus {
-      outline: none;
-      border-color: #7c43bd;
-      box-shadow: 0 0 0 3px rgba(123, 67, 189, 0.2);
-    }
-
     /* Loading state */
     .loading {
       display: inline-block;
@@ -510,100 +415,6 @@
 
     .notification-info {
       background: #2563eb;
-    }
-
-    /* New Animations */
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    @keyframes slideInUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes bounce {
-      0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
-      40%, 43% { transform: translate3d(0,-10px,0); }
-      70% { transform: translate3d(0,-5px,0); }
-      90% { transform: translate3d(0,-2px,0); }
-    }
-
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-      20%, 40%, 60%, 80% { transform: translateX(5px); }
-    }
-
-    .pulse-animation {
-      animation: pulse 2s infinite;
-    }
-
-    .slide-in-up {
-      animation: slideInUp 0.5s ease-out;
-    }
-
-    .bounce-animation {
-      animation: bounce 1s;
-    }
-
-    .shake-animation {
-      animation: shake 0.5s;
-    }
-
-    /* Daily Reward Card */
-    .daily-reward-card {
-      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-      border-radius: 16px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
-      color: #333;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .daily-reward-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-      transform: rotate(45deg);
-      animation: shine 3s infinite;
-    }
-
-    @keyframes shine {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-    }
-
-    /* Currency Toggle */
-    .currency-toggle {
-      display: flex;
-      border: 1px solid #d1d5db;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 1rem;
-      width: fit-content;
-    }
-
-    .currency-option {
-      flex: 1;
-      padding: 0.5rem 1rem;
-      text-align: center;
-      background: white;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .currency-option.active {
-      background: linear-gradient(90deg, var(--indigo) 0%, var(--purple) 100%);
-      color: white;
     }
 
     /* Responsive improvements */
@@ -662,29 +473,6 @@
       }
     }
 
-    @media (max-width: 480px) {
-      .logo {
-        width: 40px;
-        height: 40px;
-      }
-
-      .app-name {
-        font-size: 1.125rem;
-      }
-
-      .user-info {
-        display: none;
-      }
-
-      .mobile-user-menu {
-        display: block !important;
-      }
-
-      .balance-overview {
-        grid-template-columns: 1fr;
-      }
-    }
-
     /* Additional utility classes */
     .text-truncate {
       overflow: hidden;
@@ -692,47 +480,8 @@
       white-space: nowrap;
     }
 
-    .mobile-user-menu {
-      display: none;
-    }
-
-    .skeleton {
-      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-      background-size: 200% 100%;
-      animation: loading 1.5s infinite;
-      border-radius: 4px;
-    }
-
-    @keyframes loading {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    /* New styles for Paystack integration */
-    .paystack-btn {
-      background: #00A859;
-      color: white;
-    }
-
-    .paystack-btn:hover {
-      background: #008F4C;
-    }
-
-    /* Balance type colors */
-    .topup-color {
-      color: #7c43bd;
-    }
-
-    .earnings-color {
-      color: #16a34a;
-    }
-
-    .withdrawable-color {
-      color: #1a237e;
-    }
-
-    .pending-color {
-      color: #ea580c;
+    .hidden {
+      display: none !important;
     }
   </style>
 </head>
@@ -749,8 +498,8 @@
     </div>
 
     <div class="user-info">
-      <span id="user-email" class="text-xs opacity-80 truncate max-w-xs user-email"></span>
-      <span id="user-username" class="text-lg font-semibold"></span>
+      <span id="user-email" class="text-xs opacity-80 truncate max-w-xs user-email">Loading...</span>
+      <span id="user-username" class="text-lg font-semibold">Loading...</span>
       <div class="flex items-center gap-2 mt-1">
         <button id="profileBtn" class="btn btn-secondary btn-sm" aria-label="Profile">
           <i class="fas fa-user"></i> Profile
@@ -760,36 +509,26 @@
         </button>
       </div>
     </div>
-
-    <div class="mobile-user-menu">
-      <button id="mobileMenuBtn" class="btn btn-secondary">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
   </header>
 
-  <!-- BOTTOM NAVIGATION BAR (Moved from top) -->
-  <nav class="main-nav bottom-nav" aria-label="Main Navigation" style="position: fixed; bottom: 0; top: auto; width: 100%;">
+  <!-- BOTTOM NAVIGATION BAR -->
+  <nav class="main-nav bottom-nav" style="position: fixed; bottom: 0; top: auto; width: 100%;">
     <div class="nav-container">
-      <button class="nav-btn active" id="home-tab-btn" data-tab="homeTab" aria-controls="homeTab" aria-selected="true">
+      <button class="nav-btn active" id="home-tab-btn" data-tab="homeTab">
         <i class="fas fa-home"></i>
         <span>Dashboard</span>
       </button>
-      <button class="nav-btn" id="market-tab-btn" data-tab="marketTab" aria-controls="marketTab">
+      <button class="nav-btn" id="market-tab-btn" data-tab="marketTab">
         <i class="fas fa-store"></i>
         <span>Marketplace</span>
       </button>
-      <button class="nav-btn" id="invite-tab-btn" data-tab="inviteTab" aria-controls="inviteTab">
+      <button class="nav-btn" id="invite-tab-btn" data-tab="inviteTab">
         <i class="fas fa-user-plus"></i>
-        <span>Invite Friends</span>
+        <span>Invite</span>
       </button>
-      <button class="nav-btn" id="wallet-tab-btn" data-tab="walletTab" aria-controls="walletTab">
+      <button class="nav-btn" id="wallet-tab-btn" data-tab="walletTab">
         <i class="fas fa-wallet"></i>
         <span>Wallet</span>
-      </button>
-      <button class="nav-btn" id="helpSupportBtn">
-        <i class="fas fa-question-circle"></i>
-        <span>Help</span>
       </button>
     </div>
   </nav>
@@ -797,39 +536,17 @@
   <!-- MAIN CONTENT -->
   <main class="pt-3 pb-24 max-w-3xl mx-auto px-4">
 
-    <!-- DASHBOARD TAB - UPDATED WITH NEW BALANCES DISPLAY -->
-    <section id="homeTab" class="tab-content active" aria-labelledby="home-tab-btn">
-      <!-- Daily Reward Card -->
-      <div id="dailyRewardCard" class="daily-reward-card hidden">
-        <div class="flex items-center justify-between">
-          <div>
-            <h3 class="text-lg font-bold mb-1 text-gray-800">Daily Reward Available!</h3>
-            <p class="text-gray-700 mb-2">Claim your <span class="font-bold text-green-700">$SA50</span> daily bonus</p>
-            <div id="dailyRewardCountdown" class="text-sm text-gray-600"></div>
-          </div>
-          <button id="claimDailyRewardBtn" class="btn btn-success pulse-animation">
-            <i class="fas fa-gift mr-2"></i> Claim Now
-          </button>
-        </div>
-      </div>
-
-      <!-- UPDATED BALANCES DISPLAY -->
+    <!-- DASHBOARD TAB -->
+    <section id="homeTab" class="tab-content active">
       <div class="main-balance-card">
         <div class="main-balance-label">
           <i class="fas fa-wallet"></i>
           Total Account Balance
         </div>
         <div class="main-balance-amount" id="account-balance">$SA 0</div>
-
-        <!-- Currency Toggle -->
-        <div class="currency-toggle">
-          <button class="currency-option active" data-currency="NGN">NGN</button>
-          <button class="currency-option" data-currency="USD">USD</button>
-          <button class="currency-option" data-currency="SA">$SA</button>
-        </div>
-
+        
         <div id="token-value" class="text-white text-sm mb-4">Value: $0.00</div>
-
+        
         <div class="action-buttons">
           <button class="btn btn-primary" id="fundBtn">
             <i class="fas fa-plus-circle mr-2"></i> Top Up
@@ -837,257 +554,95 @@
           <button class="btn btn-success" id="cashoutBtn">
             <i class="fas fa-wallet mr-2"></i> Withdraw
           </button>
-          <button class="btn btn-secondary" id="paymentHistoryBtn">
-            <i class="fas fa-history mr-2"></i> History
+          <button class="btn btn-secondary" id="refreshBalanceBtn">
+            <i class="fas fa-sync-alt mr-2"></i> Refresh
           </button>
         </div>
       </div>
 
-      <!-- Detailed Balance Cards -->
       <div class="balance-overview">
         <div class="balance-item-card">
-          <div class="balance-item-label topup-color">
+          <div class="balance-item-label">
             <i class="fas fa-money-bill-wave"></i>
             Top-up Balance
           </div>
-          <div class="balance-item-amount topup-color" id="topup-balance">$SA 0</div>
-          <div class="balance-item-value" id="topup-value">$0.00</div>
+          <div class="balance-item-amount" id="topup-balance">$SA 0</div>
         </div>
 
         <div class="balance-item-card">
-          <div class="balance-item-label earnings-color">
+          <div class="balance-item-label">
             <i class="fas fa-chart-line"></i>
             Earnings Balance
           </div>
-          <div class="balance-item-amount earnings-color" id="earnings-balance">$SA 0</div>
-          <div class="balance-item-value" id="earnings-value">$0.00</div>
+          <div class="balance-item-amount" id="earnings-balance">$SA 0</div>
         </div>
 
         <div class="balance-item-card">
-          <div class="balance-item-label withdrawable-color">
+          <div class="balance-item-label">
             <i class="fas fa-hand-holding-usd"></i>
             Withdrawable
           </div>
-          <div class="balance-item-amount withdrawable-color" id="withdrawable-balance">$SA 0</div>
-          <div class="balance-item-value" id="withdrawable-value">$0.00</div>
+          <div class="balance-item-amount" id="withdrawable-balance">$SA 0</div>
         </div>
 
         <div class="balance-item-card">
-          <div class="balance-item-label pending-color">
+          <div class="balance-item-label">
             <i class="fas fa-clock"></i>
             Pending Rewards
           </div>
-          <div class="balance-item-amount pending-color" id="pending-balance">$SA 0</div>
-          <div class="balance-item-value" id="pending-value">$0.00</div>
+          <div class="balance-item-amount" id="pending-balance">$SA 0</div>
         </div>
       </div>
 
       <div class="card">
-        <h2 class="text-xl font-bold mb-4 text-indigo-900">Dashboard Overview</h2>
-        <div id="dashboard-content">
-          <div class="flex justify-between items-center mb-4">
-            <div class="text-gray-600">Your referral earnings</div>
-            <div class="font-semibold text-green-600">$SA 0</div>
-          </div>
-          <div class="flex justify-between items-center mb-4">
-            <div class="text-gray-600">Completed tasks</div>
-            <div class="font-semibold">0</div>
-          </div>
-          <div class="flex justify-between items-center">
-            <div class="text-gray-600">Pending rewards</div>
-            <div class="font-semibold text-yellow-600">$SA 0</div>
-          </div>
+        <h2 class="text-xl font-bold mb-4 text-indigo-900">Recent Activity</h2>
+        <div id="recent-activity">
+          <div class="text-gray-500 text-center py-4">No recent activity</div>
         </div>
       </div>
     </section>
 
     <!-- MARKETPLACE TAB -->
-    <section id="marketTab" class="tab-content" aria-labelledby="market-tab-btn">
+    <section id="marketTab" class="tab-content">
       <div class="card mb-4">
         <h2 class="text-xl font-bold mb-4 text-indigo-900">Marketplace</h2>
-
-        <div class="flex flex-col md:flex-row md:items-center gap-3 mb-4">
-          <div class="form-group flex-1">
-            <input id="marketSearch" type="text" placeholder="Search by keyword or category..." class="form-input" />
-          </div>
-          <div class="form-group">
-            <select id="marketSort" class="form-input">
-              <option value="newest">Newest</option>
-              <option value="goal">Goal (Highest)</option>
-              <option value="clicks">Most Clicks</option>
-            </select>
-          </div>
+        <div id="market-list" class="space-y-4">
+          <div class="text-gray-500 text-center py-8">Loading marketplace...</div>
         </div>
-
-        <div id="market-list" class="mb-5"></div>
-
-        <button id="uploadAdvertBtn" class="btn btn-primary w-full">
-          <i class="fas fa-plus-circle mr-2"></i> Upload Advert
-        </button>
       </div>
     </section>
 
-    <!-- UPLOAD ADVERT MODAL -->
-    <div id="uploadAdvertModal" class="modal-bg" aria-modal="true" role="dialog" tabindex="-1">
-      <div class="modal max-w-lg">
-        <div class="modal-header">
-          <h3 class="modal-title">Upload Advert</h3>
-          <button class="modal-close" aria-label="Cancel Upload Advert">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-
-        <form id="uploadAdvertForm" class="flex flex-col gap-4">
-          <div class="form-group">
-            <label class="form-label">Advert Title</label>
-            <input type="text" id="ad-title" class="form-input" placeholder="Advert Title (max 60 chars)" required maxlength="60" autocomplete="off" />
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Category</label>
-            <select id="ad-category" class="form-input" required>
-              <option value="">Select Category</option>
-              <option value="Social Media">Social Media</option>
-              <option value="App Download">App Download</option>
-              <option value="Website Visit">Website Visit</option>
-              <option value="Referral">Referral</option>
-              <option value="Video/Content">Video/Content</option>
-              <option value="Crypto">Crypto</option>
-              <option value="Others">Others</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Clicks/Downloads Required</label>
-            <input type="number" id="ad-clicks" class="form-input" min="500" max="10000" placeholder="Minimum 500 for Social Media" required />
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Advert URL</label>
-            <input type="url" id="ad-url" class="form-input" placeholder="https://example.com" required autocomplete="off" />
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Advert Image (Optional)</label>
-            <input type="file" id="ad-image" accept="image/*" class="form-input" />
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Participation Instructions</label>
-            <textarea id="ad-instructions" class="form-input" rows="3" placeholder="What should users do? (e.g., post a comment, like, etc.)" required></textarea>
-          </div>
-
-          <div id="ad-cost" class="text-sm text-indigo-700 my-2 p-3 bg-indigo-50 rounded-lg"></div>
-
-          <div id="ad-preview" class="my-2 hidden">
-            <span class="font-bold">Preview:</span>
-            <div id="ad-preview-content" class="border p-3 rounded-lg bg-gray-50 mt-2"></div>
-          </div>
-
-          <div class="flex gap-2">
-            <button type="button" id="previewAdBtn" class="btn btn-secondary flex-1">
-              <i class="fas fa-eye mr-2"></i> Preview
-            </button>
-            <button type="button" id="payForAdBtn" class="btn paystack-btn flex-1">
-              <i class="fas fa-credit-card mr-2"></i> Pay with Paystack
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-
     <!-- INVITE TAB -->
-    <section id="inviteTab" class="tab-content" aria-labelledby="invite-tab-btn">
+    <section id="inviteTab" class="tab-content">
       <div class="card mb-4">
         <h2 class="text-xl font-bold mb-4 text-indigo-900">Invite Friends</h2>
-        <p class="mb-4 text-gray-600">Share your unique invitation link to earn rewards!</p>
-
         <div class="form-group">
           <label class="form-label">Your Invitation Link</label>
           <div class="flex items-center gap-2">
-            <input type="text" readonly class="form-input flex-1 bg-gray-50" id="invite-link" />
+            <input type="text" readonly class="form-input flex-1 bg-gray-50" id="invite-link" value="Loading..." />
             <button id="copyInviteBtn" class="btn btn-success">
               <i class="fas fa-copy"></i>
             </button>
           </div>
         </div>
-
-        <div class="flex gap-2 mb-4 flex-wrap">
-          <button id="inviteQrBtn" class="btn btn-primary">
-            <i class="fas fa-qrcode mr-2"></i> QR Code
-          </button>
-          <button id="shareButtonsBtn" class="btn btn-secondary">
-            <i class="fas fa-share-alt mr-2"></i> Share
-          </button>
-        </div>
-
-        <div id="inviteQrContainer" class="mb-4 hidden flex justify-center">
-          <canvas id="inviteQrImg" width="160" height="160"></canvas>
-        </div>
-
-        <div id="inviteShareBtns" class="grid grid-cols-2 gap-2 mb-4 hidden">
-          <a id="whatsappShare" class="btn btn-success" target="_blank">
-            <i class="fab fa-whatsapp mr-2"></i> WhatsApp
-          </a>
-          <a id="telegramShare" class="btn btn-primary" target="_blank">
-            <i class="fab fa-telegram mr-2"></i> Telegram
-          </a>
-          <a id="twitterShare" class="btn btn-secondary" target="_blank">
-            <i class="fab fa-twitter mr-2"></i> Twitter
-          </a>
-          <a id="facebookShare" class="btn btn-primary" target="_blank">
-            <i class="fab fa-facebook mr-2"></i> Facebook
-          </a>
-        </div>
-      </div>
-
-      <div class="card mb-4">
-        <h3 class="font-semibold mb-3 text-indigo-800">Your Invited Friends</h3>
-        <div id="invitee-list" class="text-gray-500">No friends invited yet.</div>
-      </div>
-
-      <div class="card mb-4">
-        <h3 class="font-semibold mb-3 text-indigo-800">Referral Leaderboard</h3>
-        <div id="referral-leaderboard" class="text-gray-500">Loading leaderboard...</div>
-      </div>
-
-      <div class="card">
-        <h3 class="font-semibold mb-3 text-indigo-800">Your Referral Stats</h3>
-        <div id="referral-analytics">
-          <div class="flex justify-between items-center mb-2">
-            <span>Total Invites:</span>
-            <span class="font-semibold">0</span>
-          </div>
-          <div class="flex justify-between items-center">
-            <span>Total Earnings:</span>
-            <span class="font-semibold text-green-600">$SA 0</span>
-          </div>
+        <div class="mt-4">
+          <h3 class="font-semibold mb-2">Your Referrals</h3>
+          <div id="referral-list" class="text-gray-500">No referrals yet</div>
         </div>
       </div>
     </section>
 
     <!-- WALLET TAB -->
-    <section id="walletTab" class="tab-content" aria-labelledby="wallet-tab-btn">
+    <section id="walletTab" class="tab-content">
       <div class="card">
         <h2 class="text-xl font-bold mb-4 text-indigo-900">Wallet</h2>
-
-        <!-- Currency Toggle -->
-        <div class="currency-toggle mb-4">
-          <button class="currency-option active" data-currency="NGN">NGN</button>
-          <button class="currency-option" data-currency="USD">USD</button>
-          <button class="currency-option" data-currency="SA">$SA</button>
-        </div>
-
         <div class="mb-4 p-3 bg-gray-50 rounded-lg">
           <div class="flex justify-between items-center mb-2">
-            <span id="walletStatus" class="font-semibold">Paystack Wallet</span>
+            <span class="font-semibold">Paystack Wallet</span>
             <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full" id="connection-status">Not Connected</span>
           </div>
 
           <div class="grid grid-cols-2 gap-3 mb-3">
-            <div class="font-medium">Currency:</div>
-            <div id="wallet-currency">NGN</div>
-
             <div class="font-medium">Balance:</div>
             <div id="wallet-balance">₦0.00</div>
           </div>
@@ -1095,35 +650,59 @@
           <button id="connectWalletBtn" class="btn btn-primary w-full mb-2">
             <i class="fas fa-wallet mr-2"></i> Connect Paystack
           </button>
-          
-          <button id="refreshWalletBtn" class="btn btn-secondary w-full">
-            <i class="fas fa-sync-alt mr-2"></i> Refresh Balance
-          </button>
-        </div>
-
-        <div id="walletTransactions" class="mb-4 hidden">
-          <h3 class="font-semibold mb-2 text-indigo-800">Recent Transactions</h3>
-          <div id="wallet-transactions-list" class="space-y-2"></div>
-        </div>
-
-        <div class="text-xs text-gray-500 p-3 bg-gray-50 rounded-lg">
-          <p>Your Paystack wallet is used for all transactions. Connect to view your balance and transaction history.</p>
         </div>
       </div>
     </section>
   </main>
 
   <!-- MODALS -->
-  <!-- Profile Modal -->
-  <div id="profileModal" class="modal-bg" aria-modal="true" role="dialog" tabindex="-1">
-    <div class="modal max-w-md">
+  <!-- Fund Modal -->
+  <div id="fundModal" class="modal-bg">
+    <div class="modal">
       <div class="modal-header">
-        <h3 class="modal-title">Your Profile</h3>
-        <button class="modal-close" aria-label="Close Profile Modal">
+        <h3 class="modal-title">Top Up Account</h3>
+        <button class="modal-close">
           <i class="fas fa-times"></i>
         </button>
       </div>
+      <div class="form-group">
+        <label class="form-label">Amount (NGN)</label>
+        <input type="number" id="fundAmount" min="2000" step="100" class="form-input" placeholder="Min ₦2,000" />
+      </div>
+      <button id="proceedToPaymentBtn" class="btn btn-primary w-full mt-4">
+        <i class="fas fa-credit-card mr-2"></i> Proceed to Payment
+      </button>
+    </div>
+  </div>
 
+  <!-- Cashout Modal -->
+  <div id="cashoutModal" class="modal-bg">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Withdraw Funds</h3>
+        <button class="modal-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Amount ($SA)</label>
+        <input type="number" id="cashoutAmount" min="750" step="10" class="form-input" placeholder="Min 750 $SA" />
+      </div>
+      <button id="requestCashoutBtn" class="btn btn-success w-full mt-4">
+        <i class="fas fa-check-circle mr-2"></i> Request Withdrawal
+      </button>
+    </div>
+  </div>
+
+  <!-- Profile Modal -->
+  <div id="profileModal" class="modal-bg">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Your Profile</h3>
+        <button class="modal-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
       <div class="mb-4">
         <div class="flex justify-between items-center mb-3">
           <span class="font-medium">ID:</span>
@@ -1131,488 +710,47 @@
         </div>
         <div class="flex justify-between items-center mb-3">
           <span class="font-medium">Username:</span>
-          <span id="user-username-modal"></span>
+          <span id="profile-username"></span>
         </div>
         <div class="flex justify-between items-center mb-4">
           <span class="font-medium">Email:</span>
-          <span id="user-email-modal" class="truncate max-w-[200px]"></span>
-        </div>
-
-        <div class="mt-4">
-          <h4 class="font-semibold mb-2">Your Invitation Link</h4>
-          <div class="flex items-center gap-2">
-            <input type="text" readonly class="form-input flex-1 bg-gray-50" id="invitation-url" />
-            <button id="copyProfileInviteBtn" class="btn btn-success">
-              <i class="fas fa-copy"></i>
-            </button>
-          </div>
-
-          <div class="mt-3 flex gap-2">
-            <button id="showQrBtn" class="btn btn-primary">
-              <i class="fas fa-qrcode"></i> QR Code
-            </button>
-          </div>
-
-          <div id="inviteQrWrap" class="mt-4 hidden flex justify-center">
-            <canvas id="inviteQr" width="160" height="160"></canvas>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex justify-end">
-        <button class="btn btn-primary close-modal" aria-label="Close Profile Modal">Close</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Welcome Card -->
-  <div id="welcomeCard" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50 hidden">
-    <div class="welcome-card">
-      <div class="welcome-icon">
-        <i class="fas fa-gift"></i>
-      </div>
-      <h2 class="text-xl font-bold mb-2 text-indigo-900">Welcome to SupremeAmer!</h2>
-      <p class="mb-4 text-gray-600">Congrats! You just earned a <b class="text-green-700">$SA250</b> bonus for joining.</p>
-      <button id="dismissWelcome" class="btn btn-primary" aria-label="Dismiss Welcome">
-        Let's Get Started <i class="fas fa-arrow-right ml-2"></i>
-      </button>
-    </div>
-  </div>
-
-  <!-- Pending Rewards Notice -->
-  <div id="pendingRewardsNotice" class="notification notification-info hidden">
-    <i class="fas fa-clock"></i>
-    <span>Pending reward: <b id="pendingRewardAmt">$SA0</b>. Will be credited after verification.</span>
-  </div>
-
-  <!-- Screenshot Modal -->
-  <div id="screenshotModal" class="modal-bg" aria-modal="true" role="dialog" tabindex="-1">
-    <div class="modal text-center">
-      <div class="modal-header">
-        <h3 class="modal-title">Upload Screenshot Proof</h3>
-        <button class="modal-close" aria-label="Cancel Upload">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-
-      <div class="mb-4">
-        <label class="form-label">Select Screenshot Image</label>
-        <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
-          <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
-          <p class="text-sm text-gray-500 mb-2">Drag & drop or click to upload</p>
-          <input type="file" id="proofFile" accept="image/*" class="hidden" />
-          <button onclick="document.getElementById('proofFile').click()" class="btn btn-secondary btn-sm">
-            Choose File
-          </button>
-          <div id="fileName" class="text-xs text-gray-500 mt-2"></div>
-        </div>
-      </div>
-
-      <div class="flex gap-2 justify-center">
-        <button id="submitProofBtn" class="btn btn-success">
-          <i class="fas fa-check-circle mr-2"></i> Submit Proof
-        </button>
-        <button class="btn btn-secondary close-modal" aria-label="Cancel">
-          Cancel
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Payment History Modal -->
-  <div id="paymentHistoryModal" class="modal-bg" aria-modal="true" role="dialog" tabindex="-1">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 class="modal-title">Payment History</h3>
-        <button class="modal-close" aria-label="Close Payment History">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-
-      <div id="payment-history-content" class="max-h-60 overflow-y-auto">
-        <div class="text-center text-gray-500 py-4">No transactions yet.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Help & Support Modal -->
-  <div id="helpSupportModal" class="modal-bg" aria-modal="true" role="dialog" tabindex="-1">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 class="modal-title">Help & Support</h3>
-        <button class="modal-close" aria-label="Close Help & Support">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-
-      <div class="mb-4">
-        <div class="flex items-center gap-2 mb-3">
-          <i class="fas fa-envelope text-indigo-600"></i>
-          <span>Email: <a href="mailto:support@supremeamer.com" class="text-blue-600 underline">support@supremeamer.com</a></span>
-        </div>
-
-        <div class="bg-gray-50 p-3 rounded-lg">
-          <div class="font-medium mb-2">AI Quick Response:</div>
-          <p class="text-sm text-gray-700">"How can we help? Describe your issue and our AI will provide a quick answer or escalate to a human!"</p>
-
-          <div class="form-group mt-3">
-            <textarea class="form-input" rows="3" placeholder="Describe your issue here..."></textarea>
-          </div>
-
-          <button class="btn btn-primary w-full">
-            <i class="fas fa-paper-plane mr-2"></i> Send Message
-          </button>
+          <span id="profile-email" class="truncate max-w-[200px]"></span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Fund Modal -->
-  <div id="fundModal" class="modal-bg" aria-modal="true" role="dialog" tabindex="-1">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 class="modal-title">Top Up Your Account</h3>
-        <button class="modal-close" aria-label="Cancel Fund">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-
-      <div class="currency-toggle mb-4">
-        <button class="currency-option active" data-currency="NGN">NGN</button>
-        <button class="currency-option" data-currency="USD">USD</button>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Amount</label>
-        <input type="number" id="fundAmount" min="2000" step="100" class="form-input" placeholder="Min ₦2,000" />
-        <div class="text-xs text-gray-500 mt-1" id="fundConversion">Exchange rate: 1 NGN = 0.00001 $SA</div>
-      </div>
-
-      <div class="grid grid-cols-1 gap-2 my-4">
-        <button id="proceedToPaymentBtn" class="btn paystack-btn justify-center">
-          <i class="fas fa-credit-card mr-2"></i> Proceed to Payment
-        </button>
-      </div>
-
-      <div class="text-xs text-gray-500 p-3 bg-gray-50 rounded-lg">
-        Funds are credited instantly after successful payment. Top-up funds can be used for platform activities but cannot be withdrawn.
-      </div>
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-9999 hidden">
+    <div class="bg-white rounded-xl p-6 flex flex-col items-center">
+      <div class="loading mb-3" style="width: 40px; height: 40px;"></div>
+      <p id="loadingText" class="text-gray-700">Processing...</p>
     </div>
   </div>
-
-  <!-- Cashout Modal -->
-  <div id="cashoutModal" class="modal-bg" aria-modal="true" role="dialog" tabindex="-1">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 class="modal-title">Withdraw Request</h3>
-        <button class="modal-close" aria-label="Cancel Cashout">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-
-      <div class="currency-toggle mb-4">
-        <button class="currency-option active" data-currency="NGN">NGN</button>
-        <button class="currency-option" data-currency="USD">USD</button>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Amount ($SA)</label>
-        <input type="number" id="cashoutAmount" min="750" step="10" class="form-input" placeholder="Enter amount" />
-        <div class="text-xs text-gray-500 mt-1">Minimum withdrawal: 750 $SA (equivalent to $1.5)</div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Withdrawal Method</label>
-        <select id="cashoutMethod" class="form-input">
-          <option value="bank">Bank Transfer</option>
-          <option value="mobile_money">Mobile Money</option>
-        </select>
-      </div>
-
-      <div id="bankDetails" class="form-group">
-        <label class="form-label">Bank Account Details</label>
-        <input type="text" id="bankName" class="form-input mb-2" placeholder="Bank Name" />
-        <input type="text" id="accountNumber" class="form-input mb-2" placeholder="Account Number" />
-        <input type="text" id="accountName" class="form-input" placeholder="Account Name" />
-      </div>
-
-      <div id="mobileMoneyDetails" class="form-group hidden">
-        <label class="form-label">Mobile Money Details</label>
-        <input type="text" id="mobileProvider" class="form-input mb-2" placeholder="Provider (e.g., MTN, Airtel)" />
-        <input type="text" id="mobileNumber" class="form-input" placeholder="Mobile Number" />
-      </div>
-
-      <button id="requestCashoutBtn" class="btn btn-success w-full my-3">
-        <i class="fas fa-check-circle mr-2"></i> Request Withdrawal
-      </button>
-
-      <div class="text-xs text-gray-600 p-3 bg-gray-50 rounded-lg">
-        Withdrawals are processed within 24-48 hours. Only earnings from platform activities can be withdrawn.
-      </div>
-    </div>
-  </div>
-
-  <!-- Admin Review Panel -->
-  <div id="adminReviewPanel" class="modal-bg" aria-modal="true" role="dialog" tabindex="-1">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 class="modal-title">Proof Review Panel</h3>
-        <button class="modal-close" onclick="closeModal('adminReviewPanel')">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-
-      <div id="admin-review-list" class="max-h-96 overflow-y-auto">
-        <div class="text-center text-gray-500 py-4">No proofs to review.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Inline Storage.js Implementation -->
-  <script>
-    // storage.js - Frontend storage utilities for SupremeAmer
-    class SupremeAmerStorage {
-      constructor() {
-        this.buckets = {
-          avatars: 'avatars',
-          adImages: 'ad-images',
-          adProofs: 'ad-proofs',
-          documents: 'documents'
-        };
-      }
-
-      // Generate unique file name
-      generateFileName(userId, originalFileName, fileType = null) {
-        const timestamp = Date.now();
-        const randomString = Math.random().toString(36).substring(2, 15);
-        const safeName = originalFileName.toLowerCase().replace(/[^a-z0-9._-]/g, '_');
-        const extension = originalFileName.split('.').pop();
-
-        return `${userId}/${timestamp}_${randomString}_${safeName}`;
-      }
-
-      // Upload user avatar
-      async uploadAvatar(file, userId) {
-        try {
-          const fileName = this.generateFileName(userId, file.name, 'avatar');
-          const { data, error } = await supabase.storage
-            .from(this.buckets.avatars)
-            .upload(fileName, file);
-
-          if (error) throw error;
-
-          // Get public URL
-          const { data: { publicUrl } } = supabase.storage
-            .from(this.buckets.avatars)
-            .getPublicUrl(fileName);
-
-          return {
-            success: true,
-            fileName,
-            publicUrl,
-            path: fileName
-          };
-        } catch (error) {
-          console.error('Avatar upload error:', error);
-          return {
-            success: false,
-            error: error.message
-          };
-        }
-      }
-
-      // Upload advert image
-      async uploadAdImage(file, userId) {
-        try {
-          const fileName = this.generateFileName(userId, file.name, 'ad-image');
-          const { data, error } = await supabase.storage
-            .from(this.buckets.adImages)
-            .upload(fileName, file, {
-              cacheControl: '3600',
-              upsert: false
-            });
-
-          if (error) throw error;
-
-          // Get public URL
-          const { data: { publicUrl } } = supabase.storage
-            .from(this.buckets.adImages)
-            .getPublicUrl(fileName);
-
-          return {
-            success: true,
-            fileName,
-            publicUrl,
-            path: fileName
-          };
-        } catch (error) {
-          console.error('Ad image upload error:', error);
-          return {
-            success: false,
-            error: error.message
-          };
-        }
-      }
-
-      // Upload proof screenshot (private)
-      async uploadProofScreenshot(file, userId, participationId) {
-        try {
-          const fileName = this.generateFileName(userId, file.name, 'proof');
-          const { data, error } = await supabase.storage
-            .from(this.buckets.adProofs)
-            .upload(fileName, file, {
-              cacheControl: '0',
-              upsert: false
-            });
-
-          if (error) throw error;
-
-          // Get signed URL for private file (valid for 1 hour)
-          const { data: { signedUrl } } = await supabase.storage
-            .from(this.buckets.adProofs)
-            .createSignedUrl(fileName, 3600);
-
-          return {
-            success: true,
-            fileName,
-            signedUrl,
-            path: fileName
-          };
-        } catch (error) {
-          console.error('Proof screenshot upload error:', error);
-          return {
-            success: false,
-            error: error.message
-          };
-        }
-      }
-
-      // Get proof screenshot URL (for admins and authorized users)
-      async getProofScreenshotUrl(filePath) {
-        try {
-          const { data: { signedUrl }, error } = await supabase.storage
-            .from(this.buckets.adProofs)
-            .createSignedUrl(filePath, 3600); // 1 hour expiry
-
-          if (error) throw error;
-
-          return {
-            success: true,
-            url: signedUrl
-          };
-        } catch (error) {
-          console.error('Error getting proof URL:', error);
-          return {
-            success: false,
-            error: error.message
-          };
-        }
-      }
-
-      // Delete file from storage
-      async deleteFile(bucketName, filePath) {
-        try {
-          const { data, error } = await supabase.storage
-            .from(bucketName)
-            .remove([filePath]);
-
-          if (error) throw error;
-
-          return {
-            success: true,
-            message: 'File deleted successfully'
-          };
-        } catch (error) {
-          console.error('File deletion error:', error);
-          return {
-            success: false,
-            error: error.message
-          };
-        }
-      }
-
-      // Validate file before upload
-      validateFile(file, allowedTypes, maxSize) {
-        const errors = [];
-
-        // Check file type
-        if (!allowedTypes.includes(file.type)) {
-          errors.push(`File type ${file.type} is not allowed. Allowed types: ${allowedTypes.join(', ')}`);
-        }
-
-        // Check file size
-        if (file.size > maxSize) {
-          const maxSizeMB = (maxSize / 1024 / 1024).toFixed(2);
-          errors.push(`File size ${(file.size / 1024 / 1024).toFixed(2)}MB exceeds maximum allowed ${maxSizeMB}MB`);
-        }
-
-        return {
-          isValid: errors.length === 0,
-          errors
-        };
-      }
-
-      // Get upload constraints for different file types
-      getUploadConstraints(fileType) {
-        const constraints = {
-          avatar: {
-            allowedTypes: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'],
-            maxSize: 5 * 1024 * 1024, // 5MB
-            bucket: this.buckets.avatars
-          },
-          adImage: {
-            allowedTypes: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'],
-            maxSize: 10 * 1024 * 1024, // 10MB
-            bucket: this.buckets.adImages
-          },
-          proof: {
-            allowedTypes: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp', 'image/heic'],
-            maxSize: 10 * 1024 * 1024, // 10MB
-            bucket: this.buckets.adProofs
-          },
-          document: {
-            allowedTypes: ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf', 'image/heic'],
-            maxSize: 5 * 1024 * 1024, // 5MB
-            bucket: this.buckets.documents
-          }
-        };
-
-        return constraints[fileType] || constraints.avatar;
-      }
-    }
-
-    // Create global instance
-    const storageManager = new SupremeAmerStorage();
-  </script>
 
   <!-- Main Application Script -->
   <script>
-    // CONFIGURATION - Using environment variables
-    const PAYSTACK_PUBLIC_KEY = 'pk_live_b12323c99b6fc1081014e9cf05c782c96ba7662e';
-    const TOKEN_PRICE = 0.002;
-    const EXCHANGE_RATE = 1460;
-    const SERVER_URL = window.location.origin; // Uses current domain
+    // ========== CONFIGURATION ==========
+    const CONFIG = {
+      SUPABASE_URL: 'https://qphbppasrkhqzmsgsnpv.supabase.co',
+      SUPABASE_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwaGJwcGFzcmtocXptc2dzbnB2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ0OTM2NjcsImV4cCI6MjA4MDA2OTY2N30.XJ_Hg04lRB7uXrW6gkMy6Ss7xe35zc9BhHQzcE6-sWw',
+      PAYSTACK_PUBLIC_KEY: 'pk_live_b12323c99b6fc1081014e9cf05c782c96ba7662e',
+      TOKEN_PRICE: 0.002,
+      EXCHANGE_RATE: 1460,
+      SERVER_URL: window.location.origin
+    };
 
-    // SUPABASE SETUP - Using your existing keys
-    const supabaseUrl = 'https://qphbppasrkhqzmsgsnpv.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwaGJwcGFzcmtocXptc2dzbnB2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ0OTM2NjcsImV4cCI6MjA4MDA2OTY2N30.XJ_Hg04lRB7uXrW6gkMy6Ss7xe35zc9BhHQzcE6-sWw';
-    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+    // ========== GLOBAL STATE ==========
+    let currentUser = null;
+    let userDoc = null;
+    let supabaseClient = null;
 
-    // STATE
-    let currentUser = null, userDoc = null;
-    let marketAdverts = [];
-    let pendingParticipation = null;
-    let dailyRewardTimer = null;
-    let currentAdvertData = null;
-    let currentCurrency = 'NGN';
-    let isWalletConnected = false;
-    let walletBalance = 0;
-
-    // Enhanced notification system
-    function showNotification(message, type = "info", duration = 4000) {
+    // ========== UTILITY FUNCTIONS ==========
+    function showNotification(message, type = "info") {
+      // Create notification element
       const notification = document.createElement("div");
       notification.className = `notification notification-${type}`;
-
+      
       let icon = "fa-info-circle";
       if (type === "success") icon = "fa-check-circle";
       if (type === "error") icon = "fa-exclamation-circle";
@@ -1625,11 +763,10 @@
 
       document.body.appendChild(notification);
 
-      // Trigger reflow
-      void notification.offsetWidth;
+      // Show animation
+      setTimeout(() => notification.classList.add("show"), 10);
 
-      notification.classList.add("show");
-
+      // Remove after delay
       setTimeout(() => {
         notification.classList.remove("show");
         setTimeout(() => {
@@ -1637,11 +774,10 @@
             notification.parentNode.removeChild(notification);
           }
         }, 300);
-      }, duration);
+      }, 4000);
     }
 
-    // Enhanced loading state management
-    function showLoading(message = "Processing...") {
+    function showLoading(message = "Loading...") {
       document.getElementById("loadingText").textContent = message;
       document.getElementById("loadingOverlay").classList.remove("hidden");
     }
@@ -1650,35 +786,24 @@
       document.getElementById("loadingOverlay").classList.add("hidden");
     }
 
-    // TABS
-    document.querySelectorAll(".nav-btn[data-tab]").forEach(btn => {
-      btn.addEventListener('click', function() {
-        document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
-        this.classList.add("active");
-        document.querySelectorAll(".tab-content").forEach(tc => tc.classList.remove("active"));
-        if(this.dataset.tab) document.getElementById(this.dataset.tab).classList.add("active");
-        document.querySelectorAll(".nav-btn").forEach(b => b.setAttribute('aria-selected', 'false'));
-        this.setAttribute('aria-selected', 'true');
-      });
-    });
-
-    // MODALS & NOTIFICATIONS
-    function closeModal(modalId) { 
-      document.getElementById(modalId).classList.remove("open"); 
+    // ========== MODAL FUNCTIONS ==========
+    function openModal(modalId) {
+      document.getElementById(modalId).classList.add("open");
     }
 
-    function openModal(modalId) { 
-      document.getElementById(modalId).classList.add("open"); 
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove("open");
     }
 
-    // Close modals when clicking on close buttons or outside
-    document.querySelectorAll(".modal-close, .close-modal").forEach(btn => {
-      btn.onclick = () => {
-        const modal = btn.closest(".modal-bg");
+    // Close modals when clicking on close buttons
+    document.querySelectorAll(".modal-close").forEach(btn => {
+      btn.onclick = function() {
+        const modal = this.closest(".modal-bg");
         if (modal) modal.classList.remove("open");
       };
     });
 
+    // Close modals when clicking outside
     document.querySelectorAll(".modal-bg").forEach(modal => {
       modal.addEventListener("click", (e) => {
         if (e.target === modal) {
@@ -1687,1558 +812,371 @@
       });
     });
 
-    document.getElementById("profileBtn").onclick = () => openModal("profileModal");
-    document.getElementById("helpSupportBtn").onclick = () => openModal("helpSupportModal");
-    document.getElementById("uploadAdvertBtn").onclick = () => openModal("uploadAdvertModal");
-
-    // LOGOUT
-    document.getElementById("logoutBtn").onclick = async () => {
-      if (confirm("Are you sure you want to logout?")) {
-        try {
-          const { error } = await supabase.auth.signOut();
-          if (error) throw error;
-          window.location.href = 'Login.html';
-        } catch (error) {
-          console.error("Logout error:", error);
-          showNotification("Logout failed. Please try again.", "error");
-        }
-      }
-    };
-
-    // UTILS
-    function generateQr(data, el) {
-      const qr = new QRious({ 
-        element: el,
-        value: data, 
-        size: 160,
-        background: '#fff',
-        foreground: '#1a237e',
-        level: 'H'
-      });
-    }
-
-    function sleep(ms) { 
-      return new Promise(res => setTimeout(res, ms)); 
-    }
-
-    // CURRENCY TOGGLE
-    document.querySelectorAll('.currency-option').forEach(option => {
-      option.addEventListener('click', function() {
-        document.querySelectorAll('.currency-option').forEach(opt => opt.classList.remove('active'));
-        this.classList.add('active');
-        currentCurrency = this.dataset.currency;
-        updateCurrencyDisplay();
+    // ========== TAB SYSTEM ==========
+    document.querySelectorAll(".nav-btn[data-tab]").forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Update active tab button
+        document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+        
+        // Show corresponding tab content
+        const tabId = this.getAttribute("data-tab");
+        document.querySelectorAll(".tab-content").forEach(tc => tc.classList.remove("active"));
+        document.getElementById(tabId).classList.add("active");
       });
     });
 
-    function updateCurrencyDisplay() {
-      // Update wallet display
-      document.getElementById('wallet-currency').textContent = currentCurrency;
-      
-      // Update wallet balance display
-      updateWalletBalanceDisplay();
-
-      // Update fund modal
-      const fundAmount = document.getElementById('fundAmount');
-      const fundConversion = document.getElementById('fundConversion');
-
-      if (currentCurrency === 'NGN') {
-        fundAmount.placeholder = 'Min ₦2,000';
-        fundAmount.min = 2000;
-        fundConversion.textContent = 'Exchange rate: 1 NGN = 0.00001 $SA';
-      } else {
-        fundAmount.placeholder = 'Min $2';
-        fundAmount.min = 2;
-        fundConversion.textContent = 'Exchange rate: 1 USD = 0.015 $SA';
-      }
-
-      // Update balance display
-      updateAllBalances();
-    }
-
-    // UPDATED BALANCE LOADING FUNCTION WITH DETAILED BREAKDOWN
-    async function loadBalance() {
+    // ========== AUTHENTICATION ==========
+    async function initializeApp() {
       try {
-        const { data: txs, error } = await supabase
-          .from('transactions')
-          .select('*')
-          .eq('user_id', currentUser.id);
-
-        if (error) throw error;
-
-        // Calculate different balance types
-        let totalBalance = 0;
-        let topupBalance = 0;
-        let earningsBalance = 0;
-        let pendingBalance = 0;
-
-        if (txs) {
-          txs.forEach(tx => {
-            const amount = parseFloat(tx.amount) || 0;
-
-            if (tx.type === 'topup') {
-              topupBalance += amount;
-            } else if (tx.type === 'credit' || tx.type === 'referral' || tx.type === 'daily_reward' || tx.type === 'ad_reward') {
-              earningsBalance += amount;
-            }
-
-            if (tx.status === 'pending') {
-              pendingBalance += Math.abs(amount);
-            }
-
-            totalBalance += amount;
-          });
-        }
-
-        // Get pending participations
-        const { data: pendingParticipations, error: pendingError } = await supabase
-          .from('participations')
-          .select('reward_amount')
-          .eq('user_id', currentUser.id)
-          .eq('status', 'pending');
-
-        if (!pendingError && pendingParticipations) {
-          pendingParticipations.forEach(p => {
-            pendingBalance += parseFloat(p.reward_amount) || 0;
-          });
-        }
-
-        // Update UI
-        document.getElementById("account-balance").textContent = `$SA ${totalBalance.toFixed(6)}`;
-        document.getElementById("topup-balance").textContent = `$SA ${topupBalance.toFixed(6)}`;
-        document.getElementById("earnings-balance").textContent = `$SA ${earningsBalance.toFixed(6)}`;
-        document.getElementById("withdrawable-balance").textContent = `$SA ${earningsBalance.toFixed(6)}`;
-        document.getElementById("pending-balance").textContent = `$SA ${pendingBalance.toFixed(6)}`;
-
-        // Update token values
-        updateAllBalances(totalBalance, topupBalance, earningsBalance, pendingBalance);
-      } catch (error) {
-        console.error("Error loading balance:", error);
-      }
-    }
-
-    // UPDATE ALL BALANCE VALUES
-    function updateAllBalances(total = 0, topup = 0, earnings = 0, pending = 0) {
-      const tokenValueElement = document.getElementById('token-value');
-
-      // Update total value
-      const totalValue = total * TOKEN_PRICE;
-      if (currentCurrency === 'NGN') {
-        const valueInNaira = totalValue * EXCHANGE_RATE;
-        tokenValueElement.textContent = `Value: ₦${valueInNaira.toFixed(2)}`;
-
-        // Update individual values
-        document.getElementById('topup-value').textContent = `₦${(topup * TOKEN_PRICE * EXCHANGE_RATE).toFixed(2)}`;
-        document.getElementById('earnings-value').textContent = `₦${(earnings * TOKEN_PRICE * EXCHANGE_RATE).toFixed(2)}`;
-        document.getElementById('withdrawable-value').textContent = `₦${(earnings * TOKEN_PRICE * EXCHANGE_RATE).toFixed(2)}`;
-        document.getElementById('pending-value').textContent = `₦${(pending * TOKEN_PRICE * EXCHANGE_RATE).toFixed(2)}`;
-      } else if (currentCurrency === 'USD') {
-        tokenValueElement.textContent = `Value: $${totalValue.toFixed(2)}`;
-
-        // Update individual values
-        document.getElementById('topup-value').textContent = `$${(topup * TOKEN_PRICE).toFixed(2)}`;
-        document.getElementById('earnings-value').textContent = `$${(earnings * TOKEN_PRICE).toFixed(2)}`;
-        document.getElementById('withdrawable-value').textContent = `$${(earnings * TOKEN_PRICE).toFixed(2)}`;
-        document.getElementById('pending-value').textContent = `$${(pending * TOKEN_PRICE).toFixed(2)}`;
-      } else {
-        tokenValueElement.textContent = `Token Price: $${TOKEN_PRICE.toFixed(4)} per SA`;
-
-        // Update individual values (in $SA)
-        document.getElementById('topup-value').textContent = `$${(topup * TOKEN_PRICE).toFixed(2)}`;
-        document.getElementById('earnings-value').textContent = `$${(earnings * TOKEN_PRICE).toFixed(2)}`;
-        document.getElementById('withdrawable-value').textContent = `$${(earnings * TOKEN_PRICE).toFixed(2)}`;
-        document.getElementById('pending-value').textContent = `$${(pending * TOKEN_PRICE).toFixed(2)}`;
-      }
-    }
-
-    // CLICK ON BALANCE TO SHOW COMING SOON
-    document.getElementById('account-balance').addEventListener('click', function() {
-      showNotification('Token trading feature coming soon!', 'info');
-    });
-
-    // ADVERT COST CALCULATION
-    document.getElementById("ad-clicks").addEventListener("input", function() {
-      const category = document.getElementById('ad-category').value;
-      const clicks = parseInt(this.value) || 0;
-
-      if (clicks >= 500) {
-        let cost = 0;
-        let costPerUnit = 0;
-
-        switch(category) {
-          case 'Social Media':
-            costPerUnit = 2 / 500; // $2 for 500 clicks
-            cost = clicks * costPerUnit;
-            break;
-          case 'App Download':
-            costPerUnit = 2 / 100; // $2 for 100 downloads
-            cost = clicks * costPerUnit;
-            break;
-          case 'Website Visit':
-            costPerUnit = 2 / 7000; // $2 for 7000 visits
-            cost = clicks * costPerUnit;
-            break;
-          default:
-            costPerUnit = 2 / 500; // Default to social media rate
-            cost = clicks * costPerUnit;
-        }
-
-        // Convert to current currency
-        if (currentCurrency === 'NGN') {
-          cost = cost * EXCHANGE_RATE;
-          document.getElementById("ad-cost").textContent = `Estimated cost: ₦${cost.toFixed(2)} (${clicks} ${getUnitName(category)} × ₦${(costPerUnit * EXCHANGE_RATE).toFixed(4)} per ${getUnitName(category).slice(0, -1)})`;
-        } else {
-          document.getElementById("ad-cost").textContent = `Estimated cost: $${cost.toFixed(2)} (${clicks} ${getUnitName(category)} × $${costPerUnit.toFixed(4)} per ${getUnitName(category).slice(0, -1)})`;
-        }
-      } else {
-        document.getElementById("ad-cost").textContent = "";
-      }
-    });
-
-    function getUnitName(category) {
-      switch(category) {
-        case 'Social Media': return 'clicks';
-        case 'App Download': return 'downloads';
-        case 'Website Visit': return 'visits';
-        default: return 'clicks';
-      }
-    }
-
-    // REAL PAYSTACK WALLET CONNECTION FUNCTION
-    async function connectPaystackWallet() {
-      try {
-        showLoading("Connecting to Paystack...");
-
-        // Check if Paystack key is available
-        if (!PAYSTACK_PUBLIC_KEY || PAYSTACK_PUBLIC_KEY.includes('YOUR_LIVE_PUBLIC_KEY')) {
-          showNotification("Paystack is not configured properly. Please contact support.", "error");
-          hideLoading();
-          return;
-        }
-
-        // Call backend to create Paystack customer - USING YOUR API
-        const response = await fetch(`${SERVER_URL}/api/connect-wallet`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: currentUser.email,
-            userId: currentUser.id,
-            name: currentUser.user_metadata?.name || currentUser.email.split('@')[0]
-          })
-        });
-
-        const result = await response.json();
-
-        if (!result.success) {
-          throw new Error(result.message || 'Failed to connect wallet');
-        }
-
-        // Store customer ID in Supabase
-        const { error } = await supabase
-          .from('users')
-          .update({ 
-            paystack_customer_id: result.customer_id,
-            wallet_connected: true,
-            wallet_connected_at: new Date().toISOString()
-          })
-          .eq('id', currentUser.id);
-
-        if (error) throw error;
-
-        isWalletConnected = true;
-        await updateWalletUI();
-        await getWalletBalance();
+        console.log("Initializing app...");
         
-        showNotification("Paystack wallet connected successfully!", "success");
-
-      } catch (error) {
-        console.error("Error connecting Paystack wallet:", error);
-        showNotification("Failed to connect wallet: " + error.message, "error");
-      } finally {
-        hideLoading();
-      }
-    }
-
-    // GET WALLET BALANCE FROM BACKEND - USING YOUR API
-    async function getWalletBalance() {
-      try {
-        const response = await fetch(`${SERVER_URL}/api/get-wallet-balance?userId=${currentUser.id}`);
-        const result = await response.json();
+        // Initialize Supabase
+        supabaseClient = window.supabase.createClient(
+          CONFIG.SUPABASE_URL,
+          CONFIG.SUPABASE_KEY
+        );
         
-        if (result.success) {
-          isWalletConnected = result.connected;
-          walletBalance = result.wallet_balance || 0;
-          
-          updateWalletUI();
-          updateWalletBalanceDisplay();
-          
-          // Show transactions if any
-          if (result.transactions && result.transactions.length > 0) {
-            renderWalletTransactions(result.transactions);
-          }
-        }
-      } catch (error) {
-        console.error("Error getting wallet balance:", error);
-      }
-    }
+        console.log("Supabase client created");
 
-    // UPDATE WALLET BALANCE DISPLAY
-    function updateWalletBalanceDisplay() {
-      let displayBalance = '';
-      if (currentCurrency === 'NGN') {
-        displayBalance = `₦${walletBalance.toFixed(2)}`;
-      } else if (currentCurrency === 'USD') {
-        displayBalance = `$${(walletBalance / EXCHANGE_RATE).toFixed(2)}`;
-      } else {
-        displayBalance = `$${walletBalance.toFixed(2)}`;
-      }
-      
-      document.getElementById("wallet-balance").textContent = displayBalance;
-    }
-
-    // RENDER WALLET TRANSACTIONS
-    function renderWalletTransactions(transactions) {
-      const container = document.getElementById('wallet-transactions-list');
-      if (!transactions || transactions.length === 0) {
-        container.innerHTML = '<div class="text-gray-500 text-center py-4">No transactions yet</div>';
-        return;
-      }
-
-      container.innerHTML = transactions.map(tx => `
-        <div class="p-2 border rounded-lg">
-          <div class="flex justify-between items-center">
-            <div class="font-medium">${tx.type}</div>
-            <div class="${tx.amount >= 0 ? 'text-green-600' : 'text-red-600'}">${tx.amount >= 0 ? '+' : ''}${tx.amount}</div>
-          </div>
-          <div class="text-xs text-gray-500">${tx.description || ''}</div>
-          <div class="text-xs text-gray-400">${new Date(tx.created_at).toLocaleDateString()}</div>
-        </div>
-      `).join('');
-
-      document.getElementById('walletTransactions').classList.remove('hidden');
-    }
-
-    // UPDATE WALLET UI
-    function updateWalletUI() {
-      const statusElement = document.getElementById('connection-status');
-      const connectBtn = document.getElementById('connectWalletBtn');
-      
-      if (isWalletConnected) {
-        document.getElementById("walletStatus").textContent = "Paystack Wallet (Connected)";
-        statusElement.textContent = "Connected";
-        statusElement.className = "text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full";
-        connectBtn.innerHTML = '<i class="fas fa-check mr-2"></i> Connected';
-        connectBtn.classList.remove("btn-primary");
-        connectBtn.classList.add("btn-success");
-        connectBtn.disabled = true;
-      } else {
-        document.getElementById("walletStatus").textContent = "Paystack Wallet";
-        statusElement.textContent = "Not Connected";
-        statusElement.className = "text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full";
-        connectBtn.innerHTML = '<i class="fas fa-wallet mr-2"></i> Connect Paystack';
-        connectBtn.classList.remove("btn-success");
-        connectBtn.classList.add("btn-primary");
-        connectBtn.disabled = false;
-      }
-    }
-
-    // PAYSTACK PAYMENT FUNCTION FOR FUNDING ACCOUNT - USING YOUR API
-    async function processPaystackPayment(amount, email, reference, type = 'topup', advertData = null) {
-      try {
-        showLoading("Processing payment...");
-
-        // Initialize Paystack
-        const handler = PaystackPop.setup({
-          key: PAYSTACK_PUBLIC_KEY,
-          email: email,
-          amount: Math.round(amount * 100), // Convert to kobo
-          currency: 'NGN',
-          ref: reference,
-          callback: async function(response) {
-            hideLoading();
-            
-            // Verify payment on server - USING YOUR API
-            const verifyData = {
-              reference: response.reference,
-              type: type,
-              userId: currentUser.id,
-              email: currentUser.email
-            };
-            
-            if (type === 'advert' && advertData) {
-              verifyData.advertData = advertData;
-            }
-
-            const verified = await verifyPaymentOnServer(verifyData);
-
-            if (verified.success) {
-              showNotification("Payment successful! " + verified.message, "success");
-              
-              if (type === 'topup') {
-                closeModal("fundModal");
-                await loadBalance();
-                await getWalletBalance();
-              } else if (type === 'advert' && verified.payment_id) {
-                // Process advert after payment
-                await processAdvertAfterPayment(verified.payment_id, advertData);
-              }
-            } else {
-              showNotification("Payment verification failed: " + verified.message, "error");
-            }
-          },
-          onClose: function() {
-            hideLoading();
-            showNotification("Payment was cancelled", "warning");
-          }
-        });
-
-        handler.openIframe();
-      } catch (error) {
-        console.error("Paystack payment error:", error);
-        showNotification("Payment processing failed. Please try again.", "error");
-        hideLoading();
-      }
-    }
-
-    // VERIFY PAYMENT ON SERVER - USING YOUR API
-    async function verifyPaymentOnServer(data) {
-      try {
-        const response = await fetch(`${SERVER_URL}/api/verify-payment`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-
-        const result = await response.json();
-        return result;
-      } catch (error) {
-        console.error("Payment verification error:", error);
-        return {
-          success: false,
-          message: "Verification service unavailable"
-        };
-      }
-    }
-
-    // PROCESS ADVERT AFTER PAYMENT - USING YOUR API
-    async function processAdvertAfterPayment(paymentId, advertData) {
-      try {
-        showLoading("Creating your advert...");
+        // Check for existing session
+        const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
         
-        const response = await fetch(`${SERVER_URL}/api/process-advert`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            payment_id: paymentId,
-            userId: currentUser.id,
-            advertData: advertData
-          })
-        });
-
-        const result = await response.json();
-
-        if (!result.success) {
-          throw new Error(result.message);
-        }
-
-        closeModal("uploadAdvertModal");
-        showNotification("Advert created successfully! You earned 0.00001 $SA tokens.", "success");
-        
-        await loadBalance();
-        await renderMarket();
-        
-        // Reset form
-        document.getElementById('uploadAdvertForm').reset();
-        document.getElementById('ad-cost').textContent = '';
-        document.getElementById('ad-preview').classList.add('hidden');
-        
-      } catch (error) {
-        console.error("Error processing advert:", error);
-        showNotification("Failed to create advert: " + error.message, "error");
-      } finally {
-        hideLoading();
-      }
-    }
-
-    // FUND ACCOUNT BUTTON HANDLER
-    document.getElementById("proceedToPaymentBtn").onclick = async function() {
-      const amount = parseFloat(document.getElementById("fundAmount").value);
-
-      if (isNaN(amount) || amount <= 0) {
-        showNotification("Please enter a valid amount", "error");
-        return;
-      }
-
-      if (currentCurrency === 'NGN' && amount < 2000) {
-        showNotification("Minimum top-up amount is ₦2,000", "error");
-        return;
-      }
-
-      if (currentCurrency === 'USD' && amount < 2) {
-        showNotification("Minimum top-up amount is $2", "error");
-        return;
-      }
-
-      // Calculate amount in NGN for Paystack
-      let amountInNaira = amount;
-      if (currentCurrency === 'USD') {
-        amountInNaira = amount * EXCHANGE_RATE;
-      }
-
-      // Generate reference
-      const reference = 'TOPUP_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-
-      // Process payment
-      await processPaystackPayment(amountInNaira, currentUser.email, reference, 'topup');
-    };
-
-    // ADVERT UPLOAD HANDLER
-    document.getElementById("payForAdBtn").onclick = async function() {
-      const title = document.getElementById('ad-title').value.trim();
-      const category = document.getElementById('ad-category').value;
-      const clicks = parseInt(document.getElementById('ad-clicks').value);
-      const url = document.getElementById('ad-url').value.trim();
-      const instructions = document.getElementById('ad-instructions').value;
-      const imageInput = document.getElementById('ad-image');
-
-      // Validation
-      if (title.length < 3) {
-        showNotification("Title is too short.", "error");
-        return;
-      }
-      if (!/^https?:\/\//.test(url)) {
-        showNotification("URL must start with http:// or https://", "error");
-        return;
-      }
-
-      let minClicks = 500;
-      if (category === 'App Download') minClicks = 100;
-      if (category === 'Website Visit') minClicks = 7000;
-
-      if (clicks < minClicks) {
-        showNotification(`Minimum ${getUnitName(category)} required: ${minClicks}`, "error");
-        return;
-      }
-
-      if (!instructions.trim()) {
-        showNotification("Instructions are required.", "error");
-        return;
-      }
-
-      // Calculate cost
-      let cost = 0;
-      let costPerUnit = 0;
-
-      switch(category) {
-        case 'Social Media':
-          costPerUnit = 2 / 500;
-          cost = clicks * costPerUnit;
-          break;
-        case 'App Download':
-          costPerUnit = 2 / 100;
-          cost = clicks * costPerUnit;
-          break;
-        case 'Website Visit':
-          costPerUnit = 2 / 7000;
-          cost = clicks * costPerUnit;
-          break;
-        default:
-          costPerUnit = 2 / 500;
-          cost = clicks * costPerUnit;
-      }
-
-      // Convert to NGN for Paystack
-      const costInNaira = cost * EXCHANGE_RATE;
-
-      // Prepare advert data
-      const advertData = {
-        title,
-        category,
-        clicks,
-        cost: costInNaira,
-        url,
-        instructions,
-        imageUrl: '' // Will be set after image upload if exists
-      };
-
-      // Handle image upload if exists
-      if (imageInput.files && imageInput.files[0]) {
-        try {
-          showLoading("Uploading image...");
-          const file = imageInput.files[0];
-          const constraints = storageManager.getUploadConstraints('adImage');
-          const validation = storageManager.validateFile(file, constraints.allowedTypes, constraints.maxSize);
-
-          if (!validation.isValid) {
-            showNotification(validation.errors.join(', '), "error");
-            hideLoading();
-            return;
-          }
-
-          const uploadResult = await storageManager.uploadAdImage(file, currentUser.id);
-          if (!uploadResult.success) {
-            throw new Error(uploadResult.error);
-          }
-
-          advertData.imageUrl = uploadResult.publicUrl;
-          hideLoading();
-        } catch (error) {
-          hideLoading();
-          showNotification("Failed to upload image: " + error.message, "error");
-          return;
-        }
-      }
-
-      // Store advert data globally
-      currentAdvertData = advertData;
-
-      // Generate reference
-      const reference = 'ADVERT_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-
-      // Process payment
-      await processPaystackPayment(costInNaira, currentUser.email, reference, 'advert', advertData);
-    };
-
-    // CASHOUT HANDLER - USING YOUR API
-    document.getElementById("cashoutMethod").addEventListener("change", function() {
-      const method = this.value;
-      document.getElementById("bankDetails").classList.toggle("hidden", method !== "bank");
-      document.getElementById("mobileMoneyDetails").classList.toggle("hidden", method !== "mobile_money");
-    });
-
-    document.getElementById("requestCashoutBtn").onclick = async () => {
-      const amount = parseFloat(document.getElementById("cashoutAmount").value);
-      const method = document.getElementById("cashoutMethod").value;
-
-      if (isNaN(amount) || amount < 750) {
-        showNotification("Minimum withdrawal is 750 $SA (equivalent to $1.5).", "error"); 
-        return;
-      }
-
-      // Check if user has enough earnings balance
-      const { data: txs, error: txsError } = await supabase
-        .from('transactions')
-        .select('*')
-        .eq('user_id', currentUser.id)
-        .in('type', ['credit', 'referral', 'daily_reward', 'ad_reward']);
-
-      if (txsError) throw txsError;
-
-      let earningsBalance = 0;
-      if (txs) {
-        txs.forEach(tx => {
-          earningsBalance += parseFloat(tx.amount) || 0;
-        });
-      }
-
-      if (amount > earningsBalance) {
-        showNotification("Insufficient earnings balance for withdrawal.", "error");
-        return;
-      }
-
-      // Collect withdrawal details
-      let withdrawalDetails = {};
-      if (method === "bank") {
-        withdrawalDetails = {
-          bankName: document.getElementById("bankName").value,
-          accountNumber: document.getElementById("accountNumber").value,
-          accountName: document.getElementById("accountName").value
-        };
-
-        if (!withdrawalDetails.bankName || !withdrawalDetails.accountNumber || !withdrawalDetails.accountName) {
-          showNotification("Please fill in all bank details.", "error");
-          return;
-        }
-      } else if (method === "mobile_money") {
-        withdrawalDetails = {
-          provider: document.getElementById("mobileProvider").value,
-          number: document.getElementById("mobileNumber").value
-        };
-
-        if (!withdrawalDetails.provider || !withdrawalDetails.number) {
-          showNotification("Please fill in all mobile money details.", "error");
-          return;
-        }
-      }
-
-      try {
-        showLoading("Processing withdrawal request...");
-
-        // Calculate withdrawal amount in fiat
-        const withdrawalAmountFiat = amount * TOKEN_PRICE;
-        const withdrawalAmount = currentCurrency === 'NGN' ? withdrawalAmountFiat * EXCHANGE_RATE : withdrawalAmountFiat;
-
-        // Send withdrawal request to server - USING YOUR API
-        const response = await fetch(`${SERVER_URL}/api/withdraw`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            userId: currentUser.id,
-            email: currentUser.email,
-            amount: amount,
-            amountFiat: withdrawalAmount,
-            currency: currentCurrency,
-            method: method,
-            details: withdrawalDetails
-          })
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-          // Add debit transaction locally
-          await supabase
-            .from('transactions')
-            .insert({
-              user_id: currentUser.id,
-              type: "withdrawal",
-              amount: -amount,
-              date: new Date().toISOString(),
-              description: `Withdrawal request (${method}) - ${currentCurrency}`,
-              status: "pending",
-              reference: result.reference
-            });
-
-          showNotification(`Withdrawal request submitted successfully! You'll receive ${currentCurrency === 'NGN' ? '₦' : '$'}${withdrawalAmount.toFixed(2)} within 24-48 hours.`, "success");
-          closeModal("cashoutModal");
-          await loadBalance();
-        } else {
-          showNotification("Failed to process withdrawal: " + result.message, "error");
-        }
-      } catch (error) {
-        showNotification("Failed to process withdrawal: " + error.message, "error");
-      } finally {
-        hideLoading();
-      }
-    };
-
-    // PROOF SUBMIT HANDLER - USING YOUR API
-    document.getElementById("proofFile").addEventListener("change", function() {
-      const fileName = this.files[0]?.name || "No file chosen";
-      document.getElementById("fileName").textContent = fileName;
-    });
-
-    document.getElementById("submitProofBtn").onclick = async function() {
-      const fileInput = document.getElementById('proofFile');
-      if (!fileInput.files[0]) {
-        showNotification("Please select a screenshot!", "error");
-        return;
-      }
-
-      try {
-        showLoading("Uploading and verifying proof...");
-        let file = fileInput.files[0];
-
-        const constraints = storageManager.getUploadConstraints('proof');
-        const validation = storageManager.validateFile(file, constraints.allowedTypes, constraints.maxSize);
-
-        if (!validation.isValid) {
-          showNotification(validation.errors.join(', '), "error");
-          return;
-        }
-
-        const uploadResult = await storageManager.uploadProofScreenshot(file, currentUser.id, pendingParticipation);
-
-        if (!uploadResult.success) {
-          throw new Error(uploadResult.error);
-        }
-
-        let ad = marketAdverts.find(a => a.id === pendingParticipation);
-
-        // Send proof for verification to server - USING YOUR API
-        const response = await fetch(`${SERVER_URL}/api/verify-proof`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            proofUrl: uploadResult.signedUrl,
-            proofPath: uploadResult.fileName,
-            advertId: ad.id,
-            userId: currentUser.id,
-            posterId: ad.poster
-          })
-        });
-
-        const verificationResult = await response.json();
-
-        if (!verificationResult.verified) {
-          showNotification("Proof verification failed: " + verificationResult.reason, "error");
-          return;
-        }
-
-        // Create participation record
-        const { data: participation, error: participationError } = await supabase
-          .from('participations')
-          .insert({
-            advert_id: ad.id,
-            user_id: currentUser.id,
-            poster_id: ad.poster,
-            screenshot_url: uploadResult.fileName,
-            status: verificationResult.autoApprove ? "completed" : "pending",
-            joined_at: new Date().toISOString(),
-            reward_amount: ad.reward_per_participant,
-            verified_at: verificationResult.autoApprove ? new Date().toISOString() : null
-          })
-          .select()
-          .single();
-
-        if (participationError) throw participationError;
-
-        // Update advert clicks
-        await supabase
-          .from('adverts')
-          .update({ clicks: (ad.clicks || 0) + 1 })
-          .eq('id', ad.id);
-
-        if ((ad.clicks || 0) + 1 >= ad.max_clicks) {
-          await supabase
-            .from('adverts')
-            .update({ active: false })
-            .eq('id', ad.id);
-        }
-
-        // If auto-approved, credit reward immediately
-        if (verificationResult.autoApprove) {
-          await supabase
-            .from('transactions')
-            .insert({
-              user_id: currentUser.id,
-              type: "ad_reward",
-              amount: ad.reward_per_participant,
-              date: new Date().toISOString(),
-              description: `Advert reward - ${ad.title}`,
-              status: "completed"
-            });
-        }
-
-        closeModal("screenshotModal");
-        fileInput.value = "";
-        document.getElementById("fileName").textContent = "";
-
-        await loadBalance();
-        await renderMarket();
-
-        if (verificationResult.autoApprove) {
-          showNotification(`Proof verified! You earned ${ad.reward_per_participant.toFixed(6)} $SA tokens.`, "success");
-        } else {
-          showNotification("Proof submitted for review. Reward will be credited after approval.", "info");
-        }
-      } catch (error) {
-        console.error("Error submitting proof:", error);
-        showNotification("Failed to submit proof. Please try again.", "error");
-      } finally {
-        hideLoading();
-      }
-    };
-
-    // AUTO-DELETE TRANSACTIONS AFTER 7 DAYS
-    async function cleanupOldTransactions() {
-      try {
-        const sevenDaysAgo = new Date();
-        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-
-        const { data, error } = await supabase
-          .from('transactions')
-          .delete()
-          .lt('date', sevenDaysAgo.toISOString());
-
-        if (error) throw error;
-
-        console.log(`Cleaned up ${data?.length || 0} old transactions`);
-      } catch (error) {
-        console.error("Error cleaning up old transactions:", error);
-      }
-    }
-
-    // PROFILE/INVITE UI
-    function setupReferralLinks() {
-      const baseInvite = (userDoc && userDoc.invite_code) || currentUser.id;
-      const inviteUrl = window.location.origin + "/register.html?invite=" + baseInvite;
-      document.getElementById("invitation-url").value = inviteUrl;
-      document.getElementById("invite-link").value = inviteUrl;
-
-      document.getElementById("copyProfileInviteBtn").onclick = () => {
-        navigator.clipboard.writeText(inviteUrl);
-        document.getElementById("copyProfileInviteBtn").innerHTML = '<i class="fas fa-check"></i>';
-        showNotification("Invite link copied to clipboard!", "success");
-        setTimeout(() => {
-          document.getElementById("copyProfileInviteBtn").innerHTML = '<i class="fas fa-copy"></i>';
-        }, 2000);
-      };
-
-      document.getElementById("showQrBtn").onclick = () => {
-        generateQr(inviteUrl, document.getElementById("inviteQr"));
-        document.getElementById("inviteQrWrap").classList.toggle("hidden");
-      };
-
-      document.getElementById("copyInviteBtn").onclick = () => {
-        navigator.clipboard.writeText(inviteUrl);
-        document.getElementById("copyInviteBtn").innerHTML = '<i class="fas fa-check"></i> Copied!';
-        showNotification("Invite link copied to clipboard!", "success");
-        setTimeout(() => {
-          document.getElementById("copyInviteBtn").innerHTML = '<i class="fas fa-copy"></i>';
-        }, 2000);
-      };
-
-      document.getElementById("inviteQrBtn").onclick = () => {
-        generateQr(inviteUrl, document.getElementById("inviteQrImg"));
-        document.getElementById("inviteQrContainer").classList.toggle("hidden");
-      };
-
-      document.getElementById("shareButtonsBtn").onclick = () => {
-        document.getElementById("inviteShareBtns").classList.toggle("hidden");
-      };
-
-      const shareMsg = encodeURIComponent("Join SupremeAmer and earn rewards! " + inviteUrl);
-      document.getElementById("whatsappShare").href = `https://wa.me/?text=${shareMsg}`;
-      document.getElementById("telegramShare").href = `https://t.me/share/url?url=${inviteUrl}&text=Join%20SupremeAmer%20and%20earn%20rewards!`;
-      document.getElementById("twitterShare").href = `https://twitter.com/intent/tweet?text=${shareMsg}`;
-      document.getElementById("facebookShare").href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(inviteUrl)}`;
-    }
-
-    // REFERRAL CODE GENERATION
-    async function generateUniqueInviteCode(username, userId) {
-      let letters = username.replace(/[^a-zA-Z]/g, '').substring(0,3).toUpperCase().padEnd(3, 'X');
-      let nums = (userId.match(/\d{5,}/) || [userId.slice(-5)])[0].slice(-5);
-      let code = letters + nums;
-
-      const { data, error } = await supabase
-        .from('users')
-        .select('id')
-        .eq('invite_code', code);
-
-      if (error) throw error;
-      if (data && data.length > 0) code += Math.floor(Math.random()*10);
-
-      return code;
-    }
-
-    // REFERRAL BONUS AND MULTI-LEVEL
-    async function creditReferralCommission(userId) {
-      const { data: user, error } = await supabase
-        .from('users')
-        .select('invited_by')
-        .eq('id', userId)
-        .single();
-
-      if (error) throw error;
-
-      let inviterId = user.invited_by;
-      let level = 1;
-      while (inviterId && level <= 3) {
-        let commission = level === 1 ? 100 : (level === 2 ? 50 : 25);
-
-        await supabase
-          .from('transactions')
-          .insert({
-            user_id: inviterId,
-            type: "referral",
-            amount: commission,
-            date: new Date().toISOString(),
-            description: `Level ${level} referral reward for user ${userId}`,
-            status: "completed"
-          });
-
-        const { data: inviter, error } = await supabase
-          .from('users')
-          .select('invited_by')
-          .eq('id', inviterId)
-          .single();
-
-        if (error) break;
-        inviterId = inviter.invited_by;
-        level++;
-      }
-    }
-
-    // WELCOME BONUS
-    async function showWelcomeCardIfNeeded() {
-      if (userDoc && !userDoc.welcome_bonus) {
-        document.getElementById("welcomeCard").classList.remove("hidden");
-        const dismissWelcome = async () => {
-          document.getElementById("welcomeCard").classList.add("hidden");
-
-          await supabase
-            .from('transactions')
-            .insert({
-              user_id: currentUser.id,
-              type: "credit",
-              amount: 250,
-              date: new Date().toISOString(),
-              description: "Welcome Bonus",
-              status: "completed"
-            });
-
-          await supabase
-            .from('users')
-            .update({ welcome_bonus: true })
-            .eq('id', userDoc.id);
-
-          await creditReferralCommission(currentUser.id);
-          await loadBalance();
-        };
-        document.getElementById("dismissWelcome").onclick = dismissWelcome;
-        document.getElementById("welcomeCard").onclick = e => { if (e.target === document.getElementById("welcomeCard")) dismissWelcome(); };
-      }
-    }
-
-    // DAILY REWARD SYSTEM
-    async function checkDailyReward() {
-      if (!userDoc) return;
-
-      const now = new Date();
-      const lastClaim = userDoc.last_daily_reward ? new Date(userDoc.last_daily_reward) : null;
-      const dailyRewardCard = document.getElementById("dailyRewardCard");
-      const claimBtn = document.getElementById("claimDailyRewardBtn");
-      const countdownEl = document.getElementById("dailyRewardCountdown");
-
-      if (!lastClaim || (now - lastClaim) >= 24 * 60 * 60 * 1000) {
-        dailyRewardCard.classList.remove("hidden");
-        dailyRewardCard.classList.add("slide-in-up");
-        claimBtn.disabled = false;
-        claimBtn.innerHTML = '<i class="fas fa-gift mr-2"></i> Claim Now';
-        countdownEl.textContent = "Available now!";
-        claimBtn.classList.add("pulse-animation");
-      } else {
-        const nextClaim = new Date(lastClaim.getTime() + 24 * 60 * 60 * 1000);
-        const timeLeft = nextClaim - now;
-
-        if (timeLeft > 0) {
-          dailyRewardCard.classList.remove("hidden");
-          claimBtn.disabled = true;
-          claimBtn.innerHTML = '<i class="fas fa-clock mr-2"></i> Claimed Today';
-          claimBtn.classList.remove("pulse-animation");
-
-          updateCountdown(timeLeft, countdownEl);
-
-          if (dailyRewardTimer) clearInterval(dailyRewardTimer);
-          dailyRewardTimer = setInterval(() => {
-            const now = new Date();
-            const timeLeft = nextClaim - now;
-
-            if (timeLeft <= 0) {
-              clearInterval(dailyRewardTimer);
-              checkDailyReward();
-            } else {
-              updateCountdown(timeLeft, countdownEl);
-            }
-          }, 1000);
-        }
-      }
-    }
-
-    function updateCountdown(timeLeft, countdownEl) {
-      const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-      countdownEl.textContent = `Next reward in: ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    document.getElementById("claimDailyRewardBtn").onclick = async function() {
-      try {
-        showLoading("Processing daily reward...");
-        const rewardAmount = 50;
-
-        await supabase
-          .from('transactions')
-          .insert({
-            user_id: currentUser.id,
-            type: "daily_reward",
-            amount: rewardAmount,
-            date: new Date().toISOString(),
-            description: "Daily Reward",
-            status: "completed"
-          });
-
-        await supabase
-          .from('users')
-          .update({ last_daily_reward: new Date().toISOString() })
-          .eq('id', userDoc.id);
-
-        const { data, error } = await supabase
-          .from('users')
-          .select('*')
-          .eq('id', userDoc.id)
-          .single();
-
-        if (!error) userDoc = data;
-
-        document.getElementById("claimDailyRewardBtn").innerHTML = '<i class="fas fa-check mr-2"></i> Claimed!';
-        document.getElementById("claimDailyRewardBtn").classList.remove("pulse-animation");
-        document.getElementById("dailyRewardCountdown").textContent = "Come back tomorrow for more rewards!";
-
-        await loadBalance();
-
-        showNotification(`Daily reward of $SA${rewardAmount} claimed successfully!`, "success");
-
-        setTimeout(() => {
-          checkDailyReward();
-        }, 2000);
-      } catch (error) {
-        console.error("Error claiming daily reward:", error);
-        showNotification("Failed to claim daily reward. Please try again.", "error");
-      } finally {
-        hideLoading();
-      }
-    };
-
-    // PAYMENT HISTORY
-    document.getElementById("paymentHistoryBtn").onclick = async () => {
-      try {
-        showLoading("Loading payment history...");
-        const { data: txs, error } = await supabase
-          .from('transactions')
-          .select('*')
-          .eq('user_id', currentUser.id)
-          .order('date', { ascending: false });
-
-        if (error) throw error;
-
-        if (!txs || txs.length === 0) {
-          document.getElementById("payment-history-content").innerHTML = 
-            '<div class="text-center text-gray-500 py-4">No transactions yet.</div>';
-        } else {
-          document.getElementById("payment-history-content").innerHTML =
-            "<ul class='space-y-3'>" + txs.map(
-              tx => `<li class="p-3 border-b border-gray-200 flex justify-between items-center">
-                <div>
-                  <div class="font-medium">${tx.description || "Transaction"}</div>
-                  <div class="text-sm text-gray-500">${new Date(tx.date).toLocaleDateString()}</div>
-                </div>
-                <div class="text-right">
-                  <div class="${tx.amount > 0 ? 'text-green-600' : 'text-red-600'} font-semibold">${tx.amount > 0 ? '+' : ''}${tx.amount} $SA</div>
-                  <div class="text-xs text-gray-500 capitalize">${tx.status}</div>
-                </div>
-              </li>`
-            ).join("") + "</ul>";
-        }
-        openModal("paymentHistoryModal");
-      } catch (error) {
-        showNotification("Failed to load payment history", "error");
-      } finally {
-        hideLoading();
-      }
-    };
-
-    // LEADERBOARD & REFERRAL ANALYTICS
-    async function renderLeaderboard() {
-      try {
-        const { data: allUsers, error } = await supabase
-          .from('users')
-          .select('*');
-
-        if (error) throw error;
-
-        let leaderboard = [];
-        if (allUsers) {
-          leaderboard = allUsers
-            .map(u => ({
-              name: u.name || u.email,
-              count: allUsers.filter(us => us.invited_by === u.id).length
-            }))
-            .sort((a, b) => b.count - a.count)
-            .slice(0, 10);
-        }
-
-        if (leaderboard.length === 0) {
-          document.getElementById("referral-leaderboard").innerHTML = '<div class="text-gray-500">No data available yet.</div>';
-        } else {
-          document.getElementById("referral-leaderboard").innerHTML =
-            leaderboard.map((u, i) => `
-              <div class="flex justify-between items-center p-2 ${i % 2 === 0 ? 'bg-gray-50' : ''}">
-                <div class="flex items-center">
-                  <span class="font-semibold w-6">${i + 1}.</span>
-                  <span class="ml-2">${u.name}</span>
-                </div>
-                <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full text-sm">${u.count} referrals</span>
-              </div>
-            `).join('');
-        }
-      } catch (error) {
-        console.error("Error loading leaderboard:", error);
-        document.getElementById("referral-leaderboard").innerHTML = '<div class="text-red-500">Error loading leaderboard</div>';
-      }
-    }
-
-    async function renderReferralAnalytics() {
-      try {
-        const { data: allUsers, error: usersError } = await supabase
-          .from('users')
-          .select('*');
-
-        if (usersError) throw usersError;
-
-        const { data: txs, error: txsError } = await supabase
-          .from('transactions')
-          .select('*')
-          .eq('user_id', currentUser.id)
-          .ilike('description', '%referral reward%');
-
-        let myReferrals = [];
-        if (allUsers) {
-          myReferrals = allUsers.filter(u => u.invited_by === currentUser.id);
-        }
-
-        let totalEarnings = 0;
-        if (txs) {
-          totalEarnings = txs.reduce((sum, tx) => sum + (parseFloat(tx.amount) || 0), 0);
-        }
-
-        document.getElementById("referral-analytics").innerHTML = `
-          <div class="grid grid-cols-2 gap-4">
-            <div class="bg-indigo-50 p-3 rounded-lg text-center">
-              <div class="text-2xl font-bold text-indigo-800">${myReferrals.length}</div>
-              <div class="text-sm text-indigo-600">Total Invites</div>
-            </div>
-            <div class="bg-green-50 p-3 rounded-lg text-center">
-              <div class="text-2xl font-bold text-green-800">$SA ${totalEarnings}</div>
-              <div class="text-sm text-green-600">Total Earnings</div>
-            </div>
-          </div>
-        `;
-      } catch (error) {
-        console.error("Error loading referral analytics:", error);
-      }
-    }
-
-    // MARKET
-    async function renderMarket() {
-      try {
-        const { data: docs, error } = await supabase
-          .from('adverts')
-          .select('*')
-          .eq('active', true);
-
-        if (error) throw error;
-
-        marketAdverts = docs || [];
-        const sort = document.getElementById("marketSort").value;
-        if (sort === "goal") marketAdverts.sort((a,b)=>b.goal-a.goal);
-        if (sort === "clicks") marketAdverts.sort((a,b)=>b.clicks-a.clicks);
-        if (sort === "newest") marketAdverts.sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));
-        const search = document.getElementById("marketSearch").value.toLowerCase().trim();
-        let adsToShow = marketAdverts;
-        if (search) {
-          adsToShow = marketAdverts.filter(ad =>
-            (ad.title && ad.title.toLowerCase().includes(search)) ||
-            (ad.category && ad.category.toLowerCase().includes(search))
-          );
-        }
-
-        if (adsToShow.length === 0) {
-          document.getElementById("market-list").innerHTML = `
-            <div class="text-center py-8">
-              <i class="fas fa-store-slash text-4xl text-gray-300 mb-3"></i>
-              <p class="text-gray-500">No adverts available. Upload one!</p>
-            </div>
-          `;
-        } else {
-          document.getElementById("market-list").innerHTML = adsToShow.map(ad => `
-            <div class="ad-card">
-              <div class="flex flex-col md:flex-row gap-4">
-                ${ad.image_url ? `
-                  <div class="flex-shrink-0">
-                    <img src="${ad.image_url}" class="ad-image" alt="${ad.title}"/>
-                  </div>
-                ` : ''}
-                <div class="flex-1">
-                  <div class="ad-title">${ad.title}</div>
-                  <div class="ad-meta">
-                    <span><i class="fas fa-tag"></i> ${ad.category}</span>
-                    <span><i class="fas fa-bullseye"></i> ${ad.goal} ${getUnitName(ad.category)}</span>
-                    <span><i class="fas fa-mouse-pointer"></i> ${ad.clicks || 0}/${ad.max_clicks}</span>
-                  </div>
-                  <div class="mb-3 text-sm text-gray-700"><b>Instructions:</b> ${ad.instructions || ""}</div>
-                  <div class="flex items-center justify-between">
-                    <a href="${ad.url}" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:text-blue-700 font-medium">
-                      <i class="fas fa-external-link-alt mr-1"></i> Visit Advert
-                    </a>
-                    <button class="btn btn-success btn-sm participate-btn" data-adid="${ad.id}">
-                      <i class="fas fa-play-circle mr-1"></i> Participate
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `).join('');
-        }
-
-        document.querySelectorAll('.participate-btn').forEach(btn => {
-          btn.onclick = async function() {
-            pendingParticipation = btn.getAttribute('data-adid');
-            const can = await canParticipate(pendingParticipation, currentUser.id);
-            if (!can) {
-              showNotification("You have already participated in this advert.", "warning");
-              return;
-            }
-            openModal("screenshotModal");
-          };
-        });
-      } catch (error) {
-        console.error("Error loading market:", error);
-        document.getElementById("market-list").innerHTML = `
-          <div class="text-center py-8 text-red-500">
-            <i class="fas fa-exclamation-circle mb-2"></i>
-            <p>Failed to load adverts. Please try again.</p>
-          </div>
-        `;
-      }
-    }
-
-    document.getElementById("marketSearch").oninput = renderMarket;
-    document.getElementById("marketSort").onchange = renderMarket;
-
-    // PARTICIPATION LIMIT
-    async function canParticipate(advertId, userId) {
-      const { data: participations, error } = await supabase
-        .from('participations')
-        .select('*')
-        .eq('user_id', userId)
-        .eq('advert_id', advertId);
-
-      if (error) throw error;
-      return !participations || participations.length === 0;
-    }
-
-    // ADMIN PANEL/PROOF REVIEW
-    async function renderProofsForReview() {
-      try {
-        const { data: proofs, error } = await supabase
-          .from('participations')
-          .select('*')
-          .eq('status', 'pending');
-
-        if (error) throw error;
-
-        if (!proofs || proofs.length === 0) {
-          document.getElementById("admin-review-list").innerHTML = '<div class="text-center text-gray-500 py-4">No proofs to review.</div>';
-        } else {
-          document.getElementById("admin-review-list").innerHTML = proofs.map(proof =>
-            `<div class="p-3 my-2 border rounded-lg flex flex-col md:flex-row md:items-center gap-3">
-              <div class="w-full md:w-32 h-24 bg-gray-200 rounded flex items-center justify-center">
-                <i class="fas fa-image text-gray-400 text-2xl"></i>
-              </div>
-              <div class="flex-1">
-                <div class="font-medium">User: ${proof.user_id}</div>
-                <div class="text-sm text-gray-600">Ad: ${proof.advert_id}</div>
-                <div class="mt-2 text-sm">Reward: $SA ${proof.reward_amount}</div>
-              </div>
-              <div class="flex gap-2 mt-2 md:mt-0">
-                <button class="btn btn-success btn-sm" onclick="approveProof('${proof.id}', ${proof.reward_amount}, '${proof.user_id}')">
-                  <i class="fas fa-check"></i> Approve
-                </button>
-                <button class="btn btn-danger btn-sm" onclick="rejectProof('${proof.id}', '${proof.user_id}')">
-                  <i class="fas fa-times"></i> Reject
-                </button>
-              </div>
-            </div>`
-          ).join('');
-        }
-      } catch (error) {
-        console.error("Error loading proofs:", error);
-        document.getElementById("admin-review-list").innerHTML = '<div class="text-center text-red-500 py-4">Error loading proofs</div>';
-      }
-    }
-
-    window.approveProof = async (proofId, amount, userId) => {
-      try {
-        showLoading("Approving proof...");
-
-        await supabase
-          .from('participations')
-          .update({ status: "rewarded", verified_at: new Date().toISOString() })
-          .eq('id', proofId);
-
-        await supabase
-          .from('transactions')
-          .insert({
-            user_id: userId,
-            type: "credit",
-            amount,
-            date: new Date().toISOString(),
-            description: "Advert reward (approved)",
-            status: "completed"
-          });
-
-        showNotification("Proof approved and reward sent!", "success");
-        renderProofsForReview();
-      } catch (error) {
-        console.error("Error approving proof:", error);
-        showNotification("Failed to approve proof", "error");
-      } finally {
-        hideLoading();
-      }
-    };
-
-    window.rejectProof = async (proofId, userId) => {
-      try {
-        showLoading("Rejecting proof...");
-
-        await supabase
-          .from('participations')
-          .update({ status: "rejected" })
-          .eq('id', proofId);
-
-        showNotification("Proof rejected", "info");
-        renderProofsForReview();
-      } catch (error) {
-        console.error("Error rejecting proof:", error);
-        showNotification("Failed to reject proof", "error");
-      } finally {
-        hideLoading();
-      }
-    };
-
-    // REAL-TIME LISTENERS (Supabase Realtime)
-    const subscription = supabase
-      .channel('adverts')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'adverts' }, payload => {
-        renderMarket();
-      })
-      .subscribe();
-
-    const transactionsSubscription = supabase
-      .channel('transactions')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'transactions' }, payload => {
-        loadBalance();
-      })
-      .subscribe();
-
-    const usersSubscription = supabase
-      .channel('users')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'users' }, payload => {
-        renderLeaderboard();
-        renderReferralAnalytics();
-      })
-      .subscribe();
-
-    // ON LOAD
-    window.addEventListener("DOMContentLoaded", async () => {
-      try {
-        // Check if user is logged in with Supabase
-        const { data: { session }, error } = await supabase.auth.getSession();
-        if (error) {
-          console.error("Session error:", error);
+        if (sessionError) {
+          console.error("Session error:", sessionError);
+          showNotification("Authentication error. Please login again.", "error");
+          setTimeout(() => window.location.href = "Login.html", 2000);
           return;
         }
 
         if (!session) {
           console.log("No session found, redirecting to login");
-          window.location.href = 'Login.html';
+          window.location.href = "Login.html";
           return;
         }
 
         currentUser = session.user;
         console.log("User authenticated:", currentUser.email);
 
-        // Get user data from users table
-        const { data: userData, error: userError } = await supabase
+        // Load user data from database
+        await loadUserData();
+        
+        // Update UI
+        updateUserUI();
+        
+        // Load initial data
+        await loadBalance();
+        await loadMarketplace();
+        
+        // Setup event listeners
+        setupEventListeners();
+        
+        showNotification("Welcome back!", "success");
+        
+      } catch (error) {
+        console.error("Initialization error:", error);
+        showNotification("Failed to initialize app: " + error.message, "error");
+      }
+    }
+
+    async function loadUserData() {
+      try {
+        const { data, error } = await supabaseClient
           .from('users')
           .select('*')
           .eq('id', currentUser.id)
           .single();
 
-        if (userError) {
-          console.error("Error fetching user data:", userError);
+        if (error) {
+          console.error("Error loading user data:", error);
+          // Create user if doesn't exist
           userDoc = {
             id: currentUser.id,
             email: currentUser.email,
             name: currentUser.user_metadata?.name || currentUser.email.split('@')[0],
-            welcome_bonus: false,
-            wallet_connected: false
+            created_at: new Date().toISOString()
           };
+          
+          const { error: insertError } = await supabaseClient
+            .from('users')
+            .insert(userDoc);
+            
+          if (insertError) {
+            console.error("Error creating user:", insertError);
+          }
         } else {
-          userDoc = userData;
+          userDoc = data;
         }
-
-        // Update UI with user info
-        document.getElementById("user-email").textContent = currentUser.email;
-        document.getElementById("user-username").textContent = currentUser.user_metadata?.name || currentUser.email.split('@')[0];
-        document.getElementById("user-username-modal").textContent = currentUser.user_metadata?.name || currentUser.email.split('@')[0];
-        document.getElementById("user-email-modal").textContent = currentUser.email;
-        document.getElementById("user-id").textContent = currentUser.id;
-
-        setupReferralLinks();
-        showWelcomeCardIfNeeded();
-        await loadBalance();
-        await renderMarket();
-        checkDailyReward();
-        updateCurrencyDisplay();
-
-        // Check wallet status
-        if (userDoc && userDoc.wallet_connected) {
-          isWalletConnected = true;
-          await getWalletBalance();
-        }
-        updateWalletUI();
-
-        // Clean up old transactions
-        await cleanupOldTransactions();
-
-        // Connect Paystack Wallet button
-        document.getElementById("connectWalletBtn").onclick = connectPaystackWallet;
-        
-        // Refresh wallet button
-        document.getElementById("refreshWalletBtn").onclick = getWalletBalance;
-
-        // Wallet tab click handler
-        document.getElementById("wallet-tab-btn").addEventListener('click', async () => {
-          if (isWalletConnected) {
-            await getWalletBalance();
-          }
-        });
-
-        document.querySelector('[data-tab="inviteTab"]').onclick = async () => {
-          try {
-            const { data: invited, error } = await supabase
-              .from('users')
-              .select('*')
-              .eq('invited_by', currentUser.id);
-
-            if (error) throw error;
-
-            if (!invited || invited.length === 0) {
-              document.getElementById("invitee-list").innerHTML = '<div class="text-gray-500">No friends invited yet.</div>';
-            } else {
-              document.getElementById("invitee-list").innerHTML = invited.map(u => `
-                <div class="flex justify-between items-center p-2 border-b">
-                  <div>${u.name || u.email}</div>
-                  <div class="text-xs text-gray-500">${new Date(u.created_at).toLocaleDateString()}</div>
-                </div>
-              `).join('');
-            }
-
-            await renderLeaderboard();
-            await renderReferralAnalytics();
-          } catch (error) {
-            console.error("Error loading invitees:", error);
-          }
-        };
-
-        if (currentUser.email && (currentUser.email.endsWith('supremealpha04@gmail.com') || currentUser.email.endsWith('supremeamerapplications@gmail.com'))) {
-          // Show admin panel for authorized users
-          document.getElementById("adminReviewPanel").style.display = "flex";
-          renderProofsForReview();
-        }
-      } catch (e) {
-        console.error("Error loading user:", e);
-        showNotification("Error loading user data. Some features may not work.", "warning");
+      } catch (error) {
+        console.error("Error in loadUserData:", error);
       }
+    }
+
+    function updateUserUI() {
+      if (!currentUser) return;
+      
+      document.getElementById("user-email").textContent = currentUser.email;
+      document.getElementById("user-username").textContent = 
+        currentUser.user_metadata?.name || currentUser.email.split('@')[0];
+      
+      // Profile modal info
+      document.getElementById("user-id").textContent = currentUser.id;
+      document.getElementById("profile-username").textContent = 
+        currentUser.user_metadata?.name || currentUser.email.split('@')[0];
+      document.getElementById("profile-email").textContent = currentUser.email;
+      
+      // Invite link
+      const inviteLink = `${window.location.origin}/register.html?ref=${currentUser.id}`;
+      document.getElementById("invite-link").value = inviteLink;
+    }
+
+    // ========== BALANCE FUNCTIONS ==========
+    async function loadBalance() {
+      try {
+        console.log("Loading balance...");
+        
+        // For now, use mock data until you set up transactions table
+        const mockBalance = {
+          total: 1250.50,
+          topup: 500.00,
+          earnings: 750.50,
+          withdrawable: 750.50,
+          pending: 0
+        };
+        
+        // Update UI with mock data
+        document.getElementById("account-balance").textContent = `$SA ${mockBalance.total.toFixed(2)}`;
+        document.getElementById("topup-balance").textContent = `$SA ${mockBalance.topup.toFixed(2)}`;
+        document.getElementById("earnings-balance").textContent = `$SA ${mockBalance.earnings.toFixed(2)}`;
+        document.getElementById("withdrawable-balance").textContent = `$SA ${mockBalance.withdrawable.toFixed(2)}`;
+        document.getElementById("pending-balance").textContent = `$SA ${mockBalance.pending.toFixed(2)}`;
+        
+        // Calculate token value
+        const tokenValue = mockBalance.total * CONFIG.TOKEN_PRICE;
+        document.getElementById("token-value").textContent = `Value: $${tokenValue.toFixed(2)}`;
+        
+      } catch (error) {
+        console.error("Error loading balance:", error);
+        showNotification("Failed to load balance", "error");
+      }
+    }
+
+    // ========== MARKETPLACE FUNCTIONS ==========
+    async function loadMarketplace() {
+      try {
+        console.log("Loading marketplace...");
+        
+        // Mock marketplace data
+        const mockAds = [
+          {
+            id: 1,
+            title: "Like and Comment on Facebook Post",
+            category: "Social Media",
+            clicks: 150,
+            max_clicks: 500,
+            reward: 5.50,
+            instructions: "Like the post and leave a meaningful comment"
+          },
+          {
+            id: 2,
+            title: "Download Mobile App",
+            category: "App Download",
+            clicks: 75,
+            max_clicks: 200,
+            reward: 12.00,
+            instructions: "Download and install our app from Play Store"
+          },
+          {
+            id: 3,
+            title: "Visit Website for 30 Seconds",
+            category: "Website Visit",
+            clicks: 1200,
+            max_clicks: 5000,
+            reward: 2.50,
+            instructions: "Visit our website and stay for 30 seconds"
+          }
+        ];
+        
+        const marketList = document.getElementById("market-list");
+        marketList.innerHTML = "";
+        
+        mockAds.forEach(ad => {
+          const progress = (ad.clicks / ad.max_clicks) * 100;
+          
+          const adCard = document.createElement("div");
+          adCard.className = "ad-card";
+          adCard.innerHTML = `
+            <div class="ad-title">${ad.title}</div>
+            <div class="flex gap-4 text-sm text-gray-600 mb-3">
+              <span><i class="fas fa-tag"></i> ${ad.category}</span>
+              <span><i class="fas fa-gift"></i> $SA ${ad.reward.toFixed(2)}</span>
+            </div>
+            <div class="mb-3">
+              <div class="flex justify-between text-sm mb-1">
+                <span>Progress: ${ad.clicks}/${ad.max_clicks}</span>
+                <span>${progress.toFixed(1)}%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-green-600 h-2 rounded-full" style="width: ${progress}%"></div>
+              </div>
+            </div>
+            <div class="text-sm text-gray-700 mb-3">
+              <b>Instructions:</b> ${ad.instructions}
+            </div>
+            <button class="btn btn-success btn-sm participate-btn" data-ad-id="${ad.id}">
+              <i class="fas fa-play-circle mr-1"></i> Participate
+            </button>
+          `;
+          
+          marketList.appendChild(adCard);
+        });
+        
+        // Add event listeners to participate buttons
+        document.querySelectorAll('.participate-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const adId = this.getAttribute('data-ad-id');
+            showNotification(`Starting participation for Ad #${adId}`, "info");
+            // Here you would open the screenshot modal
+          });
+        });
+        
+      } catch (error) {
+        console.error("Error loading marketplace:", error);
+        document.getElementById("market-list").innerHTML = `
+          <div class="text-red-500 text-center py-8">
+            <i class="fas fa-exclamation-circle mb-2"></i>
+            <p>Failed to load marketplace</p>
+          </div>
+        `;
+      }
+    }
+
+    // ========== PAYMENT FUNCTIONS ==========
+    async function processPayment(amount, type = 'topup') {
+      try {
+        showLoading("Processing payment...");
+        
+        // Mock payment processing
+        setTimeout(() => {
+          hideLoading();
+          
+          if (type === 'topup') {
+            showNotification(`Successfully topped up ₦${amount.toLocaleString()}`, "success");
+            closeModal('fundModal');
+            
+            // Update balance
+            loadBalance();
+          } else if (type === 'withdrawal') {
+            showNotification(`Withdrawal request for $SA ${amount} submitted`, "success");
+            closeModal('cashoutModal');
+          }
+        }, 2000);
+        
+      } catch (error) {
+        hideLoading();
+        showNotification("Payment failed: " + error.message, "error");
+      }
+    }
+
+    // ========== EVENT LISTENERS SETUP ==========
+    function setupEventListeners() {
+      console.log("Setting up event listeners...");
+      
+      // Profile button
+      document.getElementById("profileBtn").addEventListener("click", () => {
+        openModal("profileModal");
+      });
+      
+      // Logout button
+      document.getElementById("logoutBtn").addEventListener("click", async () => {
+        if (confirm("Are you sure you want to logout?")) {
+          showLoading("Logging out...");
+          await supabaseClient.auth.signOut();
+          window.location.href = "Login.html";
+        }
+      });
+      
+      // Fund button
+      document.getElementById("fundBtn").addEventListener("click", () => {
+        openModal("fundModal");
+      });
+      
+      // Cashout button
+      document.getElementById("cashoutBtn").addEventListener("click", () => {
+        openModal("cashoutModal");
+      });
+      
+      // Refresh balance button
+      document.getElementById("refreshBalanceBtn")?.addEventListener("click", () => {
+        loadBalance();
+        showNotification("Balance refreshed", "success");
+      });
+      
+      // Copy invite link
+      document.getElementById("copyInviteBtn").addEventListener("click", () => {
+        const inviteLink = document.getElementById("invite-link");
+        inviteLink.select();
+        document.execCommand("copy");
+        showNotification("Invite link copied to clipboard!", "success");
+      });
+      
+      // Connect wallet button
+      document.getElementById("connectWalletBtn").addEventListener("click", () => {
+        showNotification("Connecting to Paystack...", "info");
+        // Simulate wallet connection
+        setTimeout(() => {
+          document.getElementById("connection-status").textContent = "Connected";
+          document.getElementById("connection-status").className = "text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full";
+          document.getElementById("wallet-balance").textContent = "₦15,250.00";
+          showNotification("Paystack wallet connected successfully!", "success");
+        }, 1500);
+      });
+      
+      // Proceed to payment
+      document.getElementById("proceedToPaymentBtn").addEventListener("click", () => {
+        const amount = parseFloat(document.getElementById("fundAmount").value);
+        
+        if (!amount || amount < 2000) {
+          showNotification("Minimum top-up amount is ₦2,000", "error");
+          return;
+        }
+        
+        processPayment(amount, 'topup');
+      });
+      
+      // Request cashout
+      document.getElementById("requestCashoutBtn").addEventListener("click", () => {
+        const amount = parseFloat(document.getElementById("cashoutAmount").value);
+        
+        if (!amount || amount < 750) {
+          showNotification("Minimum withdrawal amount is 750 $SA", "error");
+          return;
+        }
+        
+        processPayment(amount, 'withdrawal');
+      });
+    }
+
+    // ========== INITIALIZE APP ==========
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("DOM fully loaded, initializing app...");
+      initializeApp();
     });
 
-    // FUND AND CASHOUT BUTTONS
-    document.getElementById("fundBtn").onclick = () => openModal("fundModal");
-    document.getElementById("cashoutBtn").onclick = () => openModal("cashoutModal");
+    // ========== ERROR HANDLING ==========
+    window.addEventListener('error', function(event) {
+      console.error('Global error:', event.error);
+      showNotification('An error occurred. Please refresh the page.', 'error');
+    });
+
+    // Make functions available globally for debugging
+    window.debug = {
+      reloadBalance: loadBalance,
+      reloadMarket: loadMarketplace,
+      showNotification: showNotification,
+      getCurrentUser: () => currentUser
+    };
+
   </script>
 </body>
 </html>
