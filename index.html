@@ -1,1182 +1,1450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SupremeAmer Affiliate Network</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="https://js.paystack.co/v1/inline.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --indigo: #4b0082;
-      --purple: #7c43bd;
-      --blue: #1a237e;
-      --black: #000;
-      --profile-gradient: linear-gradient(135deg, #0d1333 0%, #1a237e 40%, #000 100%);
-      --transition: all 0.2s ease;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      min-height: 100%;
-      font-family: 'Inter', Arial, sans-serif;
-      background: #f8f8f8;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: linear-gradient(to bottom, #e0e7ff 0%, #fff 100%);
-      padding-bottom: 80px;
-    }
-
-    /* Improved header styling */
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.25rem;
-      background: linear-gradient(to right, #1a237e 0%, #7c43bd 100%);
-      color: #fff;
-      box-shadow: 0 2px 12px #1a237e33;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .logo {
-      width: 48px;
-      height: 48px;
-      border-radius: 9999px;
-      border: 2px solid #fff;
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    .app-name {
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-    }
-
-    .app-tagline {
-      font-size: 0.75rem;
-      opacity: 0.9;
-      font-weight: 400;
-    }
-
-    .user-info {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-    }
-
-    /* Main Navigation Bar */
-    .main-nav {
-      background: linear-gradient(to right, #1a237e 0%, #7c43bd 100%);
-      box-shadow: 0 2px 12px #1a237e33;
-      position: sticky;
-      top: 76px;
-      z-index: 999;
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0.5rem 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .nav-btn {
-      background: none;
-      border: none;
-      color: rgba(255, 255, 255, 0.8);
-      font-weight: 500;
-      font-size: 0.875rem;
-      cursor: pointer;
-      padding: 0.75rem 1.25rem;
-      border-radius: 12px;
-      transition: all 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.25rem;
-      margin: 0 0.25rem;
-    }
-
-    .nav-btn i {
-      font-size: 1.25rem;
-    }
-
-    .nav-btn.active, .nav-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      outline: none;
-    }
-
-    .nav-btn:focus {
-      outline: 2px solid rgba(255, 255, 255, 0.5);
-      outline-offset: 2px;
-    }
-
-    /* Tab content */
-    .tab-content { 
-      display: none; 
-    }
-
-    .tab-content.active { 
-      display: block; 
-      animation: fadeIn 0.4s; 
-    }
-
-    @keyframes fadeIn { 
-      from { opacity: 0; transform: translateY(10px); } 
-      to { opacity: 1; transform: translateY(0); } 
-    }
-
-    /* Enhanced modal styling */
-    .modal-bg {
-      display: none; 
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      width: 100vw; 
-      height: 100vh;
-      background: rgba(32, 0, 64, 0.5); 
-      backdrop-filter: blur(4px);
-      z-index: 2000; 
-      align-items: center; 
-      justify-content: center;
-      padding: 1rem;
-    }
-
-    .modal-bg.open { 
-      display: flex; 
-      animation: fadeIn 0.3s;
-    }
-
-    .modal {
-      background: #fff;
-      border-radius: 20px;
-      padding: 2rem;
-      width: 100%;
-      max-width: 500px;
-      box-shadow: 0 20px 50px rgba(123, 67, 189, 0.3);
-      color: #222;
-      position: relative;
-      transition: var(--transition);
-      max-height: 90vh;
-      overflow-y: auto;
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .modal-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #1a237e;
-    }
-
-    .modal-close {
-      background: #f3f4f6;
-      border: none;
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .modal-close:hover {
-      background: #e5e7eb;
-    }
-
-    /* Button improvements */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 12px;
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn:active {
-      transform: translateY(0);
-    }
-
-    .btn-primary {
-      background: linear-gradient(90deg, var(--indigo) 0%, var(--purple) 100%);
-      color: white;
-    }
-
-    .btn-secondary {
-      background: #f3f4f6;
-      color: #4b5563;
-    }
-
-    .btn-success {
-      background: #16a34a;
-      color: white;
-    }
-
-    .btn-danger {
-      background: #dc2626;
-      color: white;
-    }
-
-    .btn-warning {
-      background: #ea580c;
-      color: white;
-    }
-
-    .btn-sm {
-      padding: 0.5rem 1rem;
-      font-size: 0.875rem;
-    }
-
-    /* Card improvements */
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      transition: var(--transition);
-    }
-
-    .card:hover {
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-      transform: translateY(-2px);
-    }
-
-    /* Dashboard improvements */
-    .balance-overview {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .balance-item-card {
-      background: white;
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      border: 1px solid #e5e7eb;
-      text-align: center;
-      transition: var(--transition);
-    }
-
-    .balance-item-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    .balance-item-label {
-      font-size: 0.875rem;
-      color: #6b7280;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .balance-item-amount {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #1a237e;
-    }
-
-    .balance-item-value {
-      font-size: 0.75rem;
-      color: #16a34a;
-      margin-top: 0.5rem;
-    }
-
-    .main-balance-card {
-      background: linear-gradient(135deg, #1a237e 0%, #7c43bd 100%);
-      color: white;
-      border-radius: 20px;
-      padding: 2rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 10px 30px rgba(123, 67, 189, 0.3);
-    }
-
-    .main-balance-label {
-      font-size: 0.875rem;
-      opacity: 0.9;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .main-balance-amount {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      cursor: pointer;
-    }
-
-    .action-buttons {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    /* Loading state */
-    .loading {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 3px solid rgba(123, 67, 189, 0.3);
-      border-radius: 50%;
-      border-top-color: #7c43bd;
-      animation: spin 1s ease-in-out infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* Notification improvements */
-    .notification {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      color: white;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      z-index: 3000;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      max-width: 350px;
-      transform: translateX(100%);
-      opacity: 0;
-      transition: all 0.3s ease;
-    }
-
-    .notification.show {
-      transform: translateX(0);
-      opacity: 1;
-    }
-
-    .notification-success {
-      background: #16a34a;
-    }
-
-    .notification-error {
-      background: #dc2626;
-    }
-
-    .notification-warning {
-      background: #ea580c;
-    }
-
-    .notification-info {
-      background: #2563eb;
-    }
-
-    /* Responsive improvements */
-    @media (max-width: 768px) {
-      header {
-        padding: 0.75rem 1rem;
-      }
-
-      .app-name {
-        font-size: 1.25rem;
-      }
-
-      .user-email {
-        max-width: 120px;
-      }
-
-      .modal {
-        padding: 1.5rem;
-        border-radius: 16px;
-      }
-
-      .main-balance-amount {
-        font-size: 2rem;
-      }
-
-      .balance-item-amount {
-        font-size: 1.25rem;
-      }
-
-      .action-buttons {
-        flex-direction: column;
-      }
-
-      .action-buttons .btn {
-        width: 100%;
-      }
-
-      .balance-overview {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .nav-container {
-        padding: 0.25rem 0.5rem;
-        overflow-x: auto;
-        justify-content: flex-start;
-      }
-
-      .nav-btn {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.75rem;
-        min-width: 80px;
-      }
-
-      .nav-btn i {
-        font-size: 1rem;
-      }
-    }
-
-    /* Additional utility classes */
-    .text-truncate {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-  </style>
-</head>
-<body class="min-h-screen pb-20 bg-gradient-to-b from-indigo-50 to-white">
-
-  <!-- HEADER -->
-  <header>
-    <div class="logo-container">
-      <img src="logo.png" alt="SupremeAmer Logo" class="logo" />
-      <div>
-        <div class="app-name">SupremeAmer</div>
-        <div class="app-tagline">Affiliate Network for Smart Earners & Advertisers</div>
-      </div>
-    </div>
-
-    <div class="user-info">
-      <span id="user-email" class="text-xs opacity-80 truncate max-w-xs user-email">Loading...</span>
-      <span id="user-username" class="text-lg font-semibold">Loading...</span>
-      <div class="flex items-center gap-2 mt-1">
-        <button id="profileBtn" class="btn btn-secondary btn-sm" aria-label="Profile">
-          <i class="fas fa-user"></i> Profile
-        </button>
-        <button id="logoutBtn" class="btn btn-danger btn-sm" aria-label="Logout">
-          <i class="fas fa-sign-out-alt"></i> Logout
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- BOTTOM NAVIGATION BAR -->
-  <nav class="main-nav bottom-nav" style="position: fixed; bottom: 0; top: auto; width: 100%;">
-    <div class="nav-container">
-      <button class="nav-btn active" id="home-tab-btn" data-tab="homeTab">
-        <i class="fas fa-home"></i>
-        <span>Dashboard</span>
-      </button>
-      <button class="nav-btn" id="market-tab-btn" data-tab="marketTab">
-        <i class="fas fa-store"></i>
-        <span>Marketplace</span>
-      </button>
-      <button class="nav-btn" id="invite-tab-btn" data-tab="inviteTab">
-        <i class="fas fa-user-plus"></i>
-        <span>Invite</span>
-      </button>
-      <button class="nav-btn" id="wallet-tab-btn" data-tab="walletTab">
-        <i class="fas fa-wallet"></i>
-        <span>Wallet</span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- MAIN CONTENT -->
-  <main class="pt-3 pb-24 max-w-3xl mx-auto px-4">
-
-    <!-- DASHBOARD TAB -->
-    <section id="homeTab" class="tab-content active">
-      <div class="main-balance-card">
-        <div class="main-balance-label">
-          <i class="fas fa-wallet"></i>
-          Total Account Balance
-        </div>
-        <div class="main-balance-amount" id="account-balance">$SA 0</div>
-        
-        <div id="token-value" class="text-white text-sm mb-4">Value: $0.00</div>
-        
-        <div class="action-buttons">
-          <button class="btn btn-primary" id="fundBtn">
-            <i class="fas fa-plus-circle mr-2"></i> Top Up
-          </button>
-          <button class="btn btn-success" id="cashoutBtn">
-            <i class="fas fa-wallet mr-2"></i> Withdraw
-          </button>
-          <button class="btn btn-secondary" id="refreshBalanceBtn">
-            <i class="fas fa-sync-alt mr-2"></i> Refresh
-          </button>
-        </div>
-      </div>
-
-      <div class="balance-overview">
-        <div class="balance-item-card">
-          <div class="balance-item-label">
-            <i class="fas fa-money-bill-wave"></i>
-            Top-up Balance
-          </div>
-          <div class="balance-item-amount" id="topup-balance">$SA 0</div>
-        </div>
-
-        <div class="balance-item-card">
-          <div class="balance-item-label">
-            <i class="fas fa-chart-line"></i>
-            Earnings Balance
-          </div>
-          <div class="balance-item-amount" id="earnings-balance">$SA 0</div>
-        </div>
-
-        <div class="balance-item-card">
-          <div class="balance-item-label">
-            <i class="fas fa-hand-holding-usd"></i>
-            Withdrawable
-          </div>
-          <div class="balance-item-amount" id="withdrawable-balance">$SA 0</div>
-        </div>
-
-        <div class="balance-item-card">
-          <div class="balance-item-label">
-            <i class="fas fa-clock"></i>
-            Pending Rewards
-          </div>
-          <div class="balance-item-amount" id="pending-balance">$SA 0</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2 class="text-xl font-bold mb-4 text-indigo-900">Recent Activity</h2>
-        <div id="recent-activity">
-          <div class="text-gray-500 text-center py-4">No recent activity</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MARKETPLACE TAB -->
-    <section id="marketTab" class="tab-content">
-      <div class="card mb-4">
-        <h2 class="text-xl font-bold mb-4 text-indigo-900">Marketplace</h2>
-        <div id="market-list" class="space-y-4">
-          <div class="text-gray-500 text-center py-8">Loading marketplace...</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- INVITE TAB -->
-    <section id="inviteTab" class="tab-content">
-      <div class="card mb-4">
-        <h2 class="text-xl font-bold mb-4 text-indigo-900">Invite Friends</h2>
-        <div class="form-group">
-          <label class="form-label">Your Invitation Link</label>
-          <div class="flex items-center gap-2">
-            <input type="text" readonly class="form-input flex-1 bg-gray-50" id="invite-link" value="Loading..." />
-            <button id="copyInviteBtn" class="btn btn-success">
-              <i class="fas fa-copy"></i>
-            </button>
-          </div>
-        </div>
-        <div class="mt-4">
-          <h3 class="font-semibold mb-2">Your Referrals</h3>
-          <div id="referral-list" class="text-gray-500">No referrals yet</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WALLET TAB -->
-    <section id="walletTab" class="tab-content">
-      <div class="card">
-        <h2 class="text-xl font-bold mb-4 text-indigo-900">Wallet</h2>
-        <div class="mb-4 p-3 bg-gray-50 rounded-lg">
-          <div class="flex justify-between items-center mb-2">
-            <span class="font-semibold">Paystack Wallet</span>
-            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full" id="connection-status">Not Connected</span>
-          </div>
-
-          <div class="grid grid-cols-2 gap-3 mb-3">
-            <div class="font-medium">Balance:</div>
-            <div id="wallet-balance">₦0.00</div>
-          </div>
-
-          <button id="connectWalletBtn" class="btn btn-primary w-full mb-2">
-            <i class="fas fa-wallet mr-2"></i> Connect Paystack
-          </button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- MODALS -->
-  <!-- Fund Modal -->
-  <div id="fundModal" class="modal-bg">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 class="modal-title">Top Up Account</h3>
-        <button class="modal-close">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Amount (NGN)</label>
-        <input type="number" id="fundAmount" min="2000" step="100" class="form-input" placeholder="Min ₦2,000" />
-      </div>
-      <button id="proceedToPaymentBtn" class="btn btn-primary w-full mt-4">
-        <i class="fas fa-credit-card mr-2"></i> Proceed to Payment
-      </button>
-    </div>
-  </div>
-
-  <!-- Cashout Modal -->
-  <div id="cashoutModal" class="modal-bg">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 class="modal-title">Withdraw Funds</h3>
-        <button class="modal-close">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Amount ($SA)</label>
-        <input type="number" id="cashoutAmount" min="750" step="10" class="form-input" placeholder="Min 750 $SA" />
-      </div>
-      <button id="requestCashoutBtn" class="btn btn-success w-full mt-4">
-        <i class="fas fa-check-circle mr-2"></i> Request Withdrawal
-      </button>
-    </div>
-  </div>
-
-  <!-- Profile Modal -->
-  <div id="profileModal" class="modal-bg">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 class="modal-title">Your Profile</h3>
-        <button class="modal-close">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="mb-4">
-        <div class="flex justify-between items-center mb-3">
-          <span class="font-medium">ID:</span>
-          <span id="user-id" class="truncate max-w-[200px]"></span>
-        </div>
-        <div class="flex justify-between items-center mb-3">
-          <span class="font-medium">Username:</span>
-          <span id="profile-username"></span>
-        </div>
-        <div class="flex justify-between items-center mb-4">
-          <span class="font-medium">Email:</span>
-          <span id="profile-email" class="truncate max-w-[200px]"></span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Loading Overlay -->
-  <div id="loadingOverlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-9999 hidden">
-    <div class="bg-white rounded-xl p-6 flex flex-col items-center">
-      <div class="loading mb-3" style="width: 40px; height: 40px;"></div>
-      <p id="loadingText" class="text-gray-700">Processing...</p>
-    </div>
-  </div>
-
-  <!-- Main Application Script -->
-  <script>
-    // ========== CONFIGURATION ==========
-    const CONFIG = {
-      SUPABASE_URL: 'https://qphbppasrkhqzmsgsnpv.supabase.co',
-      SUPABASE_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwaGJwcGFzcmtocXptc2dzbnB2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ0OTM2NjcsImV4cCI6MjA4MDA2OTY2N30.XJ_Hg04lRB7uXrW6gkMy6Ss7xe35zc9BhHQzcE6-sWw',
-      PAYSTACK_PUBLIC_KEY: 'pk_live_b12323c99b6fc1081014e9cf05c782c96ba7662e',
-      TOKEN_PRICE: 0.002,
-      EXCHANGE_RATE: 1460,
-      SERVER_URL: window.location.origin
-    };
-
-    // ========== GLOBAL STATE ==========
-    let currentUser = null;
-    let userDoc = null;
-    let supabaseClient = null;
-
-    // ========== UTILITY FUNCTIONS ==========
-    function showNotification(message, type = "info") {
-      // Create notification element
-      const notification = document.createElement("div");
-      notification.className = `notification notification-${type}`;
-      
-      let icon = "fa-info-circle";
-      if (type === "success") icon = "fa-check-circle";
-      if (type === "error") icon = "fa-exclamation-circle";
-      if (type === "warning") icon = "fa-exclamation-triangle";
-
-      notification.innerHTML = `
-        <i class="fas ${icon}"></i>
-        <span>${message}</span>
-      `;
-
-      document.body.appendChild(notification);
-
-      // Show animation
-      setTimeout(() => notification.classList.add("show"), 10);
-
-      // Remove after delay
-      setTimeout(() => {
-        notification.classList.remove("show");
-        setTimeout(() => {
-          if (notification.parentNode) {
-            notification.parentNode.removeChild(notification);
-          }
-        }, 300);
-      }, 4000);
-    }
-
-    function showLoading(message = "Loading...") {
-      document.getElementById("loadingText").textContent = message;
-      document.getElementById("loadingOverlay").classList.remove("hidden");
-    }
-
-    function hideLoading() {
-      document.getElementById("loadingOverlay").classList.add("hidden");
-    }
-
-    // ========== MODAL FUNCTIONS ==========
-    function openModal(modalId) {
-      document.getElementById(modalId).classList.add("open");
-    }
-
-    function closeModal(modalId) {
-      document.getElementById(modalId).classList.remove("open");
-    }
-
-    // Close modals when clicking on close buttons
-    document.querySelectorAll(".modal-close").forEach(btn => {
-      btn.onclick = function() {
-        const modal = this.closest(".modal-bg");
-        if (modal) modal.classList.remove("open");
-      };
-    });
-
-    // Close modals when clicking outside
-    document.querySelectorAll(".modal-bg").forEach(modal => {
-      modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-          modal.classList.remove("open");
-        }
-      });
-    });
-
-    // ========== TAB SYSTEM ==========
-    document.querySelectorAll(".nav-btn[data-tab]").forEach(btn => {
-      btn.addEventListener('click', function() {
-        // Update active tab button
-        document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
-        this.classList.add("active");
-        
-        // Show corresponding tab content
-        const tabId = this.getAttribute("data-tab");
-        document.querySelectorAll(".tab-content").forEach(tc => tc.classList.remove("active"));
-        document.getElementById(tabId).classList.add("active");
-      });
-    });
-
-    // ========== AUTHENTICATION ==========
-    async function initializeApp() {
-      try {
-        console.log("Initializing app...");
-        
-        // Initialize Supabase
-        supabaseClient = window.supabase.createClient(
-          CONFIG.SUPABASE_URL,
-          CONFIG.SUPABASE_KEY
-        );
-        
-        console.log("Supabase client created");
-
-        // Check for existing session
-        const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
-        
-        if (sessionError) {
-          console.error("Session error:", sessionError);
-          showNotification("Authentication error. Please login again.", "error");
-          setTimeout(() => window.location.href = "Login.html", 2000);
-          return;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dekontractors Nig. Ltd - Engineering Excellence & Construction Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A2463;
+            --secondary: #FFB400;
+            --accent: #3E7BFA;
+            --dark: #1A1A2E;
+            --gray-800: #2D3748;
+            --gray-600: #4A5568;
+            --gray-300: #CBD5E0;
+            --light: #F7FAFC;
+            --white: #FFFFFF;
+            --gradient-blue: linear-gradient(135deg, #0A2463 0%, #3E7BFA 100%);
+            --gradient-yellow: linear-gradient(135deg, #FFB400 0%, #FFE566 100%);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
         }
 
-        if (!session) {
-          console.log("No session found, redirecting to login");
-          window.location.href = "Login.html";
-          return;
+        [data-theme="dark"] {
+            --primary: #3E7BFA;
+            --secondary: #FFB400;
+            --accent: #5D9CFF;
+            --dark: #F7FAFC;
+            --gray-800: #CBD5E0;
+            --gray-600: #A0AEC0;
+            --gray-300: #2D3748;
+            --light: #1A1A2E;
+            --white: #2D3748;
+            --gradient-blue: linear-gradient(135deg, #3E7BFA 0%, #5D9CFF 100%);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        currentUser = session.user;
-        console.log("User authenticated:", currentUser.email);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        // Load user data from database
-        await loadUserData();
-        
-        // Update UI
-        updateUserUI();
-        
-        // Load initial data
-        await loadBalance();
-        await loadMarketplace();
-        
-        // Setup event listeners
-        setupEventListeners();
-        
-        showNotification("Welcome back!", "success");
-        
-      } catch (error) {
-        console.error("Initialization error:", error);
-        showNotification("Failed to initialize app: " + error.message, "error");
-      }
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    async function loadUserData() {
-      try {
-        const { data, error } = await supabaseClient
-          .from('users')
-          .select('*')
-          .eq('id', currentUser.id)
-          .single();
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--gray-800);
+            background-color: var(--light);
+            overflow-x: hidden;
+            transition: background-color var(--transition-smooth), color var(--transition-smooth);
+        }
 
-        if (error) {
-          console.error("Error loading user data:", error);
-          // Create user if doesn't exist
-          userDoc = {
-            id: currentUser.id,
-            email: currentUser.email,
-            name: currentUser.user_metadata?.name || currentUser.email.split('@')[0],
-            created_at: new Date().toISOString()
-          };
-          
-          const { error: insertError } = await supabaseClient
-            .from('users')
-            .insert(userDoc);
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all var(--transition-smooth);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        [data-theme="dark"] header {
+            background: rgba(26, 26, 46, 0.95);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow-md);
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        [data-theme="dark"] header.scrolled {
+            background: rgba(26, 26, 46, 0.98);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--gradient-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        [data-theme="dark"] .logo-image {
+            background: var(--gradient-yellow);
+        }
+
+        [data-theme="dark"] .logo-image img {
+            filter: none;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            background: var(--gradient-blue);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-yellow);
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+
+        [data-theme="dark"] .theme-toggle {
+            background: var(--gradient-yellow);
+            color: var(--dark);
+        }
+
+        [data-theme="dark"] .theme-toggle::before {
+            opacity: 1;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .theme-toggle i {
+            position: relative;
+            z-index: 1;
+            font-size: 1.2rem;
+        }
+
+        .sun-icon {
+            display: block;
+        }
+
+        .moon-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .sun-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .moon-icon {
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 0;
+            position: relative;
+            transition: color var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav ul li a i {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-yellow);
+            border-radius: 3px;
+            transition: width var(--transition-smooth);
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient-blue);
+            color: white;
+            padding: 10px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-md);
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 120px;
+            background: linear-gradient(135deg, 
+                rgba(10, 36, 99, 0.95) 0%, 
+                rgba(62, 123, 250, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .hero {
+            background: linear-gradient(135deg, 
+                rgba(10, 36, 99, 0.85) 0%, 
+                rgba(62, 123, 250, 0.75) 100%),
+                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 180, 0, 0.15) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFE566 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gradient-yellow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--gradient-yellow);
+            color: var(--dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--gradient-yellow);
+            color: var(--dark);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-title span {
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-smooth);
+            border: 1px solid var(--gray-300);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-blue);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-smooth);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-blue);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-smooth);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-image {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-smooth);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(10, 36, 99, 0.9));
+            padding: 24px;
+            color: white;
+        }
+
+        .project-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .status-completed {
+            background: rgba(46, 204, 113, 0.2);
+            color: #27ae60;
+        }
+
+        .status-ongoing {
+            background: rgba(241, 196, 15, 0.2);
+            color: #f39c12;
+        }
+
+        .project-info {
+            padding: 32px;
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: 30px;
+            right: -20px;
+            background: var(--gradient-yellow);
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-badge .number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--dark);
+        }
+
+        .about-badge .text {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* CEO */
+        .ceo-content {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 64px;
+            align-items: center;
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 60px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .ceo-image {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .ceo-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .ceo-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .ceo-name {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        /* Contact */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+        }
+
+        .contact-info {
+            background: var(--gradient-blue);
+            color: white;
+            padding: 60px;
+            border-radius: var(--radius-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.1;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 60px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+            background: var(--white);
+            color: var(--gray-800);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(62, 123, 250, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            margin-bottom: 60px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Theme Transition */
+        .theme-transition {
+            transition: background-color var(--transition-smooth), 
+                        color var(--transition-smooth),
+                        border-color var(--transition-smooth),
+                        box-shadow var(--transition-smooth);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
             
-          if (insertError) {
-            console.error("Error creating user:", insertError);
-          }
-        } else {
-          userDoc = data;
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .about-content,
+            .ceo-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
         }
-      } catch (error) {
-        console.error("Error in loadUserData:", error);
-      }
-    }
 
-    function updateUserUI() {
-      if (!currentUser) return;
-      
-      document.getElementById("user-email").textContent = currentUser.email;
-      document.getElementById("user-username").textContent = 
-        currentUser.user_metadata?.name || currentUser.email.split('@')[0];
-      
-      // Profile modal info
-      document.getElementById("user-id").textContent = currentUser.id;
-      document.getElementById("profile-username").textContent = 
-        currentUser.user_metadata?.name || currentUser.email.split('@')[0];
-      document.getElementById("profile-email").textContent = currentUser.email;
-      
-      // Invite link
-      const inviteLink = `${window.location.origin}/register.html?ref=${currentUser.id}`;
-      document.getElementById("invite-link").value = inviteLink;
-    }
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                padding: 100px 40px 40px;
+                gap: 24px;
+                box-shadow: var(--shadow-xl);
+                transition: right var(--transition-smooth);
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                right: 0;
+            }
+            
+            .nav-controls {
+                gap: 15px;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 32px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .ceo-content,
+            .contact-form,
+            .contact-info {
+                padding: 40px 30px;
+            }
+        }
 
-    // ========== BALANCE FUNCTIONS ==========
-    async function loadBalance() {
-      try {
-        console.log("Loading balance...");
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 14px 24px;
+            }
+            
+            .services-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-image {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Header -->
+    <header class="theme-transition">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-image">
+                    <!-- Replace with your actual logo image -->
+                    <!-- For now using a construction icon -->
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M23 7V1h-6v2H7V1H1v6h2v10H1v6h6v-2h10v2h6v-6h-2V7h2zM3 3h2v2H3V3zm2 18H3v-2h2v2zm12-2H7v-2H5V7h2V5h10v2h2v10h-2v2zm4 2h-2v-2h2v2zM19 5V3h2v2h-2zm-5 4h-4V7h4v2z'/%3E%3C/svg%3E" 
+                         alt="Dekontractors Logo">
+                </div>
+                <div class="logo-text">
+                    <h1>Dekontractors</h1>
+                    <span>Engineering Excellence</span>
+                </div>
+            </a>
+            
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-sun sun-icon"></i>
+                    <i class="fas fa-moon moon-icon"></i>
+                </button>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                        <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                        <li><a href="#ceo"><i class="fas fa-user-tie"></i> CEO</a></li>
+                        <li><button class="nav-cta" onclick="scrollToContact()">Contact Us</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <h2>Engineering Excellence & Construction Solutions</h2>
+                <p>Building Nigeria's future with precision, quality, and professional expertise. We deliver exceptional construction projects with structural integrity and innovative design.</p>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="scrollToContact()">Start Your Project <i class="fas fa-arrow-right"></i></button>
+                    <a href="#projects" class="btn btn-secondary">View Our Work</a>
+                </div>
+                
+                <div class="hero-stats fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section theme-transition">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Our Expertise</div>
+                <h2 class="section-title">Professional <span>Construction Services</span></h2>
+                <p class="section-subtitle">Comprehensive construction solutions tailored to meet your project requirements</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in-up theme-transition">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Building Construction</h3>
+                    <p>Complete construction of residential, commercial, and industrial buildings from foundation to finishing.</p>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: var(--gray-600);">
+                        <li>Residential & commercial buildings</li>
+                        <li>Industrial facilities</li>
+                        <li>Institutional structures</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in-up theme-transition" style="animation-delay: 0.1s;">
+                    <div class="service-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>General Contracting</h3>
+                    <p>End-to-end project management, coordinating all construction phases, subcontractors, and timelines.</p>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: var(--gray-600);">
+                        <li>Project planning & coordination</li>
+                        <li>Budget management</li>
+                        <li>Quality control</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in-up theme-transition" style="animation-delay: 0.2s;">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Renovation & Maintenance</h3>
+                    <p>Transforming existing structures through renovation, remodeling, and ongoing maintenance services.</p>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: var(--gray-600);">
+                        <li>Building renovation</li>
+                        <li>Structural repairs</li>
+                        <li>Facility maintenance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section theme-transition" style="background: var(--light);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Our Portfolio</div>
+                <h2 class="section-title">Featured <span>Projects</span></h2>
+                <p class="section-subtitle">Showcasing our portfolio of completed and ongoing construction projects</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card fade-in-up theme-transition">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1487956382158-bb926046304a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Commercial Building">
+                        <div class="project-overlay">
+                            <span class="project-status status-completed">
+                                <i class="fas fa-check-circle"></i> Completed
+                            </span>
+                            <h3 style="color: white; font-size: 1.4rem;">Commercial Complex, Abuja</h3>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <p>A modern 5-story commercial building with retail spaces and offices in Abuja's business district.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in-up theme-transition" style="animation-delay: 0.1s;">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Residential Estate">
+                        <div class="project-overlay">
+                            <span class="project-status status-completed">
+                                <i class="fas fa-check-circle"></i> Completed
+                            </span>
+                            <h3 style="color: white; font-size: 1.4rem;">Hilltop Residence, Jos</h3>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <p>Gated community development with 20 luxury homes in Jos, Plateau State.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in-up theme-transition" style="animation-delay: 0.2s;">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Industrial Facility">
+                        <div class="project-overlay">
+                            <span class="project-status status-ongoing">
+                                <i class="fas fa-clock"></i> Ongoing
+                            </span>
+                            <h3 style="color: white; font-size: 1.4rem;">Agro-Processing Plant, Kano</h3>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <p>Industrial facility for agricultural processing with storage and distribution centers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section theme-transition">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">About Us</div>
+                <h2 class="section-title">Building <span>Excellence</span> Since 2010</h2>
+                <p class="section-subtitle">Engineering excellence, structural integrity, and reliable delivery of construction projects</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="About Dekontractors">
+                    <div class="about-badge">
+                        <div class="number">15+</div>
+                        <div class="text">Years Experience</div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 24px; color: var(--dark);">Your Trusted Construction Partner</h3>
+                    <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--gray-600);">
+                        Dekontractors Nig. Ltd is a premier construction company and general contracting firm based in Jos, Plateau State, Nigeria. With our headquarters strategically located at 29/10 Bauchi Road, we have established ourselves as a trusted name in the construction industry.
+                    </p>
+                    <p style="margin-bottom: 20px; color: var(--gray-600);">
+                        Founded on principles of engineering excellence, structural integrity, and unwavering commitment to quality, we specialize in a wide range of construction services. Our portfolio includes residential buildings, commercial complexes, industrial facilities, and infrastructure projects.
+                    </p>
+                    <div style="display: flex; gap: 24px; margin-top: 32px;">
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 8px; font-size: 1.8rem; font-weight: 900;">50+</h4>
+                            <p style="color: var(--gray-600);">Projects Completed</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 8px; font-size: 1.8rem; font-weight: 900;">30+</h4>
+                            <p style="color: var(--gray-600);">Expert Team Members</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO Section -->
+    <section id="ceo" class="section theme-transition" style="background: var(--light);">
+        <div class="container">
+            <div class="ceo-content theme-transition">
+                <div class="ceo-image">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" alt="CEO Portrait">
+                </div>
+                <div class="ceo-info">
+                    <div class="ceo-title">Chief Executive Officer</div>
+                    <h3 class="ceo-name">Bldr. Jabir Shehu Na'Allah (MNIOB)</h3>
+                    <p style="margin-bottom: 24px; color: var(--gray-600);">
+                        With over 15 years of experience in the construction industry, Bldr. Jabir Shehu Na'Allah brings extensive expertise in project management, structural engineering, and construction supervision to Dekontractors Nig. Ltd.
+                    </p>
+                    <p style="margin-bottom: 24px; color: var(--gray-600);">
+                        As a registered member of the Nigerian Institute of Building (MNIOB), he ensures that all projects adhere to the highest professional standards and regulatory requirements. His leadership philosophy centers on integrity, quality craftsmanship, and client satisfaction.
+                    </p>
+                    <div style="background: rgba(10, 36, 99, 0.05); padding: 24px; border-radius: var(--radius-md);">
+                        <h4 style="color: var(--primary); margin-bottom: 16px;">Professional Qualifications:</h4>
+                        <ul style="columns: 2; list-style: none; color: var(--gray-600);">
+                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: var(--secondary); margin-right: 8px;"></i> Member, Nigerian Institute of Building</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: var(--secondary); margin-right: 8px;"></i> Certified Project Management</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: var(--secondary); margin-right: 8px;"></i> Registered Builder (CORBON)</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: var(--secondary); margin-right: 8px;"></i> Safety Officer Certified</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section theme-transition">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Get In Touch</div>
+                <h2 class="section-title">Start Your <span>Project</span> Today</h2>
+                <p class="section-subtitle">Contact our engineering team to discuss your construction project requirements</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 style="font-size: 2rem; margin-bottom: 24px; color: white;">Contact Information</h3>
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <div style="width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-map-marker-alt" style="color: var(--secondary);"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 4px;">Our Address</h4>
+                                <p style="opacity: 0.9;">29/10 Bauchi Road, Jos, Plateau State, Nigeria</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <div style="width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-phone-alt" style="color: var(--secondary);"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 4px;">Phone Number</h4>
+                                <p style="opacity: 0.9;">08064731042</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <div style="width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-envelope" style="color: var(--secondary);"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 4px;">Email Address</h4>
+                                <p style="opacity: 0.9;">info@dekontractors.com</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <div style="width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-clock" style="color: var(--secondary);"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 4px;">Business Hours</h4>
+                                <p style="opacity: 0.9;">Mon-Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form theme-transition">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 32px; color: var(--dark);">Send Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option value="">Select Service</option>
+                                <option value="construction">Building Construction</option>
+                                <option value="contracting">General Contracting</option>
+                                <option value="renovation">Renovation & Maintenance</option>
+                                <option value="supervision">Project Supervision</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="#home" class="logo" style="margin-bottom: 24px; text-decoration: none;">
+                        <div class="logo-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M23 7V1h-6v2H7V1H1v6h2v10H1v6h6v-2h10v2h6v-6h-2V7h2zM3 3h2v2H3V3zm2 18H3v-2h2v2zm12-2H7v-2H5V7h2V5h10v2h2v10h-2v2zm4 2h-2v-2h2v2zM19 5V3h2v2h-2zm-5 4h-4V7h4v2z'/%3E%3C/svg%3E" 
+                                 alt="Dekontractors Logo">
+                        </div>
+                        <div class="logo-text">
+                            <h1 style="background: linear-gradient(135deg, #FFFFFF 0%, #FFE566 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Dekontractors</h1>
+                            <span style="color: rgba(255, 255, 255, 0.8);">Engineering Excellence</span>
+                        </div>
+                    </a>
+                    <p style="opacity: 0.8; margin-bottom: 24px;">
+                        Building Nigeria's future with engineering excellence and professional craftsmanship since 2010.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: 24px; font-size: 1.2rem;">Quick Links</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                        <li><a href="#home" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Home</a></li>
+                        <li><a href="#about" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">About Us</a></li>
+                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Services</a></li>
+                        <li><a href="#projects" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Projects</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: 24px; font-size: 1.2rem;">Our Services</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Building Construction</a></li>
+                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">General Contracting</a></li>
+                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Renovation & Maintenance</a></li>
+                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Project Supervision</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Dekontractors Nig. Ltd. All Rights Reserved. | Registered Limited Liability Construction Company</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/2348064731042?text=Hello%20Engineer%20Jabir%2C%20I%20am%20contacting%20you%20from%20the%20Dekontractors%20website." 
+       class="whatsapp-btn theme-transition" 
+       style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: var(--shadow-lg); transition: all 0.3s; z-index: 999;"
+       target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
         
-        // For now, use mock data until you set up transactions table
-        const mockBalance = {
-          total: 1250.50,
-          topup: 500.00,
-          earnings: 750.50,
-          withdrawable: 750.50,
-          pending: 0
+        // Check for saved theme or prefer-color-scheme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // Set initial theme
+        if (savedTheme === 'dark' || (savedTheme === 'auto' && prefersDark)) {
+            body.setAttribute('data-theme', 'dark');
+        } else {
+            body.setAttribute('data-theme', 'light');
+        }
+        
+        // Theme toggle click handler
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            // Add animation to toggle button
+            themeToggle.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                themeToggle.style.transform = '';
+            }, 200);
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    
+                    // Smooth scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    if (this.classList.contains('nav-link')) {
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+        
+        // Scroll to contact function
+        function scrollToContact() {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                window.scrollTo({
+                    top: contactSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        }
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(this);
+                
+                // Here you would typically send the data to a server
+                // For now, just show a success message
+                alert('Thank you for your message! Our engineering team will contact you within 24 hours.');
+                contactForm.reset();
+            });
+        }
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
         
-        // Update UI with mock data
-        document.getElementById("account-balance").textContent = `$SA ${mockBalance.total.toFixed(2)}`;
-        document.getElementById("topup-balance").textContent = `$SA ${mockBalance.topup.toFixed(2)}`;
-        document.getElementById("earnings-balance").textContent = `$SA ${mockBalance.earnings.toFixed(2)}`;
-        document.getElementById("withdrawable-balance").textContent = `$SA ${mockBalance.withdrawable.toFixed(2)}`;
-        document.getElementById("pending-balance").textContent = `$SA ${mockBalance.pending.toFixed(2)}`;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
         
-        // Calculate token value
-        const tokenValue = mockBalance.total * CONFIG.TOKEN_PRICE;
-        document.getElementById("token-value").textContent = `Value: $${tokenValue.toFixed(2)}`;
-        
-      } catch (error) {
-        console.error("Error loading balance:", error);
-        showNotification("Failed to load balance", "error");
-      }
-    }
-
-    // ========== MARKETPLACE FUNCTIONS ==========
-    async function loadMarketplace() {
-      try {
-        console.log("Loading marketplace...");
-        
-        // Mock marketplace data
-        const mockAds = [
-          {
-            id: 1,
-            title: "Like and Comment on Facebook Post",
-            category: "Social Media",
-            clicks: 150,
-            max_clicks: 500,
-            reward: 5.50,
-            instructions: "Like the post and leave a meaningful comment"
-          },
-          {
-            id: 2,
-            title: "Download Mobile App",
-            category: "App Download",
-            clicks: 75,
-            max_clicks: 200,
-            reward: 12.00,
-            instructions: "Download and install our app from Play Store"
-          },
-          {
-            id: 3,
-            title: "Visit Website for 30 Seconds",
-            category: "Website Visit",
-            clicks: 1200,
-            max_clicks: 5000,
-            reward: 2.50,
-            instructions: "Visit our website and stay for 30 seconds"
-          }
-        ];
-        
-        const marketList = document.getElementById("market-list");
-        marketList.innerHTML = "";
-        
-        mockAds.forEach(ad => {
-          const progress = (ad.clicks / ad.max_clicks) * 100;
-          
-          const adCard = document.createElement("div");
-          adCard.className = "ad-card";
-          adCard.innerHTML = `
-            <div class="ad-title">${ad.title}</div>
-            <div class="flex gap-4 text-sm text-gray-600 mb-3">
-              <span><i class="fas fa-tag"></i> ${ad.category}</span>
-              <span><i class="fas fa-gift"></i> $SA ${ad.reward.toFixed(2)}</span>
-            </div>
-            <div class="mb-3">
-              <div class="flex justify-between text-sm mb-1">
-                <span>Progress: ${ad.clicks}/${ad.max_clicks}</span>
-                <span>${progress.toFixed(1)}%</span>
-              </div>
-              <div class="w-full bg-gray-200 rounded-full h-2">
-                <div class="bg-green-600 h-2 rounded-full" style="width: ${progress}%"></div>
-              </div>
-            </div>
-            <div class="text-sm text-gray-700 mb-3">
-              <b>Instructions:</b> ${ad.instructions}
-            </div>
-            <button class="btn btn-success btn-sm participate-btn" data-ad-id="${ad.id}">
-              <i class="fas fa-play-circle mr-1"></i> Participate
-            </button>
-          `;
-          
-          marketList.appendChild(adCard);
+        // Observe all elements with fade-in-up class
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
         });
         
-        // Add event listeners to participate buttons
-        document.querySelectorAll('.participate-btn').forEach(btn => {
-          btn.addEventListener('click', function() {
-            const adId = this.getAttribute('data-ad-id');
-            showNotification(`Starting participation for Ad #${adId}`, "info");
-            // Here you would open the screenshot modal
-          });
-        });
-        
-      } catch (error) {
-        console.error("Error loading marketplace:", error);
-        document.getElementById("market-list").innerHTML = `
-          <div class="text-red-500 text-center py-8">
-            <i class="fas fa-exclamation-circle mb-2"></i>
-            <p>Failed to load marketplace</p>
-          </div>
-        `;
-      }
-    }
-
-    // ========== PAYMENT FUNCTIONS ==========
-    async function processPayment(amount, type = 'topup') {
-      try {
-        showLoading("Processing payment...");
-        
-        // Mock payment processing
-        setTimeout(() => {
-          hideLoading();
-          
-          if (type === 'topup') {
-            showNotification(`Successfully topped up ₦${amount.toLocaleString()}`, "success");
-            closeModal('fundModal');
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Trigger initial scroll for header
+            window.dispatchEvent(new Event('scroll'));
             
-            // Update balance
-            loadBalance();
-          } else if (type === 'withdrawal') {
-            showNotification(`Withdrawal request for $SA ${amount} submitted`, "success");
-            closeModal('cashoutModal');
-          }
-        }, 2000);
-        
-      } catch (error) {
-        hideLoading();
-        showNotification("Payment failed: " + error.message, "error");
-      }
-    }
-
-    // ========== EVENT LISTENERS SETUP ==========
-    function setupEventListeners() {
-      console.log("Setting up event listeners...");
-      
-      // Profile button
-      document.getElementById("profileBtn").addEventListener("click", () => {
-        openModal("profileModal");
-      });
-      
-      // Logout button
-      document.getElementById("logoutBtn").addEventListener("click", async () => {
-        if (confirm("Are you sure you want to logout?")) {
-          showLoading("Logging out...");
-          await supabaseClient.auth.signOut();
-          window.location.href = "Login.html";
-        }
-      });
-      
-      // Fund button
-      document.getElementById("fundBtn").addEventListener("click", () => {
-        openModal("fundModal");
-      });
-      
-      // Cashout button
-      document.getElementById("cashoutBtn").addEventListener("click", () => {
-        openModal("cashoutModal");
-      });
-      
-      // Refresh balance button
-      document.getElementById("refreshBalanceBtn")?.addEventListener("click", () => {
-        loadBalance();
-        showNotification("Balance refreshed", "success");
-      });
-      
-      // Copy invite link
-      document.getElementById("copyInviteBtn").addEventListener("click", () => {
-        const inviteLink = document.getElementById("invite-link");
-        inviteLink.select();
-        document.execCommand("copy");
-        showNotification("Invite link copied to clipboard!", "success");
-      });
-      
-      // Connect wallet button
-      document.getElementById("connectWalletBtn").addEventListener("click", () => {
-        showNotification("Connecting to Paystack...", "info");
-        // Simulate wallet connection
-        setTimeout(() => {
-          document.getElementById("connection-status").textContent = "Connected";
-          document.getElementById("connection-status").className = "text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full";
-          document.getElementById("wallet-balance").textContent = "₦15,250.00";
-          showNotification("Paystack wallet connected successfully!", "success");
-        }, 1500);
-      });
-      
-      // Proceed to payment
-      document.getElementById("proceedToPaymentBtn").addEventListener("click", () => {
-        const amount = parseFloat(document.getElementById("fundAmount").value);
-        
-        if (!amount || amount < 2000) {
-          showNotification("Minimum top-up amount is ₦2,000", "error");
-          return;
-        }
-        
-        processPayment(amount, 'topup');
-      });
-      
-      // Request cashout
-      document.getElementById("requestCashoutBtn").addEventListener("click", () => {
-        const amount = parseFloat(document.getElementById("cashoutAmount").value);
-        
-        if (!amount || amount < 750) {
-          showNotification("Minimum withdrawal amount is 750 $SA", "error");
-          return;
-        }
-        
-        processPayment(amount, 'withdrawal');
-      });
-    }
-
-    // ========== INITIALIZE APP ==========
-    document.addEventListener("DOMContentLoaded", () => {
-      console.log("DOM fully loaded, initializing app...");
-      initializeApp();
-    });
-
-    // ========== ERROR HANDLING ==========
-    window.addEventListener('error', function(event) {
-      console.error('Global error:', event.error);
-      showNotification('An error occurred. Please refresh the page.', 'error');
-    });
-
-    // Make functions available globally for debugging
-    window.debug = {
-      reloadBalance: loadBalance,
-      reloadMarket: loadMarketplace,
-      showNotification: showNotification,
-      getCurrentUser: () => currentUser
-    };
-
-  </script>
+            // Add hover effect to WhatsApp button
+            const whatsappBtn = document.querySelector('.whatsapp-btn');
+            if (whatsappBtn) {
+                whatsappBtn.addEventListener('mouseenter', () => {
+                    whatsappBtn.style.transform = 'scale(1.1)';
+                    whatsappBtn.style.boxShadow = '0 20px 30px rgba(37, 211, 102, 0.3)';
+                });
+                
+                whatsappBtn.addEventListener('mouseleave', () => {
+                    whatsappBtn.style.transform = 'scale(1)';
+                    whatsappBtn.style.boxShadow = 'var(--shadow-lg)';
+                });
+            }
+            
+            // Add logo image replacement instructions
+            console.log('To add your actual logo:');
+            console.log('1. Replace the SVG in the .logo-image img src with your logo URL');
+            console.log('2. Remove the filter: brightness(0) invert(1) for dark logos');
+            console.log('3. Adjust padding in .logo-image if needed');
+        });
+    </script>
 </body>
 </html>
