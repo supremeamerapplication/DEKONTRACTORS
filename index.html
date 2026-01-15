@@ -900,9 +900,8 @@
         <div class="container nav-container">
             <a href="#home" class="logo">
                 <div class="logo-image">
-                    <!-- Replace with your actual logo image -->
-                    <!-- For now using a construction icon -->
-                    <img src="data:image/svg+xml,%3Csvg xmlns='file_00000000d3d4720ab491ef5cc601a455.png" 
+                    <!-- Placeholder for logo - replace with your actual logo -->
+                    <img src="https://cdn-icons-png.flaticon.com/512/2173/2173475.png" 
                          alt="Dekontractors Logo">
                 </div>
                 <div class="logo-text">
@@ -911,7 +910,11 @@
                 </div>
             </a>
             
-            
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-sun sun-icon"></i>
+                    <i class="fas fa-moon moon-icon"></i>
+                </button>
                 
                 <nav>
                     <ul id="navMenu">
@@ -920,18 +923,13 @@
                         <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
                         <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
                         <li><a href="#ceo"><i class="fas fa-user-tie"></i> CEO</a></li>
-                        <div class="nav-controls">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-sun sun-icon"></i>
-                    <i class="fas fa-moon moon-icon"></i>
-                </button>
+                        <li><button class="nav-cta" onclick="scrollToContact()">Contact Us</button></li>
+                    </ul>
+                </nav>
                 
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
                     <i class="fas fa-bars"></i>
                 </button>
-                        <li><button class="nav-cta" onclick="scrollToContact()">Contact Us</button></li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </header>
@@ -1114,12 +1112,13 @@
             </div>
         </div>
     </section>
+
     <!-- CEO Section -->
     <section id="ceo" class="section theme-transition" style="background: var(--light);">
         <div class="container">
             <div class="ceo-content theme-transition">
                 <div class="ceo-image">
-                    <img src="IMG-20260113-WA0004.jpg">
+                    <img src="IMG-20260113-WA0004.jpg" alt="Bldr. Jabir Shehu Na'Allah">
                 </div>
                 <div class="ceo-info">
                     <div class="ceo-title">Chief Executive Officer</div>
@@ -1198,45 +1197,45 @@
                         </div>
                     </div>
                 </div>
-               
+                
                 <div class="contact-form theme-transition">
-    <h3 style="font-size: 1.8rem; margin-bottom: 32px; color: var(--dark);">
-        Send Message
-    </h3>
-
-    <form id="contactForm">
-        <div class="form-group">
-            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 32px; color: var(--dark);">Send Message</h3>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" name="phone" class="form-control" placeholder="Phone Number">
+                        </div>
+                        
+                        <div class="form-group">
+                            <select name="service" class="form-control" required>
+                                <option value="">Select Service</option>
+                                <option value="Building Construction">Building Construction</option>
+                                <option value="General Contracting">General Contracting</option>
+                                <option value="Renovation & Maintenance">Renovation & Maintenance</option>
+                                <option value="Project Supervision">Project Supervision</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea name="message" class="form-control" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <div class="form-group">
-            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-        </div>
-
-        <div class="form-group">
-            <input type="tel" name="phone" class="form-control" placeholder="Phone Number">
-        </div>
-
-        <div class="form-group">
-            <select name="service" class="form-control" required>
-                <option value="">Select Service</option>
-                <option value="Building Construction">Building Construction</option>
-                <option value="General Contracting">General Contracting</option>
-                <option value="Renovation & Maintenance">Renovation & Maintenance</option>
-                <option value="Project Supervision">Project Supervision</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <textarea name="message" class="form-control" placeholder="Your Message" rows="5" required></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
-            Send Message <i class="fas fa-paper-plane"></i>
-        </button>
-    </form>
-    </div>
-            </section>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -1245,8 +1244,7 @@
                 <div>
                     <a href="#home" class="logo" style="margin-bottom: 24px; text-decoration: none;">
                         <div class="logo-image">
-                            <img src="file_00000000d3d4720ab491ef5cc601a455.png" 
-                                 alt="Dekontractors Logo">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2173/2173475.png" alt="Dekontractors Logo">
                         </div>
                         <div class="logo-text">
                             <h1 style="background: linear-gradient(135deg, #FFFFFF 0%, #FFE566 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Dekontractors</h1>
@@ -1391,21 +1389,33 @@
             }
         }
         
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form data
-                const formData = new FormData(this);
-                
-                // Here you would typically send the data to a server
-                // For now, just show a success message
-                alert('Thank you for your message! Our engineering team will contact you within 24 hours.');
-                contactForm.reset();
-            });
-        }
+        // WhatsApp form submission
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const name = this.name.value;
+            const email = this.email.value;
+            const phone = this.phone.value;
+            const service = this.service.value;
+            const message = this.message.value;
+
+            const whatsappMessage = `
+Hello Dekontractors Nig. Ltd,
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Service: ${service}
+
+Message:
+${message}
+            `.trim();
+
+            const whatsappURL = `https://wa.me/2348064731042?text=${encodeURIComponent(whatsappMessage)}`;
+
+            window.open(whatsappURL, "_blank");
+            this.reset();
+        });
         
         // Intersection Observer for fade-in animations
         const observerOptions = {
@@ -1444,33 +1454,6 @@
                     whatsappBtn.style.boxShadow = 'var(--shadow-lg)';
                 });
             }
-        
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const name = this.name.value;
-    const email = this.email.value;
-    const phone = this.phone.value;
-    const service = this.service.value;
-    const message = this.message.value;
-
-    const whatsappMessage = `
-Hello Dekontractors Nig. Ltd,
-
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Service: ${service}
-
-Message:
-${message}
-    `.trim();
-
-    const whatsappURL = `https://wa.me/2348064731042?text=${encodeURIComponent(whatsappMessage)}`;
-
-    window.open(whatsappURL, "_blank");
-});
-
         });
     </script>
 </body>
