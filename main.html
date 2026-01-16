@@ -98,7 +98,7 @@
             padding: 0 24px;
         }
 
-        /* Header & Navigation */
+        /* Header & Navigation - FIXED LOGO VISIBILITY */
         header {
             position: fixed;
             top: 0;
@@ -139,16 +139,23 @@
             text-decoration: none;
         }
 
+        /* FIXED LOGO SIZE AND VISIBILITY */
         .logo-image {
-            width: 50px;
-            height: 50px;
+            width: 120px; /* Increased from 50px */
+            height: 50px; /* Increased from 50px */
             border-radius: var(--radius-md);
             overflow: hidden;
             background: var(--gradient-blue);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 8px;
+            padding: 5px;
+            transition: all var(--transition-fast);
+        }
+
+        [data-theme="dark"] .logo-image {
+            background: var(--white);
+            border: 2px solid var(--secondary);
         }
 
         .logo-image img {
@@ -156,14 +163,11 @@
             height: 100%;
             object-fit: contain;
             filter: brightness(0) invert(1);
-        }
-
-        [data-theme="dark"] .logo-image {
-            background: var(--gradient-yellow);
+            transition: filter var(--transition-fast);
         }
 
         [data-theme="dark"] .logo-image img {
-            filter: none;
+            filter: none; /* Changed from brightness(0) invert(0) */
         }
 
         .logo-text {
@@ -194,7 +198,7 @@
             gap: 20px;
         }
 
-        /* PWA Install Button */
+        /* PWA Install Button - FIXED FOR NAV MENU */
         .install-btn {
             display: none;
             background: var(--gradient-yellow);
@@ -208,6 +212,7 @@
             box-shadow: var(--shadow-md);
             align-items: center;
             gap: 8px;
+            font-size: 0.95rem;
         }
 
         .install-btn.show {
@@ -217,6 +222,18 @@
         .install-btn:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-lg);
+        }
+
+        .install-btn.installed {
+            background: var(--gray-300);
+            color: var(--gray-600);
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .install-btn.installed:hover {
+            transform: none;
+            box-shadow: var(--shadow-md);
         }
 
         /* Theme Toggle */
@@ -288,7 +305,12 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 32px;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav ul li {
+            list-style: none;
         }
 
         nav ul li a {
@@ -296,12 +318,13 @@
             color: var(--dark);
             font-weight: 600;
             font-size: 1rem;
-            padding: 8px 0;
+            padding: 8px 12px;
             position: relative;
             transition: color var(--transition-fast);
             display: flex;
             align-items: center;
             gap: 8px;
+            border-radius: var(--radius-md);
         }
 
         nav ul li a i {
@@ -311,23 +334,26 @@
 
         nav ul li a:hover {
             color: var(--primary);
+            background: rgba(10, 36, 99, 0.05);
         }
 
         nav ul li a::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 0;
+            left: 12px;
+            width: calc(100% - 24px);
             height: 3px;
             background: var(--gradient-yellow);
             border-radius: 3px;
-            transition: width var(--transition-smooth);
+            transition: transform var(--transition-smooth);
+            transform: scaleX(0);
+            transform-origin: center;
         }
 
         nav ul li a:hover::after,
         nav ul li a.active::after {
-            width: 100%;
+            transform: scaleX(1);
         }
 
         .nav-cta {
@@ -342,6 +368,8 @@
             cursor: pointer;
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .nav-cta:hover {
@@ -400,11 +428,22 @@
             z-index: 2;
         }
 
+        [data-theme="dark"] .project-share-btn,
+        [data-theme="dark"] .ceo-share-btn {
+            background: rgba(26, 26, 46, 0.9);
+            color: var(--secondary);
+        }
+
         .project-share-btn:hover,
         .ceo-share-btn:hover {
             background: white;
             transform: scale(1.1);
             box-shadow: var(--shadow-lg);
+        }
+
+        [data-theme="dark"] .project-share-btn:hover,
+        [data-theme="dark"] .ceo-share-btn:hover {
+            background: var(--white);
         }
 
         /* Hero Section */
@@ -748,7 +787,7 @@
             text-transform: uppercase;
         }
 
-        /* CEO Section - Updated for Sharing */
+        /* CEO Section - UPDATED WITH PROPER IMAGE DISPLAY */
         .ceo-content {
             display: grid;
             grid-template-columns: 400px 1fr;
@@ -766,11 +805,13 @@
             overflow: hidden;
             box-shadow: var(--shadow-lg);
             position: relative;
+            height: 500px; /* Fixed height */
         }
 
         .ceo-image img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover; /* Changed from 'auto' to 'cover' */
             display: block;
         }
 
@@ -919,6 +960,31 @@
             font-size: 1.2rem;
         }
 
+        /* WhatsApp Floating Button - FIXED */
+        .whatsapp-btn {
+            position: fixed !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            background: #25D366 !important;
+            color: white !important;
+            width: 60px !important;
+            height: 60px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 1.8rem !important;
+            box-shadow: var(--shadow-lg) !important;
+            transition: all 0.3s !important;
+            z-index: 999 !important;
+            text-decoration: none !important;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1) !important;
+            box-shadow: 0 20px 30px rgba(37, 211, 102, 0.3) !important;
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -963,6 +1029,10 @@
             .ceo-content {
                 grid-template-columns: 1fr;
             }
+            
+            .ceo-image {
+                height: 400px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -983,10 +1053,20 @@
                 background: var(--white);
                 flex-direction: column;
                 padding: 100px 40px 40px;
-                gap: 24px;
+                gap: 20px;
                 box-shadow: var(--shadow-xl);
                 transition: right var(--transition-smooth);
                 z-index: 1000;
+                align-items: flex-start;
+            }
+            
+            nav ul li {
+                width: 100%;
+            }
+            
+            nav ul li a {
+                width: 100%;
+                padding: 12px;
             }
             
             nav ul.active {
@@ -1025,6 +1105,23 @@
                 right: 20px;
                 max-width: none;
             }
+            
+            .logo-image {
+                width: 100px;
+                height: 45px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.6rem;
+            }
+            
+            .whatsapp-btn {
+                bottom: 20px !important;
+                right: 20px !important;
+                width: 55px !important;
+                height: 55px !important;
+                font-size: 1.6rem !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1046,12 +1143,16 @@
             }
             
             .logo-image {
-                width: 40px;
+                width: 80px;
                 height: 40px;
             }
             
             .logo-text h1 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
+            }
+            
+            .ceo-image {
+                height: 350px;
             }
         }
     </style>
@@ -1105,7 +1206,7 @@
                         <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
                         <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
                         <li><a href="#ceo"><i class="fas fa-user-tie"></i> CEO</a></li>
-                        <button class="nav-cta" onclick="scrollToContact()">Contact Us</button>
+                        <li><a href="#contact" class="nav-cta">Contact Us</a></li>
                     </ul>
                 </nav>
                 
@@ -1213,7 +1314,8 @@
                         <i class="fas fa-share-alt"></i>
                     </button>
                     <div class="project-image">
-                        <img src="panash-designs-artstation-post-01.jpg" alt="Commercial Building">
+                        <img src="panash-designs-artstation-post-01.jpg" alt="Commercial Building" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1487956382158-bb926046304a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
                         <div class="project-overlay">
                             <span class="project-status status-completed">
                                 <i class="fas fa-check-circle"></i> Completed
@@ -1237,7 +1339,8 @@
                         <i class="fas fa-share-alt"></i>
                     </button>
                     <div class="project-image">
-                        <img src="capi_dfa945349ded659b9dc39dcb4805fca6_c13e948a7a72748323ef771bf8aff689.jpeg" alt="Residential Estate">
+                        <img src="capi_dfa945349ded659b9dc39dcb4805fca6_c13e948a7a72748323ef771bf8aff689.jpeg" alt="Residential Estate"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
                         <div class="project-overlay">
                             <span class="project-status status-completed">
                                 <i class="fas fa-check-circle"></i> Completed
@@ -1261,7 +1364,8 @@
                         <i class="fas fa-share-alt"></i>
                     </button>
                     <div class="project-image">
-                        <img src="360_F_224037581_KsgpR416w2iOpG0AaIr3d9Kaqpt4jgft.webp" alt="Industrial Facility">
+                        <img src="360_F_224037581_KsgpR416w2iOpG0AaIr3d9Kaqpt4jgft.webp" alt="Industrial Facility"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
                         <div class="project-overlay">
                             <span class="project-status status-ongoing">
                                 <i class="fas fa-clock"></i> Ongoing
@@ -1293,7 +1397,8 @@
             
             <div class="about-content">
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="About Dekontractors">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="About Dekontractors"
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
                     <div class="about-badge">
                         <div class="number">15+</div>
                         <div class="text">Years Experience</div>
@@ -1330,7 +1435,8 @@
                     <button class="ceo-share-btn" onclick="shareCEO()" aria-label="Share CEO Profile">
                         <i class="fas fa-share-alt"></i>
                     </button>
-                    <img src="IMG-20260113-WA0004.jpg" alt="Bldr. Jabir Shehu Na'Allah">
+                    <img src="IMG-20260113-WA0004.jpg" alt="Bldr. Jabir Shehu Na'Allah"
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
                 </div>
                 <div class="ceo-info">
                     <div class="ceo-title">Chief Executive Officer</div>
@@ -1499,17 +1605,18 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/2348064731042?text=Hello%20Engineer%20Jabir%2C%20I%20am%20contacting%20you%20from%20the%20Dekontractors%20website." 
+    <!-- WhatsApp Button - FIXED -->
+    <a href="https://wa.me/2348064731042?text=Hello%20Dekontractors%20Team%2C%20I%20am%20contacting%20you%20from%20the%20Dekontractors%20website%20and%20would%20like%20to%20discuss%20a%20project." 
        class="whatsapp-btn theme-transition" 
-       style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: var(--shadow-lg); transition: all 0.3s; z-index: 999;"
-       target="_blank">
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
         // ======================
-        // PWA Installation Logic
+        // PWA Installation Logic - FIXED
         // ======================
         let deferredPrompt;
         const installButton = document.getElementById('installButton');
@@ -1518,26 +1625,53 @@
         const laterPwaBtn = document.getElementById('laterPwaBtn');
         const closePwaPrompt = document.getElementById('closePwaPrompt');
         
+        // Function to check if app is installed
+        function isAppInstalled() {
+            return window.matchMedia('(display-mode: standalone)').matches || 
+                   window.navigator.standalone === true ||
+                   localStorage.getItem('pwaInstalled') === 'true';
+        }
+        
+        // Function to update install button state
+        function updateInstallButton() {
+            if (isAppInstalled()) {
+                installButton.classList.add('installed');
+                installButton.innerHTML = '<i class="fas fa-check"></i> Installed';
+                installButton.disabled = true;
+                installButton.style.display = 'none'; // Hide from desktop nav
+            } else {
+                installButton.classList.remove('installed');
+                installButton.innerHTML = '<i class="fas fa-download"></i> Install App';
+                installButton.disabled = false;
+            }
+        }
+        
         // Listen for beforeinstallprompt event
         window.addEventListener('beforeinstallprompt', (e) => {
             // Prevent the mini-infobar from appearing on mobile
             e.preventDefault();
             // Stash the event so it can be triggered later
             deferredPrompt = e;
-            // Show install button
-            installButton.classList.add('show');
+            
+            // Show install button if not already installed
+            if (!isAppInstalled()) {
+                installButton.classList.add('show');
+            }
             
             // Show prompt after 5 seconds if not dismissed before
             setTimeout(() => {
-                if (!localStorage.getItem('pwaPromptDismissed')) {
+                if (!localStorage.getItem('pwaPromptDismissed') && !isAppInstalled()) {
                     pwaInstallPrompt.classList.add('show');
                 }
             }, 5000);
+            
+            // Update button state
+            updateInstallButton();
         });
         
         // Install button click handler
         installButton.addEventListener('click', async () => {
-            if (!deferredPrompt) return;
+            if (!deferredPrompt || isAppInstalled()) return;
             
             // Show the install prompt
             deferredPrompt.prompt();
@@ -1547,8 +1681,8 @@
             
             if (outcome === 'accepted') {
                 console.log('User accepted the install prompt');
-                installButton.style.display = 'none';
                 localStorage.setItem('pwaInstalled', 'true');
+                updateInstallButton();
             } else {
                 console.log('User dismissed the install prompt');
             }
@@ -1559,7 +1693,7 @@
         
         // PWA prompt install button
         installPwaBtn.addEventListener('click', async () => {
-            if (!deferredPrompt) return;
+            if (!deferredPrompt || isAppInstalled()) return;
             
             deferredPrompt.prompt();
             const { outcome } = await deferredPrompt.userChoice;
@@ -1567,6 +1701,7 @@
             if (outcome === 'accepted') {
                 console.log('PWA installed from prompt');
                 localStorage.setItem('pwaInstalled', 'true');
+                updateInstallButton();
             }
             
             deferredPrompt = null;
@@ -1589,11 +1724,14 @@
         // Check if PWA is already installed
         window.addEventListener('appinstalled', () => {
             console.log('PWA was installed');
-            installButton.style.display = 'none';
-            pwaInstallPrompt.classList.remove('show');
             localStorage.setItem('pwaInstalled', 'true');
             localStorage.setItem('pwaPromptDismissed', 'true');
+            updateInstallButton();
+            pwaInstallPrompt.classList.remove('show');
         });
+        
+        // Initial check
+        updateInstallButton();
         
         // ======================
         // Sharing Functions
@@ -1605,19 +1743,19 @@
                     title: "Commercial Complex, Abuja",
                     description: "A modern 5-story commercial building with retail spaces and offices in Abuja's business district.",
                     image: "panash-designs-artstation-post-01.jpg",
-                    url: window.location.origin + "/#projects"
+                    url: window.location.origin + window.location.pathname + "#projects"
                 },
                 2: {
                     title: "Hilltop Residence, Jos",
                     description: "Gated community development with 20 luxury homes in Jos, Plateau State.",
                     image: "capi_dfa945349ded659b9dc39dcb4805fca6_c13e948a7a72748323ef771bf8aff689.jpeg",
-                    url: window.location.origin + "/#projects"
+                    url: window.location.origin + window.location.pathname + "#projects"
                 },
                 3: {
                     title: "Agro-Processing Plant, Kano",
                     description: "Industrial facility for agricultural processing with storage and distribution centers.",
                     image: "360_F_224037581_KsgpR416w2iOpG0AaIr3d9Kaqpt4jgft.webp",
-                    url: window.location.origin + "/#projects"
+                    url: window.location.origin + window.location.pathname + "#projects"
                 }
             };
             
@@ -1647,7 +1785,7 @@
             const shareData = {
                 title: "Bldr. Jabir Shehu Na'Allah - CEO of Dekontractors Nig. Ltd",
                 text: "With over 15 years of experience in construction, Bldr. Jabir Shehu Na'Allah leads Dekontractors with expertise in project management and structural engineering.",
-                url: window.location.origin + "/#ceo"
+                url: window.location.origin + window.location.pathname + "#ceo"
             };
             
             if (navigator.share) {
@@ -1722,7 +1860,7 @@
         }
         
         // ======================
-        // Existing Functions (from original code)
+        // Existing Functions
         // ======================
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
@@ -1761,6 +1899,14 @@
                 : '<i class="fas fa-bars"></i>';
         });
         
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target) && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+        
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
@@ -1789,12 +1935,11 @@
                         behavior: 'smooth'
                     });
                     
+                    // Update active nav link
                     document.querySelectorAll('nav a').forEach(link => {
                         link.classList.remove('active');
                     });
-                    if (this.classList.contains('nav-link')) {
-                        this.classList.add('active');
-                    }
+                    this.classList.add('active');
                 }
             });
         });
@@ -1810,6 +1955,12 @@
                 
                 navMenu.classList.remove('active');
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                
+                // Update active nav link
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                document.querySelector('a[href="#contact"]').classList.add('active');
             }
         }
         
@@ -1859,6 +2010,7 @@ ${message}
             }
             
             this.reset();
+            showNotification('Your message has been sent to WhatsApp!');
         });
         
         // Intersection Observer for fade-in animations
@@ -1875,7 +2027,7 @@ ${message}
             });
         }, observerOptions);
         
-        document.querySelectorAll('.fade-in-up').forEach(el => {
+        document.querySelectorAll('.service-card, .project-card').forEach(el => {
             observer.observe(el);
         });
         
@@ -1883,25 +2035,27 @@ ${message}
         document.addEventListener('DOMContentLoaded', () => {
             window.dispatchEvent(new Event('scroll'));
             
-            const whatsappBtn = document.querySelector('.whatsapp-btn');
-            if (whatsappBtn) {
-                whatsappBtn.addEventListener('mouseenter', () => {
-                    whatsappBtn.style.transform = 'scale(1.1)';
-                    whatsappBtn.style.boxShadow = '0 20px 30px rgba(37, 211, 102, 0.3)';
+            // Add active class to current section in nav
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
                 });
                 
-                whatsappBtn.addEventListener('mouseleave', () => {
-                    whatsappBtn.style.transform = 'scale(1)';
-                    whatsappBtn.style.boxShadow = 'var(--shadow-lg)';
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
                 });
-            }
-            
-            // Check if app is running in standalone mode
-            if (window.matchMedia('(display-mode: standalone)').matches || 
-                window.navigator.standalone === true) {
-                console.log('Running in standalone mode');
-                installButton.style.display = 'none';
-            }
+            });
         });
         
         // Offline/Online detection
