@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dekontractors Nig. Ltd - Engineering Excellence & Construction Solutions</title>
+    <meta name="description" content="Building Nigeria's future with precision, quality, and professional expertise. We deliver exceptional construction projects with structural integrity and innovative design.">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#0A2463">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Dekontractors">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Facebook Open Graph -->
+    <meta property="og:title" content="Dekontractors Nig. Ltd - Engineering Excellence & Construction Solutions">
+    <meta property="og:description" content="Building Nigeria's future with precision, quality, and professional expertise.">
+    <meta property="og:image" content="https://yourdomain.com/file_00000000d3d4720ab491ef5cc601a455.png">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dekontractors Nig. Ltd">
+    <meta name="twitter:description" content="Engineering Excellence & Construction Solutions">
+    <meta name="twitter:image" content="https://yourdomain.com/file_00000000d3d4720ab491ef5cc601a455.png">
+    
+    <!-- CSS & Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A2463;
+            --secondary: #FFB400;
+            --accent: #3E7BFA;
+            --dark: #1A1A2E;
+            --gray-800: #2D3748;
+            --gray-600: #4A5568;
+            --gray-300: #CBD5E0;
+            --light: #F7FAFC;
+            --white: #FFFFFF;
+            --gradient-blue: linear-gradient(135deg, #0A2463 0%, #3E7BFA 100%);
+            --gradient-yellow: linear-gradient(135deg, #FFB400 0%, #FFE566 100%);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        [data-theme="dark"] {
+            --primary: #3E7BFA;
+            --secondary: #FFB400;
+            --accent: #5D9CFF;
+            --dark: #F7FAFC;
+            --gray-800: #CBD5E0;
+            --gray-600: #A0AEC0;
+            --gray-300: #2D3748;
+            --light: #1A1A2E;
+            --white: #2D3748;
+            --gradient-blue: linear-gradient(135deg, #3E7BFA 0%, #5D9CFF 100%);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--gray-800);
+            background-color: var(--light);
+            overflow-x: hidden;
+            transition: background-color var(--transition-smooth), color var(--transition-smooth);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all var(--transition-smooth);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        [data-theme="dark"] header {
+            background: rgba(26, 26, 46, 0.95);
+        }
+
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow-md);
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        [data-theme="dark"] header.scrolled {
+            background: rgba(26, 26, 46, 0.98);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--gradient-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        [data-theme="dark"] .logo-image {
+            background: var(--gradient-yellow);
+        }
+
+        [data-theme="dark"] .logo-image img {
+            filter: none;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* PWA Install Button */
+        .install-btn {
+            display: none;
+            background: var(--gradient-yellow);
+            color: var(--dark);
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-md);
+            align-items: center;
+            gap: 8px;
+        }
+
+        .install-btn.show {
+            display: flex;
+        }
+
+        .install-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            background: var(--gradient-blue);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-yellow);
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+
+        [data-theme="dark"] .theme-toggle {
+            background: var(--gradient-yellow);
+            color: var(--dark);
+        }
+
+        [data-theme="dark"] .theme-toggle::before {
+            opacity: 1;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .theme-toggle i {
+            position: relative;
+            z-index: 1;
+            font-size: 1.2rem;
+        }
+
+        .sun-icon {
+            display: block;
+        }
+
+        .moon-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .sun-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .moon-icon {
+            display: block;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 0;
+            position: relative;
+            transition: color var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav ul li a i {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-yellow);
+            border-radius: 3px;
+            transition: width var(--transition-smooth);
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient-blue);
+            color: white;
+            padding: 10px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-md);
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Share Buttons */
+        .share-btn {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all var(--transition-fast);
+        }
+
+        .share-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .project-share-btn,
+        .ceo-share-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-fast);
+            z-index: 2;
+        }
+
+        .project-share-btn:hover,
+        .ceo-share-btn:hover {
+            background: white;
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 120px;
+            background: linear-gradient(135deg, 
+                rgba(10, 36, 99, 0.95) 0%, 
+                rgba(62, 123, 250, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        [data-theme="dark"] .hero {
+            background: linear-gradient(135deg, 
+                rgba(10, 36, 99, 0.85) 0%, 
+                rgba(62, 123, 250, 0.75) 100%),
+                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 180, 0, 0.15) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFE566 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gradient-yellow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--gradient-yellow);
+            color: var(--dark);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--gradient-yellow);
+            color: var(--dark);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-title span {
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-smooth);
+            border: 1px solid var(--gray-300);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-blue);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-smooth);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-blue);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        /* Projects - Updated for Sharing */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--white);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-smooth);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-image {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-smooth);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(10, 36, 99, 0.9));
+            padding: 24px;
+            color: white;
+        }
+
+        .project-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .status-completed {
+            background: rgba(46, 204, 113, 0.2);
+            color: #27ae60;
+        }
+
+        .status-ongoing {
+            background: rgba(241, 196, 15, 0.2);
+            color: #f39c12;
+        }
+
+        .project-info {
+            padding: 32px;
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: 30px;
+            right: -20px;
+            background: var(--gradient-yellow);
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-badge .number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--dark);
+        }
+
+        .about-badge .text {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* CEO Section - Updated for Sharing */
+        .ceo-content {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 64px;
+            align-items: center;
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 60px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+
+        .ceo-image {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .ceo-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .ceo-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .ceo-name {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        /* Contact */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+        }
+
+        .contact-info {
+            background: var(--gradient-blue);
+            color: white;
+            padding: 60px;
+            border-radius: var(--radius-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.1;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 60px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+            background: var(--white);
+            color: var(--gray-800);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(62, 123, 250, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            margin-bottom: 60px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* PWA Installation Prompt */
+        .pwa-install-prompt {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            padding: 24px;
+            max-width: 350px;
+            z-index: 9999;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+
+        .pwa-install-prompt.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .pwa-install-prompt h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .pwa-install-prompt p {
+            color: var(--gray-600);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .pwa-install-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .pwa-install-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: var(--gray-600);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Theme Transition */
+        .theme-transition {
+            transition: background-color var(--transition-smooth), 
+                        color var(--transition-smooth),
+                        border-color var(--transition-smooth),
+                        box-shadow var(--transition-smooth);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .about-content,
+            .ceo-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            
+            .ceo-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .install-btn {
+                display: none !important;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                padding: 100px 40px 40px;
+                gap: 24px;
+                box-shadow: var(--shadow-xl);
+                transition: right var(--transition-smooth);
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                right: 0;
+            }
+            
+            .nav-controls {
+                gap: 15px;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 32px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .ceo-content,
+            .contact-form,
+            .contact-info {
+                padding: 40px 30px;
+            }
+            
+            .pwa-install-prompt {
+                left: 20px;
+                right: 20px;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 14px 24px;
+            }
+            
+            .services-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-image {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <!-- PWA Install Prompt -->
+    <div class="pwa-install-prompt theme-transition" id="pwaInstallPrompt">
+        <button class="pwa-install-close" id="closePwaPrompt">
+            <i class="fas fa-times"></i>
+        </button>
+        <h3>Install Dekontractors App</h3>
+        <p>Install our app for quick access to construction services, even offline. Get instant updates and faster loading.</p>
+        <div class="pwa-install-buttons">
+            <button class="btn btn-primary" id="installPwaBtn">
+                <i class="fas fa-download"></i> Install App
+            </button>
+            <button class="btn btn-secondary" id="laterPwaBtn">
+                Maybe Later
+            </button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="theme-transition">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-image">
+                    <img src="file_00000000d3d4720ab491ef5cc601a455.png" 
+                         alt="Dekontractors Logo">
+                </div>
+                <div class="logo-text">
+                    <h1>Dekontractors</h1>
+                    <span>Engineering Excellence</span>
+                </div>
+            </a>
+            
+            <div class="nav-controls">
+                <button class="install-btn" id="installButton">
+                    <i class="fas fa-download"></i> Install App
+                </button>
+                
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-sun sun-icon"></i>
+                    <i class="fas fa-moon moon-icon"></i>
+                </button>
+                
+                <nav>
+                    <ul id="navMenu">
+                        <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                        <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                        <li><a href="#ceo"><i class="fas fa-user-tie"></i> CEO</a></li>
+                        <button class="nav-cta" onclick="scrollToContact()">Contact Us</button>
+                    </ul>
+                </nav>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <h2>Engineering Excellence & Construction Solutions</h2>
+                <p>Building Nigeria's future with precision, quality, and professional expertise. We deliver exceptional construction projects with structural integrity and innovative design.</p>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="scrollToContact()">Start Your Project <i class="fas fa-arrow-right"></i></button>
+                    <a href="#projects" class="btn btn-secondary">View Our Work</a>
+                </div>
+                
+                <div class="hero-stats fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section theme-transition">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Our Expertise</div>
+                <h2 class="section-title">Professional <span>Construction Services</span></h2>
+                <p class="section-subtitle">Comprehensive construction solutions tailored to meet your project requirements</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in-up theme-transition">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Building Construction</h3>
+                    <p>Complete construction of residential, commercial, and industrial buildings from foundation to finishing.</p>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: var(--gray-600);">
+                        <li>Residential & commercial buildings</li>
+                        <li>Industrial facilities</li>
+                        <li>Institutional structures</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in-up theme-transition" style="animation-delay: 0.1s;">
+                    <div class="service-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>General Contracting</h3>
+                    <p>End-to-end project management, coordinating all construction phases, subcontractors, and timelines.</p>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: var(--gray-600);">
+                        <li>Project planning & coordination</li>
+                        <li>Budget management</li>
+                        <li>Quality control</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card fade-in-up theme-transition" style="animation-delay: 0.2s;">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Renovation & Maintenance</h3>
+                    <p>Transforming existing structures through renovation, remodeling, and ongoing maintenance services.</p>
+                    <ul style="margin-top: 16px; padding-left: 20px; color: var(--gray-600);">
+                        <li>Building renovation</li>
+                        <li>Structural repairs</li>
+                        <li>Facility maintenance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section with Share Buttons -->
+    <section id="projects" class="section theme-transition" style="background: var(--light);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Our Portfolio</div>
+                <h2 class="section-title">Featured <span>Projects</span></h2>
+                <p class="section-subtitle">Showcasing our portfolio of completed and ongoing construction projects</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card fade-in-up theme-transition" data-project-id="1">
+                    <button class="project-share-btn" onclick="shareProject(1)" aria-label="Share this project">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <div class="project-image">
+                        <img src="panash-designs-artstation-post-01.jpg" alt="Commercial Building">
+                        <div class="project-overlay">
+                            <span class="project-status status-completed">
+                                <i class="fas fa-check-circle"></i> Completed
+                            </span>
+                            <h3 style="color: white; font-size: 1.4rem;">Commercial Complex, Abuja</h3>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <p>A modern 5-story commercial building with retail spaces and offices in Abuja's business district.</p>
+                        <div style="display: flex; gap: 10px; margin-top: 20px;">
+                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">Commercial</span>
+                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">5 Stories</span>
+                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">2024</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card fade-in-up theme-transition" data-project-id="2" style="animation-delay: 0.1s;">
+                    <button class="project-share-btn" onclick="shareProject(2)" aria-label="Share this project">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <div class="project-image">
+                        <img src="capi_dfa945349ded659b9dc39dcb4805fca6_c13e948a7a72748323ef771bf8aff689.jpeg" alt="Residential Estate">
+                        <div class="project-overlay">
+                            <span class="project-status status-completed">
+                                <i class="fas fa-check-circle"></i> Completed
+                            </span>
+                            <h3 style="color: white; font-size: 1.4rem;">Hilltop Residence, Jos</h3>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <p>Gated community development with 20 luxury homes in Jos, Plateau State.</p>
+                        <div style="display: flex; gap: 10px; margin-top: 20px;">
+                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">Residential</span>
+                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">20 Units</span>
+                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card fade-in-up theme-transition" data-project-id="3" style="animation-delay: 0.2s;">
+                    <button class="project-share-btn" onclick="shareProject(3)" aria-label="Share this project">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <div class="project-image">
+                        <img src="360_F_224037581_KsgpR416w2iOpG0AaIr3d9Kaqpt4jgft.webp" alt="Industrial Facility">
+                        <div class="project-overlay">
+                            <span class="project-status status-ongoing">
+                                <i class="fas fa-clock"></i> Ongoing
+                            </span>
+                            <h3 style="color: white; font-size: 1.4rem;">Agro-Processing Plant, Kano</h3>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <p>Industrial facility for agricultural processing with storage and distribution centers.</p>
+                        <div style="display: flex; gap: 10px; margin-top: 20px;">
+                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">Industrial</span>
+                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">Processing</span>
+                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section theme-transition">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">About Us</div>
+                <h2 class="section-title">Building <span>Excellence</span> Since 2010</h2>
+                <p class="section-subtitle">Engineering excellence, structural integrity, and reliable delivery of construction projects</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="About Dekontractors">
+                    <div class="about-badge">
+                        <div class="number">15+</div>
+                        <div class="text">Years Experience</div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 24px; color: var(--dark);">Your Trusted Construction Partner</h3>
+                    <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--gray-600);">
+                        Dekontractors Nig. Ltd is a premier construction company and general contracting firm based in Jos, Plateau State, Nigeria. With our headquarters strategically located at 29/10 Bauchi Road, we have established ourselves as a trusted name in the construction industry.
+                    </p>
+                    <p style="margin-bottom: 20px; color: var(--gray-600);">
+                        Founded on principles of engineering excellence, structural integrity, and unwavering commitment to quality, we specialize in a wide range of construction services. Our portfolio includes residential buildings, commercial complexes, industrial facilities, and infrastructure projects.
+                    </p>
+                    <div style="display: flex; gap: 24px; margin-top: 32px;">
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 8px; font-size: 1.8rem; font-weight: 900;">50+</h4>
+                            <p style="color: var(--gray-600);">Projects Completed</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 8px; font-size: 1.8rem; font-weight: 900;">30+</h4>
+                            <p style="color: var(--gray-600);">Expert Team Members</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO Section with Share Button -->
+    <section id="ceo" class="section theme-transition" style="background: var(--light);">
+        <div class="container">
+            <div class="ceo-content theme-transition">
+                <div class="ceo-image">
+                    <button class="ceo-share-btn" onclick="shareCEO()" aria-label="Share CEO Profile">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <img src="IMG-20260113-WA0004.jpg" alt="Bldr. Jabir Shehu Na'Allah">
+                </div>
+                <div class="ceo-info">
+                    <div class="ceo-title">Chief Executive Officer</div>
+                    <h3 class="ceo-name">Bldr. Jabir Shehu Na'Allah (MNIOB)</h3>
+                    <p style="margin-bottom: 24px; color: var(--gray-600);">
+                        With over 15 years of experience in the construction industry, Bldr. Jabir Shehu Na'Allah brings extensive expertise in project management, structural engineering, and construction supervision to Dekontractors Nig. Ltd.
+                    </p>
+                    <p style="margin-bottom: 24px; color: var(--gray-600);">
+                        As a registered member of the Nigerian Institute of Building (MNIOB), he ensures that all projects adhere to the highest professional standards and regulatory requirements. His leadership philosophy centers on integrity, quality craftsmanship, and client satisfaction.
+                    </p>
+                    <div style="background: rgba(10, 36, 99, 0.05); padding: 24px; border-radius: var(--radius-md);">
+                        <h4 style="color: var(--primary); margin-bottom: 16px;">Professional Qualifications:</h4>
+                        <ul style="columns: 2; list-style: none; color: var(--gray-600);">
+                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: var(--secondary); margin-right: 8px;"></i> Member, Nigerian Institute of Building</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: var(--secondary); margin-right: 8px;"></i> Certified Project Management</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: var(--secondary); margin-right: 8px;"></i> Registered Builder (CORBON)</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: var(--secondary); margin-right: 8px;"></i> Safety Officer Certified</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section theme-transition">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Get In Touch</div>
+                <h2 class="section-title">Start Your <span>Project</span> Today</h2>
+                <p class="section-subtitle">Contact our engineering team to discuss your construction project requirements</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 style="font-size: 2rem; margin-bottom: 24px; color: white;">Contact Information</h3>
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <div style="width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-map-marker-alt" style="color: var(--secondary);"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 4px;">Our Address</h4>
+                                <p style="opacity: 0.9;">29/10 Bauchi Road, Jos, Plateau State, Nigeria</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <div style="width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-phone-alt" style="color: var(--secondary);"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 4px;">Phone Number</h4>
+                                <p style="opacity: 0.9;">08064731042</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <div style="width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-envelope" style="color: var(--secondary);"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 4px;">Email Address</h4>
+                                <p style="opacity: 0.9;">info@dekontractors.com</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <div style="width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-clock" style="color: var(--secondary);"></i>
+                            </div>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 4px;">Business Hours</h4>
+                                <p style="opacity: 0.9;">Mon-Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form theme-transition">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 32px; color: var(--dark);">Send Message</h3>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" name="phone" class="form-control" placeholder="Phone Number">
+                        </div>
+                        
+                        <div class="form-group">
+                            <select name="service" class="form-control" required>
+                                <option value="">Select Service</option>
+                                <option value="Building Construction">Building Construction</option>
+                                <option value="General Contracting">General Contracting</option>
+                                <option value="Renovation & Maintenance">Renovation & Maintenance</option>
+                                <option value="Project Supervision">Project Supervision</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea name="message" class="form-control" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a href="#home" class="logo" style="margin-bottom: 24px; text-decoration: none;">
+                        <div class="logo-image">
+                            <img src="file_00000000d3d4720ab491ef5cc601a455.png" alt="Dekontractors Logo">
+                        </div>
+                        <div class="logo-text">
+                            <h1 style="background: linear-gradient(135deg, #FFFFFF 0%, #FFE566 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Dekontractors</h1>
+                            <span style="color: rgba(255, 255, 255, 0.8);">Engineering Excellence</span>
+                        </div>
+                    </a>
+                    <p style="opacity: 0.8; margin-bottom: 24px;">
+                        Building Nigeria's future with engineering excellence and professional craftsmanship since 2010.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: 24px; font-size: 1.2rem;">Quick Links</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                        <li><a href="#home" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Home</a></li>
+                        <li><a href="#about" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">About Us</a></li>
+                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Services</a></li>
+                        <li><a href="#projects" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Projects</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: 24px; font-size: 1.2rem;">Our Services</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Building Construction</a></li>
+                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">General Contracting</a></li>
+                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Renovation & Maintenance</a></li>
+                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Project Supervision</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dekontractors Nig. Ltd. All Rights Reserved. | Registered Limited Liability Construction Company</p>
+                <div style="margin-top: 10px; display: flex; gap: 15px; justify-content: center;">
+                    <a href="terms-of-service.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.85rem;">Terms of Service</a>
+                    <a href="privacy-policy.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.85rem;">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/2348064731042?text=Hello%20Engineer%20Jabir%2C%20I%20am%20contacting%20you%20from%20the%20Dekontractors%20website." 
+       class="whatsapp-btn theme-transition" 
+       style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: var(--shadow-lg); transition: all 0.3s; z-index: 999;"
+       target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // ======================
+        // PWA Installation Logic
+        // ======================
+        let deferredPrompt;
+        const installButton = document.getElementById('installButton');
+        const pwaInstallPrompt = document.getElementById('pwaInstallPrompt');
+        const installPwaBtn = document.getElementById('installPwaBtn');
+        const laterPwaBtn = document.getElementById('laterPwaBtn');
+        const closePwaPrompt = document.getElementById('closePwaPrompt');
+        
+        // Listen for beforeinstallprompt event
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent the mini-infobar from appearing on mobile
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            // Show install button
+            installButton.classList.add('show');
+            
+            // Show prompt after 5 seconds if not dismissed before
+            setTimeout(() => {
+                if (!localStorage.getItem('pwaPromptDismissed')) {
+                    pwaInstallPrompt.classList.add('show');
+                }
+            }, 5000);
+        });
+        
+        // Install button click handler
+        installButton.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            
+            // Show the install prompt
+            deferredPrompt.prompt();
+            
+            // Wait for the user to respond to the prompt
+            const { outcome } = await deferredPrompt.userChoice;
+            
+            if (outcome === 'accepted') {
+                console.log('User accepted the install prompt');
+                installButton.style.display = 'none';
+                localStorage.setItem('pwaInstalled', 'true');
+            } else {
+                console.log('User dismissed the install prompt');
+            }
+            
+            // Clear the deferredPrompt variable
+            deferredPrompt = null;
+        });
+        
+        // PWA prompt install button
+        installPwaBtn.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            
+            if (outcome === 'accepted') {
+                console.log('PWA installed from prompt');
+                localStorage.setItem('pwaInstalled', 'true');
+            }
+            
+            deferredPrompt = null;
+            pwaInstallPrompt.classList.remove('show');
+            localStorage.setItem('pwaPromptDismissed', 'true');
+        });
+        
+        // Later button
+        laterPwaBtn.addEventListener('click', () => {
+            pwaInstallPrompt.classList.remove('show');
+            localStorage.setItem('pwaPromptDismissed', 'true');
+        });
+        
+        // Close button
+        closePwaPrompt.addEventListener('click', () => {
+            pwaInstallPrompt.classList.remove('show');
+            localStorage.setItem('pwaPromptDismissed', 'true');
+        });
+        
+        // Check if PWA is already installed
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA was installed');
+            installButton.style.display = 'none';
+            pwaInstallPrompt.classList.remove('show');
+            localStorage.setItem('pwaInstalled', 'true');
+            localStorage.setItem('pwaPromptDismissed', 'true');
+        });
+        
+        // ======================
+        // Sharing Functions
+        // ======================
+        // Share project function
+        async function shareProject(projectId) {
+            const projectCards = {
+                1: {
+                    title: "Commercial Complex, Abuja",
+                    description: "A modern 5-story commercial building with retail spaces and offices in Abuja's business district.",
+                    image: "panash-designs-artstation-post-01.jpg",
+                    url: window.location.origin + "/#projects"
+                },
+                2: {
+                    title: "Hilltop Residence, Jos",
+                    description: "Gated community development with 20 luxury homes in Jos, Plateau State.",
+                    image: "capi_dfa945349ded659b9dc39dcb4805fca6_c13e948a7a72748323ef771bf8aff689.jpeg",
+                    url: window.location.origin + "/#projects"
+                },
+                3: {
+                    title: "Agro-Processing Plant, Kano",
+                    description: "Industrial facility for agricultural processing with storage and distribution centers.",
+                    image: "360_F_224037581_KsgpR416w2iOpG0AaIr3d9Kaqpt4jgft.webp",
+                    url: window.location.origin + "/#projects"
+                }
+            };
+            
+            const project = projectCards[projectId];
+            const shareData = {
+                title: `Dekontractors Project: ${project.title}`,
+                text: `${project.description}\n\nView more projects at Dekontractors.`,
+                url: project.url
+            };
+            
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                    console.log('Project shared successfully');
+                } catch (err) {
+                    console.log('Error sharing:', err);
+                    copyToClipboard(project.url);
+                }
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                copyToClipboard(project.url);
+            }
+        }
+        
+        // Share CEO profile function
+        async function shareCEO() {
+            const shareData = {
+                title: "Bldr. Jabir Shehu Na'Allah - CEO of Dekontractors Nig. Ltd",
+                text: "With over 15 years of experience in construction, Bldr. Jabir Shehu Na'Allah leads Dekontractors with expertise in project management and structural engineering.",
+                url: window.location.origin + "/#ceo"
+            };
+            
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                    console.log('CEO profile shared successfully');
+                } catch (err) {
+                    console.log('Error sharing:', err);
+                    copyToClipboard(shareData.url);
+                }
+            } else {
+                copyToClipboard(shareData.url);
+            }
+        }
+        
+        // Copy to clipboard fallback
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('Link copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                showNotification('Failed to copy link. Please copy manually.');
+            });
+        }
+        
+        // Notification function
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.bottom = '100px';
+            notification.style.right = '20px';
+            notification.style.background = 'var(--primary)';
+            notification.style.color = 'white';
+            notification.style.padding = '15px 20px';
+            notification.style.borderRadius = 'var(--radius-md)';
+            notification.style.boxShadow = 'var(--shadow-lg)';
+            notification.style.zIndex = '10000';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // ======================
+        // Service Worker Registration
+        // ======================
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered:', registration);
+                        
+                        // Check for updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            console.log('ServiceWorker update found!');
+                            
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    showNotification('New update available! Refresh to update.');
+                                }
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed:', error);
+                    });
+            });
+        }
+        
+        // ======================
+        // Existing Functions (from original code)
+        // ======================
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (savedTheme === 'auto' && prefersDark)) {
+            body.setAttribute('data-theme', 'dark');
+        } else {
+            body.setAttribute('data-theme', 'light');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            themeToggle.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                themeToggle.style.transform = '';
+            }, 200);
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    if (this.classList.contains('nav-link')) {
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+        
+        // Scroll to contact function
+        function scrollToContact() {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                window.scrollTo({
+                    top: contactSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        }
+        
+        // WhatsApp form submission
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const name = this.name.value;
+            const email = this.email.value;
+            const phone = this.phone.value;
+            const service = this.service.value;
+            const message = this.message.value;
+
+            const whatsappMessage = `
+Hello Dekontractors Nig. Ltd,
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Service: ${service}
+
+Message:
+${message}
+            `.trim();
+
+            const whatsappURL = `https://wa.me/2348064731042?text=${encodeURIComponent(whatsappMessage)}`;
+
+            window.open(whatsappURL, "_blank");
+            
+            // Save form data for offline sync
+            if ('serviceWorker' in navigator && 'SyncManager' in window) {
+                const formData = {
+                    id: Date.now(),
+                    name, email, phone, service, message,
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Store in IndexedDB for background sync
+                const pendingForms = JSON.parse(localStorage.getItem('pendingForms') || '[]');
+                pendingForms.push(formData);
+                localStorage.setItem('pendingForms', JSON.stringify(pendingForms));
+                
+                // Register for background sync
+                navigator.serviceWorker.ready.then(registration => {
+                    return registration.sync.register('sync-forms');
+                });
+            }
+            
+            this.reset();
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            window.dispatchEvent(new Event('scroll'));
+            
+            const whatsappBtn = document.querySelector('.whatsapp-btn');
+            if (whatsappBtn) {
+                whatsappBtn.addEventListener('mouseenter', () => {
+                    whatsappBtn.style.transform = 'scale(1.1)';
+                    whatsappBtn.style.boxShadow = '0 20px 30px rgba(37, 211, 102, 0.3)';
+                });
+                
+                whatsappBtn.addEventListener('mouseleave', () => {
+                    whatsappBtn.style.transform = 'scale(1)';
+                    whatsappBtn.style.boxShadow = 'var(--shadow-lg)';
+                });
+            }
+            
+            // Check if app is running in standalone mode
+            if (window.matchMedia('(display-mode: standalone)').matches || 
+                window.navigator.standalone === true) {
+                console.log('Running in standalone mode');
+                installButton.style.display = 'none';
+            }
+        });
+        
+        // Offline/Online detection
+        window.addEventListener('online', () => {
+            showNotification('You are back online!');
+        });
+        
+        window.addEventListener('offline', () => {
+            showNotification('You are offline. Some features may be limited.');
+        });
+    </script>
+</body>
+</html>
