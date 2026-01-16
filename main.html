@@ -4,74 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dekontractors Nig. Ltd - Engineering Excellence & Construction Solutions</title>
-    <meta name="description" content="Building Nigeria's future with precision, quality, and professional expertise. We deliver exceptional construction projects with structural integrity and innovative design.">
+    <meta name="description" content="Building Nigeria's future with precision, quality, and professional expertise.">
     
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#0A2463">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Dekontractors">
     <link rel="apple-touch-icon" href="icons/icon-192x192.png">
     <link rel="manifest" href="manifest.json">
     
-    <!-- Facebook Open Graph -->
-    <meta property="og:title" content="Dekontractors Nig. Ltd - Engineering Excellence & Construction Solutions">
-    <meta property="og:description" content="Building Nigeria's future with precision, quality, and professional expertise.">
-    <meta property="og:image" content="https://yourdomain.com/file_00000000d3d4720ab491ef5cc601a455.png">
-    <meta property="og:url" content="https://yourdomain.com">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Dekontractors Nig. Ltd">
-    <meta name="twitter:description" content="Engineering Excellence & Construction Solutions">
-    <meta name="twitter:image" content="https://yourdomain.com/file_00000000d3d4720ab491ef5cc601a455.png">
-    
-    <!-- CSS & Fonts -->
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        :root {
-            --primary: #0A2463;
-            --secondary: #FFB400;
-            --accent: #3E7BFA;
-            --dark: #1A1A2E;
-            --gray-800: #2D3748;
-            --gray-600: #4A5568;
-            --gray-300: #CBD5E0;
-            --light: #F7FAFC;
-            --white: #FFFFFF;
-            --gradient-blue: linear-gradient(135deg, #0A2463 0%, #3E7BFA 100%);
-            --gradient-yellow: linear-gradient(135deg, #FFB400 0%, #FFE566 100%);
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-        }
-
-        [data-theme="dark"] {
-            --primary: #3E7BFA;
-            --secondary: #FFB400;
-            --accent: #5D9CFF;
-            --dark: #F7FAFC;
-            --gray-800: #CBD5E0;
-            --gray-600: #A0AEC0;
-            --gray-300: #2D3748;
-            --light: #1A1A2E;
-            --white: #2D3748;
-            --gradient-blue: linear-gradient(135deg, #3E7BFA 0%, #5D9CFF 100%);
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
-            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
+        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -84,46 +31,102 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            color: var(--gray-800);
-            background-color: var(--light);
-            overflow-x: hidden;
-            transition: background-color var(--transition-smooth), color var(--transition-smooth);
+            line-height: 1.6;
+            background-color: #f8fafc;
+            color: #1e293b;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: #0f172a;
+            color: #e2e8f0;
         }
 
         .container {
-            width: 100%;
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
 
-        /* Header & Navigation - FIXED LOGO VISIBILITY */
+        section {
+            padding: 80px 0;
+        }
+
+        /* ===== LOGO FIXES ===== */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0A2463 0%, #3E7BFA 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        body.dark-mode .logo-image {
+            background: linear-gradient(135deg, #3E7BFA 0%, #5D9CFF 100%);
+        }
+
+        body.dark-mode .logo-image img {
+            filter: brightness(1.2);
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0A2463;
+        }
+
+        body.dark-mode .logo-text h1 {
+            color: #60a5fa;
+        }
+
+        .logo-text span {
+            font-size: 0.7rem;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        body.dark-mode .logo-text span {
+            color: #94a3b8;
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000;
-            padding: 20px 0;
-            transition: all var(--transition-smooth);
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
         }
 
-        [data-theme="dark"] header {
-            background: rgba(26, 26, 46, 0.95);
+        body.dark-mode header {
+            background: rgba(15, 23, 42, 0.95);
         }
 
         header.scrolled {
-            padding: 15px 0;
-            box-shadow: var(--shadow-md);
-            background: rgba(255, 255, 255, 0.98);
-        }
-
-        [data-theme="dark"] header.scrolled {
-            background: rgba(26, 26, 46, 0.98);
+            padding: 10px 0;
         }
 
         .nav-container {
@@ -132,111 +135,83 @@
             align-items: center;
         }
 
-        .logo {
+        .nav-menu {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 30px;
+        }
+
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-menu a {
             text-decoration: none;
-        }
-
-        /* FIXED LOGO SIZE AND VISIBILITY */
-        .logo-image {
-            width: 120px; /* Increased from 50px */
-            height: 50px; /* Increased from 50px */
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: var(--gradient-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 5px;
-            transition: all var(--transition-fast);
-        }
-
-        [data-theme="dark"] .logo-image {
-            background: var(--white);
-            border: 2px solid var(--secondary);
-        }
-
-        .logo-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: brightness(0) invert(1);
-            transition: filter var(--transition-fast);
-        }
-
-        [data-theme="dark"] .logo-image img {
-            filter: none; /* Changed from brightness(0) invert(0) */
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text h1 {
-            font-size: 1.8rem;
-            font-weight: 900;
-            background: var(--gradient-blue);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.2;
-        }
-
-        .logo-text span {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--gray-600);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        /* PWA Install Button - FIXED FOR NAV MENU */
-        .install-btn {
-            display: none;
-            background: var(--gradient-yellow);
-            color: var(--dark);
-            border: none;
-            padding: 10px 20px;
-            border-radius: var(--radius-md);
-            font-weight: 700;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-            box-shadow: var(--shadow-md);
-            align-items: center;
-            gap: 8px;
+            color: #475569;
+            font-weight: 500;
             font-size: 0.95rem;
-        }
-
-        .install-btn.show {
             display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s;
         }
 
-        .install-btn:hover {
+        body.dark-mode .nav-menu a {
+            color: #cbd5e1;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: rgba(10, 36, 99, 0.08);
+            color: #0A2463;
+        }
+
+        body.dark-mode .nav-menu a:hover,
+        body.dark-mode .nav-menu a.active {
+            background: rgba(96, 165, 250, 0.15);
+            color: #60a5fa;
+        }
+
+        /* ===== INSTALL BUTTON IN NAV ===== */
+        .install-nav-btn {
+            background: linear-gradient(135deg, #FFB400 0%, #FFE566 100%);
+            color: #1e293b;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .install-nav-btn:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 4px 12px rgba(255, 180, 0, 0.3);
         }
 
-        .install-btn.installed {
-            background: var(--gray-300);
-            color: var(--gray-600);
+        .install-nav-btn.installed {
+            background: #cbd5e1;
+            color: #64748b;
             cursor: not-allowed;
-            opacity: 0.7;
-        }
-
-        .install-btn.installed:hover {
             transform: none;
-            box-shadow: var(--shadow-md);
+            box-shadow: none;
         }
 
-        /* Theme Toggle */
+        body.dark-mode .install-nav-btn.installed {
+            background: #334155;
+            color: #94a3b8;
+        }
+
+        /* ===== THEME TOGGLE ===== */
         .theme-toggle {
             background: none;
             border: none;
@@ -247,264 +222,65 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all var(--transition-fast);
-            background: var(--gradient-blue);
-            color: white;
-            position: relative;
-            overflow: hidden;
+            color: #475569;
+            background: #f1f5f9;
+            transition: all 0.3s;
         }
 
-        .theme-toggle::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-yellow);
-            opacity: 0;
-            transition: opacity var(--transition-fast);
-        }
-
-        [data-theme="dark"] .theme-toggle {
-            background: var(--gradient-yellow);
-            color: var(--dark);
-        }
-
-        [data-theme="dark"] .theme-toggle::before {
-            opacity: 1;
+        body.dark-mode .theme-toggle {
+            background: #1e293b;
+            color: #e2e8f0;
         }
 
         .theme-toggle:hover {
-            transform: scale(1.1);
-            box-shadow: var(--shadow-md);
+            transform: rotate(15deg);
         }
 
-        .theme-toggle i {
-            position: relative;
-            z-index: 1;
-            font-size: 1.2rem;
-        }
-
-        .sun-icon {
-            display: block;
-        }
-
-        .moon-icon {
-            display: none;
-        }
-
-        [data-theme="dark"] .sun-icon {
-            display: none;
-        }
-
-        [data-theme="dark"] .moon-icon {
-            display: block;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-            align-items: center;
-        }
-
-        nav ul li {
-            list-style: none;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            font-size: 1rem;
-            padding: 8px 12px;
-            position: relative;
-            transition: color var(--transition-fast);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-radius: var(--radius-md);
-        }
-
-        nav ul li a i {
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary);
-            background: rgba(10, 36, 99, 0.05);
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 12px;
-            width: calc(100% - 24px);
-            height: 3px;
-            background: var(--gradient-yellow);
-            border-radius: 3px;
-            transition: transform var(--transition-smooth);
-            transform: scaleX(0);
-            transform-origin: center;
-        }
-
-        nav ul li a:hover::after,
-        nav ul li a.active::after {
-            transform: scaleX(1);
-        }
-
-        .nav-cta {
-            background: var(--gradient-blue);
-            color: white;
-            padding: 10px 24px;
-            border-radius: var(--radius-md);
-            font-weight: 700;
-            transition: all var(--transition-fast);
-            box-shadow: var(--shadow-md);
-            border: none;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
+        /* ===== MOBILE MENU ===== */
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
             font-size: 1.5rem;
-            color: var(--primary);
+            color: #0A2463;
             cursor: pointer;
-            z-index: 1001;
         }
 
-        /* Share Buttons */
-        .share-btn {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            padding: 8px 16px;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all var(--transition-fast);
+        body.dark-mode .mobile-menu-btn {
+            color: #60a5fa;
         }
 
-        .share-btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .project-share-btn,
-        .ceo-share-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--primary);
-            box-shadow: var(--shadow-md);
-            transition: all var(--transition-fast);
-            z-index: 2;
-        }
-
-        [data-theme="dark"] .project-share-btn,
-        [data-theme="dark"] .ceo-share-btn {
-            background: rgba(26, 26, 46, 0.9);
-            color: var(--secondary);
-        }
-
-        .project-share-btn:hover,
-        .ceo-share-btn:hover {
-            background: white;
-            transform: scale(1.1);
-            box-shadow: var(--shadow-lg);
-        }
-
-        [data-theme="dark"] .project-share-btn:hover,
-        [data-theme="dark"] .ceo-share-btn:hover {
-            background: var(--white);
-        }
-
-        /* Hero Section */
+        /* ===== HERO SECTION ===== */
         .hero {
-            padding: 180px 0 120px;
-            background: linear-gradient(135deg, 
-                rgba(10, 36, 99, 0.95) 0%, 
-                rgba(62, 123, 250, 0.85) 100%),
-                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            padding: 160px 0 100px;
+            background: linear-gradient(rgba(10, 36, 99, 0.9), rgba(62, 123, 250, 0.8)),
+                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        [data-theme="dark"] .hero {
-            background: linear-gradient(135deg, 
-                rgba(10, 36, 99, 0.85) 0%, 
-                rgba(62, 123, 250, 0.75) 100%),
-                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(255, 180, 0, 0.15) 0%, transparent 70%);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            position: relative;
-            z-index: 1;
+            text-align: center;
         }
 
         .hero h2 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, #FFFFFF 0%, #FFE566 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .hero p {
             font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
             opacity: 0.9;
-            margin-bottom: 40px;
-            max-width: 600px;
         }
 
         .hero-stats {
             display: flex;
-            gap: 48px;
+            justify-content: center;
+            gap: 50px;
             margin-top: 60px;
+            flex-wrap: wrap;
         }
 
         .stat-item {
@@ -513,44 +289,41 @@
 
         .stat-number {
             font-size: 2.5rem;
-            font-weight: 900;
-            background: var(--gradient-yellow);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 8px;
+            font-weight: 800;
+            color: #FFB400;
+            margin-bottom: 5px;
         }
 
         .stat-label {
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
+        /* ===== BUTTONS ===== */
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 16px 32px;
-            border-radius: var(--radius-md);
-            font-weight: 700;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
             text-decoration: none;
-            transition: all var(--transition-fast);
             border: none;
             cursor: pointer;
+            transition: all 0.3s;
             font-size: 1rem;
-            font-family: 'Inter', sans-serif;
         }
 
         .btn-primary {
-            background: var(--gradient-yellow);
-            color: var(--dark);
-            box-shadow: var(--shadow-md);
+            background: #FFB400;
+            color: #1e293b;
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 180, 0, 0.4);
         }
 
         .btn-secondary {
@@ -561,346 +334,436 @@
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.1);
-            border-color: white;
             transform: translateY(-2px);
         }
 
-        /* Sections */
-        .section {
-            padding: 100px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px;
-        }
-
-        .section-tag {
-            display: inline-block;
-            background: var(--gradient-yellow);
-            color: var(--dark);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
+        /* ===== SECTIONS COMMON STYLES ===== */
         .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
             font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--dark);
-            margin-bottom: 16px;
-            line-height: 1.2;
+            margin-bottom: 15px;
         }
 
-        .section-title span {
-            background: var(--gradient-blue);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--gray-600);
+        .section-title p {
+            color: #64748b;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* Services */
+        body.dark-mode .section-title p {
+            color: #94a3b8;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFB400 0%, #FFE566 100%);
+            color: #1e293b;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== SERVICES SECTION ===== */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
+            gap: 30px;
         }
 
         .service-card {
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            padding: 40px 32px;
-            box-shadow: var(--shadow-md);
-            transition: all var(--transition-smooth);
-            border: 1px solid var(--gray-300);
-            position: relative;
-            overflow: hidden;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-blue);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform var(--transition-smooth);
+        body.dark-mode .service-card {
+            background: #1e293b;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--accent);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
+            transform: translateY(-5px);
         }
 
         .service-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--gradient-blue);
-            border-radius: var(--radius-md);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0A2463 0%, #3E7BFA 100%);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
             color: white;
             font-size: 1.5rem;
+            margin-bottom: 20px;
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-            color: var(--dark);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #0A2463;
         }
 
-        /* Projects - Updated for Sharing */
+        body.dark-mode .service-card h3 {
+            color: #60a5fa;
+        }
+
+        /* ===== PROJECTS SECTION ===== */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .project-card {
-            border-radius: var(--radius-lg);
+            background: white;
+            border-radius: 12px;
             overflow: hidden;
-            background: var(--white);
-            box-shadow: var(--shadow-md);
-            transition: all var(--transition-smooth);
-            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        body.dark-mode .project-card {
+            background: #1e293b;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-5px);
         }
 
         .project-image {
-            height: 240px;
+            height: 200px;
             overflow: hidden;
-            position: relative;
         }
 
         .project-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform var(--transition-smooth);
+            transition: transform 0.3s;
         }
 
         .project-card:hover .project-image img {
             transform: scale(1.05);
         }
 
-        .project-overlay {
+        .project-info {
+            padding: 20px;
+            position: relative;
+        }
+
+        .project-share {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(10, 36, 99, 0.9));
-            padding: 24px;
-            color: white;
+            top: 15px;
+            right: 15px;
+            background: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #0A2463;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        body.dark-mode .project-share {
+            background: #334155;
+            color: #60a5fa;
+        }
+
+        .project-share:hover {
+            transform: scale(1.1);
         }
 
         .project-status {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
+            gap: 5px;
+            padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
 
         .status-completed {
-            background: rgba(46, 204, 113, 0.2);
-            color: #27ae60;
+            background: rgba(34, 197, 94, 0.1);
+            color: #16a34a;
         }
 
         .status-ongoing {
-            background: rgba(241, 196, 15, 0.2);
-            color: #f39c12;
+            background: rgba(234, 179, 8, 0.1);
+            color: #ca8a04;
         }
 
-        .project-info {
-            padding: 32px;
-        }
-
-        /* About */
+        /* ===== ABOUT SECTION ===== */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 64px;
+            gap: 50px;
             align-items: center;
         }
 
         .about-image {
-            border-radius: var(--radius-xl);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow-xl);
+            height: 400px;
             position: relative;
         }
 
         .about-image img {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            object-fit: cover;
         }
 
         .about-badge {
             position: absolute;
-            bottom: 30px;
-            right: -20px;
-            background: var(--gradient-yellow);
-            padding: 20px;
-            border-radius: var(--radius-lg);
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #FFB400 0%, #FFE566 100%);
+            padding: 15px;
+            border-radius: 10px;
             text-align: center;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .about-badge .number {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--dark);
+        .badge-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #1e293b;
         }
 
-        .about-badge .text {
-            font-size: 0.9rem;
+        .badge-text {
+            font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
+            color: #1e293b;
         }
 
-        /* CEO Section - UPDATED WITH PROPER IMAGE DISPLAY */
+        /* ===== CEO SECTION ===== */
+        .ceo-section {
+            background: #f1f5f9;
+        }
+
+        body.dark-mode .ceo-section {
+            background: #0f172a;
+        }
+
         .ceo-content {
             display: grid;
-            grid-template-columns: 400px 1fr;
-            gap: 64px;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
             align-items: center;
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            padding: 60px;
-            box-shadow: var(--shadow-xl);
-            position: relative;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .ceo-content {
+            background: #1e293b;
         }
 
         .ceo-image {
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
             position: relative;
-            height: 500px; /* Fixed height */
+            border-radius: 12px;
+            overflow: hidden;
+            height: 350px;
         }
 
         .ceo-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Changed from 'auto' to 'cover' */
-            display: block;
+            object-fit: cover;
+        }
+
+        .ceo-share {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #0A2463;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        body.dark-mode .ceo-share {
+            background: #334155;
+            color: #60a5fa;
+        }
+
+        .ceo-share:hover {
+            transform: scale(1.1);
+        }
+
+        .ceo-info h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #0A2463;
+        }
+
+        body.dark-mode .ceo-info h2 {
+            color: #60a5fa;
         }
 
         .ceo-title {
+            color: #FFB400;
+            font-weight: 600;
+            margin-bottom: 20px;
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--secondary);
-            font-weight: 700;
-            margin-bottom: 12px;
+            letter-spacing: 1px;
         }
 
-        .ceo-name {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--dark);
-            margin-bottom: 24px;
-            line-height: 1.2;
+        .qualifications {
+            background: rgba(10, 36, 99, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
 
-        /* Contact */
+        body.dark-mode .qualifications {
+            background: rgba(96, 165, 250, 0.1);
+        }
+
+        /* ===== CONTACT SECTION ===== */
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 64px;
+            gap: 50px;
         }
 
         .contact-info {
-            background: var(--gradient-blue);
+            background: linear-gradient(135deg, #0A2463 0%, #3E7BFA 100%);
             color: white;
-            padding: 60px;
-            border-radius: var(--radius-xl);
-            position: relative;
-            overflow: hidden;
+            padding: 40px;
+            border-radius: 12px;
         }
 
-        .contact-info::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-            opacity: 0.1;
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
         }
 
         .contact-form {
-            background: var(--white);
-            padding: 60px;
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xl);
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode .contact-form {
+            background: #1e293b;
         }
 
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .form-control {
             width: 100%;
-            padding: 16px 20px;
-            border: 2px solid var(--gray-300);
-            border-radius: var(--radius-md);
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
-            transition: all var(--transition-fast);
-            background: var(--white);
-            color: var(--gray-800);
+            background: #f8fafc;
+            color: #1e293b;
+            transition: all 0.3s;
+        }
+
+        body.dark-mode .form-control {
+            background: #0f172a;
+            border-color: #334155;
+            color: #e2e8f0;
         }
 
         .form-control:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: #3E7BFA;
             box-shadow: 0 0 0 3px rgba(62, 123, 250, 0.1);
         }
 
-        /* Footer */
+        /* ===== FOOTER ===== */
         footer {
-            background: var(--dark);
+            background: #0A2463;
             color: white;
-            padding: 80px 0 30px;
+            padding: 60px 0 30px;
+        }
+
+        body.dark-mode footer {
+            background: #1e293b;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 48px;
-            margin-bottom: 60px;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #FFB400;
         }
 
         .footer-bottom {
@@ -911,216 +774,155 @@
             font-size: 0.9rem;
         }
 
-        /* PWA Installation Prompt */
-        .pwa-install-prompt {
+        /* ===== WHATSAPP BUTTON ===== */
+        .whatsapp-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-xl);
-            padding: 24px;
-            max-width: 350px;
-            z-index: 9999;
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary);
-        }
-
-        .pwa-install-prompt.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .pwa-install-prompt h3 {
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-
-        .pwa-install-prompt p {
-            color: var(--gray-600);
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-        }
-
-        .pwa-install-buttons {
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
             display: flex;
-            gap: 12px;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
+            z-index: 1000;
+            transition: all 0.3s;
         }
 
-        .pwa-install-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            color: var(--gray-600);
-            cursor: pointer;
-            font-size: 1.2rem;
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
         }
 
-        /* WhatsApp Floating Button - FIXED */
-        .whatsapp-btn {
-            position: fixed !important;
-            bottom: 30px !important;
-            right: 30px !important;
-            background: #25D366 !important;
-            color: white !important;
-            width: 60px !important;
-            height: 60px !important;
-            border-radius: 50% !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            font-size: 1.8rem !important;
-            box-shadow: var(--shadow-lg) !important;
-            transition: all 0.3s !important;
-            z-index: 999 !important;
-            text-decoration: none !important;
+        /* ===== PWA INSTALL PROMPT ===== */
+        .pwa-prompt {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            max-width: 300px;
+            z-index: 999;
+            display: none;
+            animation: slideIn 0.3s ease;
         }
 
-        .whatsapp-btn:hover {
-            transform: scale(1.1) !important;
-            box-shadow: 0 20px 30px rgba(37, 211, 102, 0.3) !important;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
+        @keyframes slideIn {
             from {
+                transform: translateY(20px);
                 opacity: 0;
-                transform: translateY(30px);
             }
             to {
-                opacity: 1;
                 transform: translateY(0);
+                opacity: 1;
             }
         }
 
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease forwards;
+        body.dark-mode .pwa-prompt {
+            background: #1e293b;
+            color: #e2e8f0;
         }
 
-        /* Theme Transition */
-        .theme-transition {
-            transition: background-color var(--transition-smooth), 
-                        color var(--transition-smooth),
-                        border-color var(--transition-smooth),
-                        box-shadow var(--transition-smooth);
+        .pwa-prompt.show {
+            display: block;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
+        .pwa-prompt h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .pwa-prompt p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: #64748b;
+        }
+
+        body.dark-mode .pwa-prompt p {
+            color: #94a3b8;
+        }
+
+        .pwa-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
             .hero h2 {
-                font-size: 2.8rem;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .about-content,
             .ceo-content,
             .contact-content {
                 grid-template-columns: 1fr;
-                gap: 48px;
+                gap: 40px;
             }
             
-            .ceo-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .ceo-image {
-                height: 400px;
+            .ceo-image,
+            .about-image {
+                height: 300px;
             }
         }
 
         @media (max-width: 768px) {
-            .install-btn {
-                display: none !important;
-            }
-            
             .mobile-menu-btn {
                 display: block;
             }
             
-            nav ul {
+            .nav-menu ul {
                 position: fixed;
-                top: 0;
-                right: -100%;
-                width: 300px;
-                height: 100vh;
-                background: var(--white);
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
                 flex-direction: column;
-                padding: 100px 40px 40px;
-                gap: 20px;
-                box-shadow: var(--shadow-xl);
-                transition: right var(--transition-smooth);
-                z-index: 1000;
-                align-items: flex-start;
-            }
-            
-            nav ul li {
-                width: 100%;
-            }
-            
-            nav ul li a {
-                width: 100%;
-                padding: 12px;
-            }
-            
-            nav ul.active {
-                right: 0;
-            }
-            
-            .nav-controls {
+                padding: 20px;
                 gap: 15px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            body.dark-mode .nav-menu ul {
+                background: #1e293b;
+            }
+            
+            .nav-menu ul.show {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
             }
             
             .hero {
-                padding: 150px 0 80px;
+                padding: 140px 0 80px;
             }
             
             .hero h2 {
-                font-size: 2.2rem;
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
             }
             
             .hero-stats {
-                flex-wrap: wrap;
-                gap: 32px;
+                gap: 30px;
             }
             
-            .section {
-                padding: 60px 0;
-            }
-            
-            .ceo-content,
-            .contact-form,
-            .contact-info {
-                padding: 40px 30px;
-            }
-            
-            .pwa-install-prompt {
-                left: 20px;
-                right: 20px;
-                max-width: none;
-            }
-            
-            .logo-image {
-                width: 100px;
-                height: 45px;
-            }
-            
-            .logo-text h1 {
-                font-size: 1.6rem;
-            }
-            
-            .whatsapp-btn {
-                bottom: 20px !important;
-                right: 20px !important;
-                width: 55px !important;
-                height: 55px !important;
-                font-size: 1.6rem !important;
+            .stat-number {
+                font-size: 2rem;
             }
         }
 
@@ -1129,59 +931,48 @@
                 font-size: 1.8rem;
             }
             
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .btn {
-                padding: 14px 24px;
-            }
-            
-            .services-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
+            .hero p {
+                font-size: 1rem;
             }
             
             .logo-image {
-                width: 80px;
-                height: 40px;
+                width: 50px;
+                height: 50px;
             }
             
             .logo-text h1 {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
             
-            .ceo-image {
-                height: 350px;
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .pwa-prompt {
+                right: 20px;
+                left: 20px;
+                max-width: none;
+                bottom: 90px;
             }
         }
     </style>
 </head>
-<body data-theme="light">
-    <!-- PWA Install Prompt -->
-    <div class="pwa-install-prompt theme-transition" id="pwaInstallPrompt">
-        <button class="pwa-install-close" id="closePwaPrompt">
-            <i class="fas fa-times"></i>
-        </button>
-        <h3>Install Dekontractors App</h3>
-        <p>Install our app for quick access to construction services, even offline. Get instant updates and faster loading.</p>
-        <div class="pwa-install-buttons">
-            <button class="btn btn-primary" id="installPwaBtn">
-                <i class="fas fa-download"></i> Install App
-            </button>
-            <button class="btn btn-secondary" id="laterPwaBtn">
-                Maybe Later
-            </button>
-        </div>
-    </div>
-
+<body>
     <!-- Header -->
-    <header class="theme-transition">
+    <header>
         <div class="container nav-container">
             <a href="#home" class="logo">
                 <div class="logo-image">
-                    <img src="file_00000000d3d4720ab491ef5cc601a455.png" 
-                         alt="Dekontractors Logo">
+                    <img src="file_00000000d3d4720ab491ef5cc601a455.png" alt="Dekontractors Logo">
                 </div>
                 <div class="logo-text">
                     <h1>Dekontractors</h1>
@@ -1189,28 +980,27 @@
                 </div>
             </a>
             
-            <div class="nav-controls">
-                <button class="install-btn" id="installButton">
-                    <i class="fas fa-download"></i> Install App
-                </button>
+            <div class="nav-menu">
+                <ul id="mainMenu">
+                    <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                    <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                    <li><a href="#ceo"><i class="fas fa-user-tie"></i> CEO</a></li>
+                    <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+                    <li>
+                        <button class="install-nav-btn" id="installNavBtn">
+                            <i class="fas fa-download"></i> Install
+                        </button>
+                    </li>
+                    <li>
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-sun"></i>
+                        </button>
+                    </li>
+                </ul>
                 
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-sun sun-icon"></i>
-                    <i class="fas fa-moon moon-icon"></i>
-                </button>
-                
-                <nav>
-                    <ul id="navMenu">
-                        <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
-                        <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
-                        <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
-                        <li><a href="#ceo"><i class="fas fa-user-tie"></i> CEO</a></li>
-                        <li><a href="#contact" class="nav-cta">Contact Us</a></li>
-                    </ul>
-                </nav>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -1218,167 +1008,141 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content fade-in-up">
-                <h2>Engineering Excellence & Construction Solutions</h2>
-                <p>Building Nigeria's future with precision, quality, and professional expertise. We deliver exceptional construction projects with structural integrity and innovative design.</p>
-                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-                    <button class="btn btn-primary" onclick="scrollToContact()">Start Your Project <i class="fas fa-arrow-right"></i></button>
-                    <a href="#projects" class="btn btn-secondary">View Our Work</a>
+            <h2>Engineering Excellence & Construction Solutions</h2>
+            <p>Building Nigeria's future with precision, quality, and professional expertise. We deliver exceptional construction projects with structural integrity and innovative design.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px; flex-wrap: wrap;">
+                <a href="#contact" class="btn btn-primary">Start Your Project <i class="fas fa-arrow-right"></i></a>
+                <a href="#projects" class="btn btn-secondary">View Our Work</a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projects Completed</div>
                 </div>
-                
-                <div class="hero-stats fade-in-up" style="animation-delay: 0.2s;">
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Client Satisfaction</div>
-                    </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Client Satisfaction</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section theme-transition">
+    <section id="services">
         <div class="container">
-            <div class="section-header">
-                <div class="section-tag">Our Expertise</div>
-                <h2 class="section-title">Professional <span>Construction Services</span></h2>
-                <p class="section-subtitle">Comprehensive construction solutions tailored to meet your project requirements</p>
+            <div class="section-title">
+                <span class="section-tag">Our Expertise</span>
+                <h2>Professional Construction Services</h2>
+                <p>Comprehensive construction solutions tailored to meet your project requirements</p>
             </div>
             
             <div class="services-grid">
-                <div class="service-card fade-in-up theme-transition">
+                <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-building"></i>
                     </div>
                     <h3>Building Construction</h3>
                     <p>Complete construction of residential, commercial, and industrial buildings from foundation to finishing.</p>
-                    <ul style="margin-top: 16px; padding-left: 20px; color: var(--gray-600);">
-                        <li>Residential & commercial buildings</li>
-                        <li>Industrial facilities</li>
-                        <li>Institutional structures</li>
-                    </ul>
                 </div>
                 
-                <div class="service-card fade-in-up theme-transition" style="animation-delay: 0.1s;">
+                <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-hard-hat"></i>
                     </div>
                     <h3>General Contracting</h3>
                     <p>End-to-end project management, coordinating all construction phases, subcontractors, and timelines.</p>
-                    <ul style="margin-top: 16px; padding-left: 20px; color: var(--gray-600);">
-                        <li>Project planning & coordination</li>
-                        <li>Budget management</li>
-                        <li>Quality control</li>
-                    </ul>
                 </div>
                 
-                <div class="service-card fade-in-up theme-transition" style="animation-delay: 0.2s;">
+                <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-tools"></i>
                     </div>
                     <h3>Renovation & Maintenance</h3>
                     <p>Transforming existing structures through renovation, remodeling, and ongoing maintenance services.</p>
-                    <ul style="margin-top: 16px; padding-left: 20px; color: var(--gray-600);">
-                        <li>Building renovation</li>
-                        <li>Structural repairs</li>
-                        <li>Facility maintenance</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section with Share Buttons -->
-    <section id="projects" class="section theme-transition" style="background: var(--light);">
+    <!-- Projects Section -->
+    <section id="projects" style="background: #f1f5f9;">
         <div class="container">
-            <div class="section-header">
-                <div class="section-tag">Our Portfolio</div>
-                <h2 class="section-title">Featured <span>Projects</span></h2>
-                <p class="section-subtitle">Showcasing our portfolio of completed and ongoing construction projects</p>
+            <div class="section-title">
+                <span class="section-tag">Our Portfolio</span>
+                <h2>Featured Projects</h2>
+                <p>Showcasing our portfolio of completed and ongoing construction projects</p>
             </div>
             
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <div class="project-card fade-in-up theme-transition" data-project-id="1">
-                    <button class="project-share-btn" onclick="shareProject(1)" aria-label="Share this project">
+                <div class="project-card">
+                    <button class="project-share" onclick="shareProject(1)">
                         <i class="fas fa-share-alt"></i>
                     </button>
                     <div class="project-image">
-                        <img src="panash-designs-artstation-post-01.jpg" alt="Commercial Building" 
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1487956382158-bb926046304a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
-                        <div class="project-overlay">
-                            <span class="project-status status-completed">
-                                <i class="fas fa-check-circle"></i> Completed
-                            </span>
-                            <h3 style="color: white; font-size: 1.4rem;">Commercial Complex, Abuja</h3>
-                        </div>
+                        <img src="panash-designs-artstation-post-01.jpg" alt="Commercial Building">
                     </div>
                     <div class="project-info">
+                        <span class="project-status status-completed">
+                            <i class="fas fa-check-circle"></i> Completed
+                        </span>
+                        <h3>Commercial Complex, Abuja</h3>
                         <p>A modern 5-story commercial building with retail spaces and offices in Abuja's business district.</p>
-                        <div style="display: flex; gap: 10px; margin-top: 20px;">
-                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">Commercial</span>
-                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">5 Stories</span>
-                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">2024</span>
+                        <div style="display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap;">
+                            <span style="background: #f1f5f9; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: #64748b;">Commercial</span>
+                            <span style="background: #f1f5f9; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: #64748b;">5 Stories</span>
+                            <span style="background: #f1f5f9; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: #64748b;">2024</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="project-card fade-in-up theme-transition" data-project-id="2" style="animation-delay: 0.1s;">
-                    <button class="project-share-btn" onclick="shareProject(2)" aria-label="Share this project">
+                <div class="project-card">
+                    <button class="project-share" onclick="shareProject(2)">
                         <i class="fas fa-share-alt"></i>
                     </button>
                     <div class="project-image">
-                        <img src="capi_dfa945349ded659b9dc39dcb4805fca6_c13e948a7a72748323ef771bf8aff689.jpeg" alt="Residential Estate"
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
-                        <div class="project-overlay">
-                            <span class="project-status status-completed">
-                                <i class="fas fa-check-circle"></i> Completed
-                            </span>
-                            <h3 style="color: white; font-size: 1.4rem;">Hilltop Residence, Jos</h3>
-                        </div>
+                        <img src="capi_dfa945349ded659b9dc39dcb4805fca6_c13e948a7a72748323ef771bf8aff689.jpeg" alt="Residential Estate">
                     </div>
                     <div class="project-info">
+                        <span class="project-status status-completed">
+                            <i class="fas fa-check-circle"></i> Completed
+                        </span>
+                        <h3>Hilltop Residence, Jos</h3>
                         <p>Gated community development with 20 luxury homes in Jos, Plateau State.</p>
-                        <div style="display: flex; gap: 10px; margin-top: 20px;">
-                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">Residential</span>
-                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">20 Units</span>
-                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">2023</span>
+                        <div style="display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap;">
+                            <span style="background: #f1f5f9; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: #64748b;">Residential</span>
+                            <span style="background: #f1f5f9; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: #64748b;">20 Units</span>
+                            <span style="background: #f1f5f9; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: #64748b;">2023</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="project-card fade-in-up theme-transition" data-project-id="3" style="animation-delay: 0.2s;">
-                    <button class="project-share-btn" onclick="shareProject(3)" aria-label="Share this project">
+                <div class="project-card">
+                    <button class="project-share" onclick="shareProject(3)">
                         <i class="fas fa-share-alt"></i>
                     </button>
                     <div class="project-image">
-                        <img src="360_F_224037581_KsgpR416w2iOpG0AaIr3d9Kaqpt4jgft.webp" alt="Industrial Facility"
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
-                        <div class="project-overlay">
-                            <span class="project-status status-ongoing">
-                                <i class="fas fa-clock"></i> Ongoing
-                            </span>
-                            <h3 style="color: white; font-size: 1.4rem;">Agro-Processing Plant, Kano</h3>
-                        </div>
+                        <img src="360_F_224037581_KsgpR416w2iOpG0AaIr3d9Kaqpt4jgft.webp" alt="Industrial Facility">
                     </div>
                     <div class="project-info">
+                        <span class="project-status status-ongoing">
+                            <i class="fas fa-clock"></i> Ongoing
+                        </span>
+                        <h3>Agro-Processing Plant, Kano</h3>
                         <p>Industrial facility for agricultural processing with storage and distribution centers.</p>
-                        <div style="display: flex; gap: 10px; margin-top: 20px;">
-                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">Industrial</span>
-                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">Processing</span>
-                            <span style="background: var(--light); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; color: var(--gray-600);">2025</span>
+                        <div style="display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap;">
+                            <span style="background: #f1f5f9; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: #64748b;">Industrial</span>
+                            <span style="background: #f1f5f9; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: #64748b;">Processing</span>
+                            <span style="background: #f1f5f9; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: #64748b;">2025</span>
                         </div>
                     </div>
                 </div>
@@ -1387,39 +1151,34 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section theme-transition">
+    <section id="about">
         <div class="container">
-            <div class="section-header">
-                <div class="section-tag">About Us</div>
-                <h2 class="section-title">Building <span>Excellence</span> Since 2010</h2>
-                <p class="section-subtitle">Engineering excellence, structural integrity, and reliable delivery of construction projects</p>
+            <div class="section-title">
+                <span class="section-tag">About Us</span>
+                <h2>Building Excellence Since 2010</h2>
+                <p>Engineering excellence, structural integrity, and reliable delivery of construction projects</p>
             </div>
             
             <div class="about-content">
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="About Dekontractors"
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="About Dekontractors">
                     <div class="about-badge">
-                        <div class="number">15+</div>
-                        <div class="text">Years Experience</div>
+                        <div class="badge-number">15+</div>
+                        <div class="badge-text">Years Experience</div>
                     </div>
                 </div>
                 <div class="about-text">
-                    <h3 style="font-size: 1.8rem; margin-bottom: 24px; color: var(--dark);">Your Trusted Construction Partner</h3>
-                    <p style="margin-bottom: 20px; font-size: 1.1rem; color: var(--gray-600);">
-                        Dekontractors Nig. Ltd is a premier construction company and general contracting firm based in Jos, Plateau State, Nigeria. With our headquarters strategically located at 29/10 Bauchi Road, we have established ourselves as a trusted name in the construction industry.
-                    </p>
-                    <p style="margin-bottom: 20px; color: var(--gray-600);">
-                        Founded on principles of engineering excellence, structural integrity, and unwavering commitment to quality, we specialize in a wide range of construction services. Our portfolio includes residential buildings, commercial complexes, industrial facilities, and infrastructure projects.
-                    </p>
-                    <div style="display: flex; gap: 24px; margin-top: 32px;">
+                    <h3>Your Trusted Construction Partner</h3>
+                    <p>Dekontractors Nig. Ltd is a premier construction company and general contracting firm based in Jos, Plateau State, Nigeria. With our headquarters strategically located at 29/10 Bauchi Road, we have established ourselves as a trusted name in the construction industry.</p>
+                    <p>Founded on principles of engineering excellence, structural integrity, and unwavering commitment to quality, we specialize in a wide range of construction services. Our portfolio includes residential buildings, commercial complexes, industrial facilities, and infrastructure projects.</p>
+                    <div style="display: flex; gap: 30px; margin-top: 30px;">
                         <div>
-                            <h4 style="color: var(--primary); margin-bottom: 8px; font-size: 1.8rem; font-weight: 900;">50+</h4>
-                            <p style="color: var(--gray-600);">Projects Completed</p>
+                            <h4 style="font-size: 2rem; color: #0A2463; margin-bottom: 5px;">50+</h4>
+                            <p style="color: #64748b;">Projects Completed</p>
                         </div>
                         <div>
-                            <h4 style="color: var(--primary); margin-bottom: 8px; font-size: 1.8rem; font-weight: 900;">30+</h4>
-                            <p style="color: var(--gray-600);">Expert Team Members</p>
+                            <h4 style="font-size: 2rem; color: #0A2463; margin-bottom: 5px;">30+</h4>
+                            <p style="color: #64748b;">Expert Team Members</p>
                         </div>
                     </div>
                 </div>
@@ -1427,33 +1186,29 @@
         </div>
     </section>
 
-    <!-- CEO Section with Share Button -->
-    <section id="ceo" class="section theme-transition" style="background: var(--light);">
+    <!-- CEO Section -->
+    <section id="ceo" class="ceo-section">
         <div class="container">
-            <div class="ceo-content theme-transition">
+            <div class="ceo-content">
                 <div class="ceo-image">
-                    <button class="ceo-share-btn" onclick="shareCEO()" aria-label="Share CEO Profile">
+                    <button class="ceo-share" onclick="shareCEO()">
                         <i class="fas fa-share-alt"></i>
                     </button>
-                    <img src="IMG-20260113-WA0004.jpg" alt="Bldr. Jabir Shehu Na'Allah"
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';">
+                    <img src="IMG-20260113-WA0004.jpg" alt="Bldr. Jabir Shehu Na'Allah">
                 </div>
                 <div class="ceo-info">
                     <div class="ceo-title">Chief Executive Officer</div>
-                    <h3 class="ceo-name">Bldr. Jabir Shehu Na'Allah (MNIOB)</h3>
-                    <p style="margin-bottom: 24px; color: var(--gray-600);">
-                        With over 15 years of experience in the construction industry, Bldr. Jabir Shehu Na'Allah brings extensive expertise in project management, structural engineering, and construction supervision to Dekontractors Nig. Ltd.
-                    </p>
-                    <p style="margin-bottom: 24px; color: var(--gray-600);">
-                        As a registered member of the Nigerian Institute of Building (MNIOB), he ensures that all projects adhere to the highest professional standards and regulatory requirements. His leadership philosophy centers on integrity, quality craftsmanship, and client satisfaction.
-                    </p>
-                    <div style="background: rgba(10, 36, 99, 0.05); padding: 24px; border-radius: var(--radius-md);">
-                        <h4 style="color: var(--primary); margin-bottom: 16px;">Professional Qualifications:</h4>
-                        <ul style="columns: 2; list-style: none; color: var(--gray-600);">
-                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: var(--secondary); margin-right: 8px;"></i> Member, Nigerian Institute of Building</li>
-                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: var(--secondary); margin-right: 8px;"></i> Certified Project Management</li>
-                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: var(--secondary); margin-right: 8px;"></i> Registered Builder (CORBON)</li>
-                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: var(--secondary); margin-right: 8px;"></i> Safety Officer Certified</li>
+                    <h2>Bldr. Jabir Shehu Na'Allah (MNIOB)</h2>
+                    <p>With over 15 years of experience in the construction industry, Bldr. Jabir Shehu Na'Allah brings extensive expertise in project management, structural engineering, and construction supervision to Dekontractors Nig. Ltd.</p>
+                    <p>As a registered member of the Nigerian Institute of Building (MNIOB), he ensures that all projects adhere to the highest professional standards and regulatory requirements. His leadership philosophy centers on integrity, quality craftsmanship, and client satisfaction.</p>
+                    
+                    <div class="qualifications">
+                        <h4 style="margin-bottom: 15px;">Professional Qualifications:</h4>
+                        <ul style="columns: 2; list-style: none; color: #64748b;">
+                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: #FFB400; margin-right: 8px;"></i> Member, Nigerian Institute of Building</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: #FFB400; margin-right: 8px;"></i> Certified Project Management</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: #FFB400; margin-right: 8px;"></i> Registered Builder (CORBON)</li>
+                            <li style="margin-bottom: 8px;"><i class="fas fa-certificate" style="color: #FFB400; margin-right: 8px;"></i> Safety Officer Certified</li>
                         </ul>
                     </div>
                 </div>
@@ -1462,62 +1217,64 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section theme-transition">
+    <section id="contact">
         <div class="container">
-            <div class="section-header">
-                <div class="section-tag">Get In Touch</div>
-                <h2 class="section-title">Start Your <span>Project</span> Today</h2>
-                <p class="section-subtitle">Contact our engineering team to discuss your construction project requirements</p>
+            <div class="section-title">
+                <span class="section-tag">Get In Touch</span>
+                <h2>Start Your Project Today</h2>
+                <p>Contact our engineering team to discuss your construction project requirements</p>
             </div>
             
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3 style="font-size: 2rem; margin-bottom: 24px; color: white;">Contact Information</h3>
-                    <div style="display: flex; flex-direction: column; gap: 24px;">
-                        <div style="display: flex; align-items: center; gap: 16px;">
-                            <div style="width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-map-marker-alt" style="color: var(--secondary);"></i>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Contact Information</h3>
+                    <p style="opacity: 0.9; margin-bottom: 30px;">Get in touch with our team for consultation</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
-                                <h4 style="color: white; margin-bottom: 4px;">Our Address</h4>
-                                <p style="opacity: 0.9;">29/10 Bauchi Road, Jos, Plateau State, Nigeria</p>
+                                <h4>Our Address</h4>
+                                <p>29/10 Bauchi Road, Jos, Plateau State, Nigeria</p>
                             </div>
                         </div>
                         
-                        <div style="display: flex; align-items: center; gap: 16px;">
-                            <div style="width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-phone-alt" style="color: var(--secondary);"></i>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
                             </div>
                             <div>
-                                <h4 style="color: white; margin-bottom: 4px;">Phone Number</h4>
-                                <p style="opacity: 0.9;">08064731042</p>
+                                <h4>Phone Number</h4>
+                                <p>08064731042</p>
                             </div>
                         </div>
                         
-                        <div style="display: flex; align-items: center; gap: 16px;">
-                            <div style="width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-envelope" style="color: var(--secondary);"></i>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
                             </div>
                             <div>
-                                <h4 style="color: white; margin-bottom: 4px;">Email Address</h4>
-                                <p style="opacity: 0.9;">info@dekontractors.com</p>
+                                <h4>Email Address</h4>
+                                <p>info@dekontractors.com</p>
                             </div>
                         </div>
                         
-                        <div style="display: flex; align-items: center; gap: 16px;">
-                            <div style="width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-clock" style="color: var(--secondary);"></i>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
                             </div>
                             <div>
-                                <h4 style="color: white; margin-bottom: 4px;">Business Hours</h4>
-                                <p style="opacity: 0.9;">Mon-Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 2:00 PM</p>
+                                <h4>Business Hours</h4>
+                                <p>Mon-Fri: 8:00 AM - 6:00 PM<br>Sat: 9:00 AM - 2:00 PM</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="contact-form theme-transition">
-                    <h3 style="font-size: 1.8rem; margin-bottom: 32px; color: var(--dark);">Send Message</h3>
+                <div class="contact-form">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 25px;">Send Message</h3>
                     
                     <form id="contactForm">
                         <div class="form-group">
@@ -1543,10 +1300,10 @@
                         </div>
                         
                         <div class="form-group">
-                            <textarea name="message" class="form-control" placeholder="Your Message" rows="5" required></textarea>
+                            <textarea name="message" class="form-control" placeholder="Your Message" rows="4" required></textarea>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
                             Send Message <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
@@ -1560,364 +1317,411 @@
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <a href="#home" class="logo" style="margin-bottom: 24px; text-decoration: none;">
+                    <a href="#home" class="logo" style="margin-bottom: 20px; display: inline-flex;">
                         <div class="logo-image">
                             <img src="file_00000000d3d4720ab491ef5cc601a455.png" alt="Dekontractors Logo">
                         </div>
                         <div class="logo-text">
-                            <h1 style="background: linear-gradient(135deg, #FFFFFF 0%, #FFE566 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Dekontractors</h1>
+                            <h1 style="color: white;">Dekontractors</h1>
                             <span style="color: rgba(255, 255, 255, 0.8);">Engineering Excellence</span>
                         </div>
                     </a>
-                    <p style="opacity: 0.8; margin-bottom: 24px;">
+                    <p style="opacity: 0.8; margin-bottom: 20px;">
                         Building Nigeria's future with engineering excellence and professional craftsmanship since 2010.
                     </p>
                 </div>
                 
-                <div>
-                    <h4 style="color: white; margin-bottom: 24px; font-size: 1.2rem;">Quick Links</h4>
-                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
-                        <li><a href="#home" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Home</a></li>
-                        <li><a href="#about" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">About Us</a></li>
-                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Services</a></li>
-                        <li><a href="#projects" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Projects</a></li>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
                     </ul>
                 </div>
                 
-                <div>
-                    <h4 style="color: white; margin-bottom: 24px; font-size: 1.2rem;">Our Services</h4>
-                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
-                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Building Construction</a></li>
-                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">General Contracting</a></li>
-                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Renovation & Maintenance</a></li>
-                        <li><a href="#services" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.3s;">Project Supervision</a></li>
+                <div class="footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#services">Building Construction</a></li>
+                        <li><a href="#services">General Contracting</a></li>
+                        <li><a href="#services">Renovation & Maintenance</a></li>
+                        <li><a href="#services">Project Supervision</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2025 Dekontractors Nig. Ltd. All Rights Reserved. | Registered Limited Liability Construction Company</p>
-                <div style="margin-top: 10px; display: flex; gap: 15px; justify-content: center;">
-                    <a href="terms-of-service.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.85rem;">Terms of Service</a>
-                    <a href="privacy-policy.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.85rem;">Privacy Policy</a>
-                </div>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Button - FIXED -->
-    <a href="https://wa.me/2348064731042?text=Hello%20Dekontractors%20Team%2C%20I%20am%20contacting%20you%20from%20the%20Dekontractors%20website%20and%20would%20like%20to%20discuss%20a%20project." 
-       class="whatsapp-btn theme-transition" 
-       target="_blank" 
-       rel="noopener noreferrer"
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/2348064731042?text=Hello%20Dekontractors%20Team%2C%20I%20saw%20your%20website%20and%20would%20like%20to%20discuss%20a%20project." 
+       class="whatsapp-float" 
+       target="_blank"
        aria-label="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <!-- PWA Install Prompt -->
+    <div class="pwa-prompt" id="pwaPrompt">
+        <h3>Install Dekontractors App</h3>
+        <p>Install our app for quick access to construction services, even offline.</p>
+        <div class="pwa-buttons">
+            <button class="btn btn-primary" id="installPwaBtn" style="padding: 8px 16px; font-size: 0.9rem;">
+                <i class="fas fa-download"></i> Install
+            </button>
+            <button class="btn btn-secondary" id="laterPwaBtn" style="padding: 8px 16px; font-size: 0.9rem;">
+                Later
+            </button>
+        </div>
+    </div>
+
     <script>
-        // ======================
-        // PWA Installation Logic - FIXED
-        // ======================
-        let deferredPrompt;
-        const installButton = document.getElementById('installButton');
-        const pwaInstallPrompt = document.getElementById('pwaInstallPrompt');
-        const installPwaBtn = document.getElementById('installPwaBtn');
-        const laterPwaBtn = document.getElementById('laterPwaBtn');
-        const closePwaPrompt = document.getElementById('closePwaPrompt');
-        
-        // Function to check if app is installed
-        function isAppInstalled() {
-            return window.matchMedia('(display-mode: standalone)').matches || 
-                   window.navigator.standalone === true ||
-                   localStorage.getItem('pwaInstalled') === 'true';
-        }
-        
-        // Function to update install button state
-        function updateInstallButton() {
-            if (isAppInstalled()) {
-                installButton.classList.add('installed');
-                installButton.innerHTML = '<i class="fas fa-check"></i> Installed';
-                installButton.disabled = true;
-                installButton.style.display = 'none'; // Hide from desktop nav
-            } else {
-                installButton.classList.remove('installed');
-                installButton.innerHTML = '<i class="fas fa-download"></i> Install App';
-                installButton.disabled = false;
-            }
-        }
-        
-        // Listen for beforeinstallprompt event
-        window.addEventListener('beforeinstallprompt', (e) => {
-            // Prevent the mini-infobar from appearing on mobile
-            e.preventDefault();
-            // Stash the event so it can be triggered later
-            deferredPrompt = e;
-            
-            // Show install button if not already installed
-            if (!isAppInstalled()) {
-                installButton.classList.add('show');
-            }
-            
-            // Show prompt after 5 seconds if not dismissed before
-            setTimeout(() => {
-                if (!localStorage.getItem('pwaPromptDismissed') && !isAppInstalled()) {
-                    pwaInstallPrompt.classList.add('show');
-                }
-            }, 5000);
-            
-            // Update button state
-            updateInstallButton();
-        });
-        
-        // Install button click handler
-        installButton.addEventListener('click', async () => {
-            if (!deferredPrompt || isAppInstalled()) return;
-            
-            // Show the install prompt
-            deferredPrompt.prompt();
-            
-            // Wait for the user to respond to the prompt
-            const { outcome } = await deferredPrompt.userChoice;
-            
-            if (outcome === 'accepted') {
-                console.log('User accepted the install prompt');
-                localStorage.setItem('pwaInstalled', 'true');
-                updateInstallButton();
-            } else {
-                console.log('User dismissed the install prompt');
-            }
-            
-            // Clear the deferredPrompt variable
-            deferredPrompt = null;
-        });
-        
-        // PWA prompt install button
-        installPwaBtn.addEventListener('click', async () => {
-            if (!deferredPrompt || isAppInstalled()) return;
-            
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            
-            if (outcome === 'accepted') {
-                console.log('PWA installed from prompt');
-                localStorage.setItem('pwaInstalled', 'true');
-                updateInstallButton();
-            }
-            
-            deferredPrompt = null;
-            pwaInstallPrompt.classList.remove('show');
-            localStorage.setItem('pwaPromptDismissed', 'true');
-        });
-        
-        // Later button
-        laterPwaBtn.addEventListener('click', () => {
-            pwaInstallPrompt.classList.remove('show');
-            localStorage.setItem('pwaPromptDismissed', 'true');
-        });
-        
-        // Close button
-        closePwaPrompt.addEventListener('click', () => {
-            pwaInstallPrompt.classList.remove('show');
-            localStorage.setItem('pwaPromptDismissed', 'true');
-        });
-        
-        // Check if PWA is already installed
-        window.addEventListener('appinstalled', () => {
-            console.log('PWA was installed');
-            localStorage.setItem('pwaInstalled', 'true');
-            localStorage.setItem('pwaPromptDismissed', 'true');
-            updateInstallButton();
-            pwaInstallPrompt.classList.remove('show');
-        });
-        
-        // Initial check
-        updateInstallButton();
-        
-        // ======================
-        // Sharing Functions
-        // ======================
-        // Share project function
-        async function shareProject(projectId) {
-            const projectCards = {
-                1: {
-                    title: "Commercial Complex, Abuja",
-                    description: "A modern 5-story commercial building with retail spaces and offices in Abuja's business district.",
-                    image: "panash-designs-artstation-post-01.jpg",
-                    url: window.location.origin + window.location.pathname + "#projects"
-                },
-                2: {
-                    title: "Hilltop Residence, Jos",
-                    description: "Gated community development with 20 luxury homes in Jos, Plateau State.",
-                    image: "capi_dfa945349ded659b9dc39dcb4805fca6_c13e948a7a72748323ef771bf8aff689.jpeg",
-                    url: window.location.origin + window.location.pathname + "#projects"
-                },
-                3: {
-                    title: "Agro-Processing Plant, Kano",
-                    description: "Industrial facility for agricultural processing with storage and distribution centers.",
-                    image: "360_F_224037581_KsgpR416w2iOpG0AaIr3d9Kaqpt4jgft.webp",
-                    url: window.location.origin + window.location.pathname + "#projects"
-                }
-            };
-            
-            const project = projectCards[projectId];
-            const shareData = {
-                title: `Dekontractors Project: ${project.title}`,
-                text: `${project.description}\n\nView more projects at Dekontractors.`,
-                url: project.url
-            };
-            
-            if (navigator.share) {
-                try {
-                    await navigator.share(shareData);
-                    console.log('Project shared successfully');
-                } catch (err) {
-                    console.log('Error sharing:', err);
-                    copyToClipboard(project.url);
-                }
-            } else {
-                // Fallback for browsers that don't support Web Share API
-                copyToClipboard(project.url);
-            }
-        }
-        
-        // Share CEO profile function
-        async function shareCEO() {
-            const shareData = {
-                title: "Bldr. Jabir Shehu Na'Allah - CEO of Dekontractors Nig. Ltd",
-                text: "With over 15 years of experience in construction, Bldr. Jabir Shehu Na'Allah leads Dekontractors with expertise in project management and structural engineering.",
-                url: window.location.origin + window.location.pathname + "#ceo"
-            };
-            
-            if (navigator.share) {
-                try {
-                    await navigator.share(shareData);
-                    console.log('CEO profile shared successfully');
-                } catch (err) {
-                    console.log('Error sharing:', err);
-                    copyToClipboard(shareData.url);
-                }
-            } else {
-                copyToClipboard(shareData.url);
-            }
-        }
-        
-        // Copy to clipboard fallback
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                showNotification('Link copied to clipboard!');
-            }).catch(err => {
-                console.error('Failed to copy:', err);
-                showNotification('Failed to copy link. Please copy manually.');
-            });
-        }
-        
-        // Notification function
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.style.position = 'fixed';
-            notification.style.bottom = '100px';
-            notification.style.right = '20px';
-            notification.style.background = 'var(--primary)';
-            notification.style.color = 'white';
-            notification.style.padding = '15px 20px';
-            notification.style.borderRadius = 'var(--radius-md)';
-            notification.style.boxShadow = 'var(--shadow-lg)';
-            notification.style.zIndex = '10000';
-            notification.textContent = message;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.remove();
-            }, 3000);
-        }
-        
-        // ======================
-        // Service Worker Registration
-        // ======================
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registered:', registration);
-                        
-                        // Check for updates
-                        registration.addEventListener('updatefound', () => {
-                            const newWorker = registration.installing;
-                            console.log('ServiceWorker update found!');
-                            
-                            newWorker.addEventListener('statechange', () => {
-                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                    showNotification('New update available! Refresh to update.');
-                                }
-                            });
-                        });
-                    })
-                    .catch(error => {
-                        console.log('ServiceWorker registration failed:', error);
-                    });
-            });
-        }
-        
-        // ======================
-        // Existing Functions
-        // ======================
-        // Theme Toggle
+        // ====================
+        // DARK/LIGHT THEME
+        // ====================
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
         
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        // Check saved theme or system preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            enableDarkMode();
+        } else if (savedTheme === 'light') {
+            enableLightMode();
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            enableDarkMode();
+        }
         
-        if (savedTheme === 'dark' || (savedTheme === 'auto' && prefersDark)) {
-            body.setAttribute('data-theme', 'dark');
-        } else {
-            body.setAttribute('data-theme', 'light');
+        function enableDarkMode() {
+            body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+        
+        function enableLightMode() {
+            body.classList.remove('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         }
         
         themeToggle.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            themeToggle.style.transform = 'scale(1.2)';
-            setTimeout(() => {
-                themeToggle.style.transform = '';
-            }, 200);
+            if (body.classList.contains('dark-mode')) {
+                enableLightMode();
+                localStorage.setItem('theme', 'light');
+            } else {
+                enableDarkMode();
+                localStorage.setItem('theme', 'dark');
+            }
         });
-        
-        // Mobile Menu Toggle
+
+        // ====================
+        // MOBILE MENU
+        // ====================
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
+        const mainMenu = document.getElementById('mainMenu');
         
         mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+            mainMenu.classList.toggle('show');
+            mobileMenuBtn.innerHTML = mainMenu.classList.contains('show') 
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
         });
-        
-        // Close mobile menu when clicking outside
+
+        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target) && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
+            if (!mainMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mainMenu.classList.remove('show');
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             }
         });
-        
-        // Header scroll effect
+
+        // ====================
+        // HEADER SCROLL EFFECT
+        // ====================
+        const header = document.querySelector('header');
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
         });
+
+        // ====================
+        // ACTIVE NAV LINK
+        // ====================
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
         
-        // Smooth scrolling for anchor links
+        function setActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', setActiveLink);
+
+        // ====================
+        // PWA INSTALLATION
+        // ====================
+        let deferredPrompt;
+        const installNavBtn = document.getElementById('installNavBtn');
+        const pwaPrompt = document.getElementById('pwaPrompt');
+        const installPwaBtn = document.getElementById('installPwaBtn');
+        const laterPwaBtn = document.getElementById('laterPwaBtn');
+
+        // Check if app is installed
+        function isPWAInstalled() {
+            return window.matchMedia('(display-mode: standalone)').matches || 
+                   window.navigator.standalone === true ||
+                   localStorage.getItem('pwaInstalled') === 'true';
+        }
+
+        // Update install button state
+        function updateInstallButton() {
+            if (isPWAInstalled()) {
+                installNavBtn.innerHTML = '<i class="fas fa-check"></i> Installed';
+                installNavBtn.classList.add('installed');
+                installNavBtn.disabled = true;
+            }
+        }
+
+        // Listen for PWA install prompt
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show install button if not installed
+            if (!isPWAInstalled()) {
+                installNavBtn.style.display = 'flex';
+                
+                // Show prompt after delay
+                setTimeout(() => {
+                    if (!localStorage.getItem('pwaPromptDismissed')) {
+                        pwaPrompt.classList.add('show');
+                    }
+                }, 3000);
+            }
+            
+            updateInstallButton();
+        });
+
+        // Install button click
+        installNavBtn.addEventListener('click', async () => {
+            if (!deferredPrompt || isPWAInstalled()) return;
+            
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            
+            if (outcome === 'accepted') {
+                localStorage.setItem('pwaInstalled', 'true');
+                updateInstallButton();
+                showNotification('App installed successfully!');
+            }
+            
+            deferredPrompt = null;
+        });
+
+        // PWA prompt buttons
+        installPwaBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                
+                if (outcome === 'accepted') {
+                    localStorage.setItem('pwaInstalled', 'true');
+                    updateInstallButton();
+                    showNotification('App installed successfully!');
+                }
+                
+                deferredPrompt = null;
+            }
+            pwaPrompt.classList.remove('show');
+            localStorage.setItem('pwaPromptDismissed', 'true');
+        });
+
+        laterPwaBtn.addEventListener('click', () => {
+            pwaPrompt.classList.remove('show');
+            localStorage.setItem('pwaPromptDismissed', 'true');
+        });
+
+        // Check when app is installed
+        window.addEventListener('appinstalled', () => {
+            localStorage.setItem('pwaInstalled', 'true');
+            updateInstallButton();
+            showNotification('App installed successfully!');
+            pwaPrompt.classList.remove('show');
+        });
+
+        // Check on load
+        window.addEventListener('load', () => {
+            updateInstallButton();
+            
+            // Hide install button if app is already running as PWA
+            if (isPWAInstalled()) {
+                installNavBtn.style.display = 'none';
+            }
+        });
+
+        // ====================
+        // SHARING FUNCTIONS
+        // ====================
+        async function shareProject(projectId) {
+            const projects = {
+                1: {
+                    title: "Commercial Complex, Abuja",
+                    text: "Check out this amazing commercial building project by Dekontractors! A modern 5-story commercial building in Abuja.",
+                    url: window.location.href
+                },
+                2: {
+                    title: "Hilltop Residence, Jos",
+                    text: "Beautiful residential development by Dekontractors! Gated community with 20 luxury homes in Jos.",
+                    url: window.location.href
+                },
+                3: {
+                    title: "Agro-Processing Plant, Kano",
+                    text: "Industrial construction excellence by Dekontractors! Agro-processing facility in Kano.",
+                    url: window.location.href
+                }
+            };
+            
+            const project = projects[projectId];
+            
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: project.title,
+                        text: project.text,
+                        url: project.url
+                    });
+                } catch (error) {
+                    copyToClipboard(project.url, 'Project link copied to clipboard!');
+                }
+            } else {
+                copyToClipboard(project.url, 'Project link copied to clipboard!');
+            }
+        }
+
+        async function shareCEO() {
+            const shareData = {
+                title: "Bldr. Jabir Shehu Na'Allah - CEO of Dekontractors",
+                text: "Meet the CEO of Dekontractors Nig. Ltd - A leader in construction excellence with over 15 years of experience.",
+                url: window.location.href
+            };
+            
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                } catch (error) {
+                    copyToClipboard(shareData.url, 'CEO profile link copied to clipboard!');
+                }
+            } else {
+                copyToClipboard(shareData.url, 'CEO profile link copied to clipboard!');
+            }
+        }
+
+        // ====================
+        // UTILITY FUNCTIONS
+        // ====================
+        function copyToClipboard(text, message) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification(message);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showNotification(message);
+            });
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 100px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #0A2463;
+                color: white;
+                padding: 12px 24px;
+                border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+                z-index: 10000;
+                font-weight: 500;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // ====================
+        // CONTACT FORM
+        // ====================
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = this.name.value;
+            const email = this.email.value;
+            const phone = this.phone.value;
+            const service = this.service.value;
+            const message = this.message.value;
+            
+            // Create WhatsApp message
+            const whatsappMessage = `Hello Dekontractors Team,
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Service: ${service}
+
+Message: ${message}`;
+            
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappURL = `https://wa.me/2348064731042?text=${encodedMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            // Reset form
+            this.reset();
+            
+            // Show notification
+            showNotification('Message sent to WhatsApp!');
+        });
+
+        // ====================
+        // SMOOTH SCROLL
+        // ====================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1927,145 +1731,29 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    navMenu.classList.remove('active');
+                    // Close mobile menu
+                    mainMenu.classList.remove('show');
                     mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                     
+                    // Scroll to element
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
-                    // Update active nav link
-                    document.querySelectorAll('nav a').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    this.classList.add('active');
                 }
             });
         });
-        
-        // Scroll to contact function
-        function scrollToContact() {
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                window.scrollTo({
-                    top: contactSection.offsetTop - 80,
-                    behavior: 'smooth'
+
+        // ====================
+        // SERVICE WORKER
+        // ====================
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(error => {
+                    console.log('Service Worker registration failed:', error);
                 });
-                
-                navMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                
-                // Update active nav link
-                document.querySelectorAll('nav a').forEach(link => {
-                    link.classList.remove('active');
-                });
-                document.querySelector('a[href="#contact"]').classList.add('active');
-            }
+            });
         }
-        
-        // WhatsApp form submission
-        document.getElementById("contactForm").addEventListener("submit", function(e) {
-            e.preventDefault();
-
-            const name = this.name.value;
-            const email = this.email.value;
-            const phone = this.phone.value;
-            const service = this.service.value;
-            const message = this.message.value;
-
-            const whatsappMessage = `
-Hello Dekontractors Nig. Ltd,
-
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Service: ${service}
-
-Message:
-${message}
-            `.trim();
-
-            const whatsappURL = `https://wa.me/2348064731042?text=${encodeURIComponent(whatsappMessage)}`;
-
-            window.open(whatsappURL, "_blank");
-            
-            // Save form data for offline sync
-            if ('serviceWorker' in navigator && 'SyncManager' in window) {
-                const formData = {
-                    id: Date.now(),
-                    name, email, phone, service, message,
-                    timestamp: new Date().toISOString()
-                };
-                
-                // Store in IndexedDB for background sync
-                const pendingForms = JSON.parse(localStorage.getItem('pendingForms') || '[]');
-                pendingForms.push(formData);
-                localStorage.setItem('pendingForms', JSON.stringify(pendingForms));
-                
-                // Register for background sync
-                navigator.serviceWorker.ready.then(registration => {
-                    return registration.sync.register('sync-forms');
-                });
-            }
-            
-            this.reset();
-            showNotification('Your message has been sent to WhatsApp!');
-        });
-        
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.service-card, .project-card').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            window.dispatchEvent(new Event('scroll'));
-            
-            // Add active class to current section in nav
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
-            
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    if (scrollY >= (sectionTop - 100)) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${current}`) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-        });
-        
-        // Offline/Online detection
-        window.addEventListener('online', () => {
-            showNotification('You are back online!');
-        });
-        
-        window.addEventListener('offline', () => {
-            showNotification('You are offline. Some features may be limited.');
-        });
     </script>
 </body>
 </html>
