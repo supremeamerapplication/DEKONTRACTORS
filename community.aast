@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dekontractors Community - Connecting Builders & Homeowners</title>
+    <meta name="description" content="Join the Dekontractors community - A platform connecting construction professionals, homeowners, and building enthusiasts across Nigeria.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: #f8fafc;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            box-shadow: 0 2px 20px rgba(10, 36, 99, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0A2463 0%, #3E7BFA 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0A2463;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.7rem;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .back-to-main {
+            background: linear-gradient(135deg, #FFB400 0%, #FFE566 100%);
+            color: #1e293b;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .back-to-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 180, 0, 0.3);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 36, 99, 0.95), rgba(62, 123, 250, 0.85)),
+                        url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 180, 0, 0.2) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #FFFFFF 0%, #FFE566 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* ===== VISION SECTION ===== */
+        .vision-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: #0A2463;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .vision-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .vision-card {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .vision-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(10, 36, 99, 0.1);
+            border-color: #3E7BFA;
+        }
+
+        .vision-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0A2463 0%, #3E7BFA 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .vision-card h3 {
+            font-size: 1.5rem;
+            color: #0A2463;
+            margin-bottom: 15px;
+        }
+
+        .vision-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* ===== COMMUNITY FEATURES ===== */
+        .features-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(10, 36, 99, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FFB400 0%, #FFE566 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e293b;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            color: #0A2463;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .feature-content p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* ===== COUNTDOWN SECTION ===== */
+        .countdown-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0A2463 0%, #3E7BFA 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .countdown-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .countdown-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px 20px;
+            min-width: 120px;
+        }
+
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #FFB400;
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+
+        /* ===== NOTIFY SECTION ===== */
+        .notify-section {
+            padding: 100px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .notify-title {
+            font-size: 2.5rem;
+            color: #0A2463;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .notify-subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .notify-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 16px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: #3E7BFA;
+            box-shadow: 0 0 0 3px rgba(62, 123, 250, 0.1);
+        }
+
+        .notify-btn {
+            background: linear-gradient(135deg, #FFB400 0%, #FFE566 100%);
+            color: #1e293b;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .notify-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 180, 0, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0A2463;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, #0A2463 0%, #3E7BFA 100%);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0A2463;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo .logo-text h1 {
+            color: white;
+        }
+
+        .footer-logo .logo-text span {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #FFB400;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #FFB400;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .countdown-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .notify-form {
+                flex-direction: column;
+            }
+            
+            .coming-soon-badge {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+            
+            .countdown-item {
+                min-width: 100px;
+                padding: 20px 15px;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+            
+            .vision-content,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .back-to-main {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .countdown-container {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+                padding: 15px 10px;
+            }
+            
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+            
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-image">
+                    <img src="file_00000000d3d4720ab491ef5cc601a455.png" alt="Dekontractors Logo">
+                </div>
+                <div class="logo-text">
+                    <h1>Dekontractors</h1>
+                    <span>Community Platform</span>
+                </div>
+            </a>
+            
+            <a href="index.html" class="back-to-main">
+                <i class="fas fa-arrow-left"></i> Back to Main Site
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="coming-soon-badge">
+                    <i class="fas fa-rocket"></i> Coming Soon
+                </div>
+                <h1>Dekontractors Community</h1>
+                <p class="hero-subtitle">Building Connections, Sharing Knowledge, Transforming Nigeria's Construction Landscape</p>
+                <div style="margin-top: 50px;">
+                    <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto; opacity: 0.9;">
+                        A revolutionary platform connecting construction professionals, homeowners, and building enthusiasts across Nigeria. 
+                        Join us in creating a community that elevates the construction industry through collaboration and innovation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Community Vision</h2>
+                <p>Building more than structures - we're building relationships, knowledge, and opportunities</p>
+            </div>
+            
+            <div class="vision-content">
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Connect Professionals</h3>
+                    <p>Bring together architects, engineers, contractors, and builders to collaborate on projects, share expertise, and build professional networks across Nigeria.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Knowledge Hub</h3>
+                    <p>Access construction tutorials, industry insights, best practices, and training resources to enhance your skills and stay updated with the latest trends.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Support Homeowners</h3>
+                    <p>Help homeowners find trusted professionals, get expert advice, and navigate their construction projects with confidence and transparency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Community Features</h2>
+                <p>Discover what makes our community platform unique and valuable</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Project Showcase</h3>
+                        <p>Display your construction projects, get feedback, and inspire others with your work.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Discussion Forums</h3>
+                        <p>Engage in meaningful conversations about construction techniques, materials, and industry challenges.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Events & Webinars</h3>
+                        <p>Participate in virtual workshops, training sessions, and industry events.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Job Board</h3>
+                        <p>Find construction opportunities or hire qualified professionals for your projects.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Vendor Reviews</h3>
+                        <p>Share experiences and read reviews about materials suppliers and service providers.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Industry News</h3>
+                        <p>Stay updated with the latest construction regulations, technologies, and market trends.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown-section">
+        <div class="container">
+            <h2 class="countdown-title">Launching Soon!</h2>
+            <p class="countdown-subtitle">We're working hard to bring you an amazing community experience</p>
+            
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notify Section -->
+    <section class="notify-section">
+        <div class="container">
+            <h2 class="notify-title">Be the First to Know</h2>
+            <p class="notify-subtitle">Join our waiting list and get notified when we launch. Early members will get exclusive benefits and special access.</p>
+            
+            <form class="notify-form" id="notifyForm">
+                <input type="email" class="email-input" placeholder="Enter your email address" required>
+                <button type="submit" class="notify-btn">Notify Me <i class="fas fa-bell"></i></button>
+            </form>
+            
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" class="logo">
+                        <div class="logo-image">
+                            <img src="file_00000000d3d4720ab491ef5cc601a455.png" alt="Dekontractors Logo">
+                        </div>
+                        <div class="logo-text">
+                            <h1>Dekontractors</h1>
+                            <span>Community Platform</span>
+                        </div>
+                    </a>
+                    <p style="margin-top: 15px; opacity: 0.8;">Building Nigeria's future through community and collaboration.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#vision">Our Vision</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#launch">Launch Date</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">For Professionals</a></li>
+                        <li><a href="#">For Homeowners</a></li>
+                        <li><a href="#">For Suppliers</a></li>
+                        <li><a href="#">For Students</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> 29/10 Bauchi Road, Jos</li>
+                        <li><i class="fas fa-phone" style="margin-right: 8px;"></i> 08064731042</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 8px;"></i> community@dekontractors.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Dekontractors Community Platform. All Rights Reserved. | <a href="#" style="color: #FFB400; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: #FFB400; text-decoration: none;">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ====================
+        // COUNTDOWN TIMER
+        // ====================
+        function updateCountdown() {
+            // Set launch date (30 days from now)
+            const launchDate = new Date();
+            launchDate.setDate(launchDate.getDate() + 30);
+            launchDate.setHours(10, 0, 0, 0); // Set to 10:00 AM
+            
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            
+            // Calculate days, hours, minutes, seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the results
+            document.getElementById("days").textContent = days.toString().padStart(2, '0');
+            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+            
+            // If the countdown is finished
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector(".countdown-title").textContent = "We're Live!";
+                document.querySelector(".countdown-subtitle").textContent = "The community platform is now live. Join us!";
+                document.querySelector(".countdown-container").style.display = "none";
+            }
+        }
+        
+        // Update countdown every second
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+
+        // ====================
+        // NOTIFY FORM
+        // ====================
+        document.getElementById('notifyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('.email-input').value;
+            
+            // Simple validation
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // In a real application, you would send this to your server
+            // For now, we'll just show a success message
+            this.querySelector('.email-input').value = '';
+            
+            // Show success message
+            const button = this.querySelector('.notify-btn');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-check"></i> You\'re on the list!';
+            button.style.background = 'linear-gradient(135deg, #22c55e 0%, #4ade80 100%)';
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.background = 'linear-gradient(135deg, #FFB400 0%, #FFE566 100%)';
+            }, 3000);
+            
+            console.log('Email added to waiting list:', email);
+        });
+
+        // ====================
+        // SMOOTH SCROLL
+        // ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ====================
+        // ANIMATIONS ON SCROLL
+        // ====================
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.vision-card, .feature-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        
+        // Set initial state for animation
+        document.querySelectorAll('.vision-card, .feature-item').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Initial check
+
+        // ====================
+        // SOCIAL SHARE
+        // ====================
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const platform = this.querySelector('i').className;
+                const url = window.location.href;
+                const text = "Check out the Dekontractors Community Platform - Coming Soon!";
+                
+                let shareUrl;
+                
+                if (platform.includes('facebook')) {
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                } else if (platform.includes('twitter')) {
+                    shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+                } else if (platform.includes('linkedin')) {
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+                } else if (platform.includes('whatsapp')) {
+                    shareUrl = `https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`;
+                } else {
+                    return; // For Instagram, just prevent default
+                }
+                
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            });
+        });
+    </script>
+</body>
+</html>
