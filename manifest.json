@@ -1,0 +1,22 @@
+{
+  "name": "Dekontractors Engineering",
+  "short_name": "Dekontractors",
+  "description": "Engineering Excellence & Construction Solutions",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0A2463",
+  "theme_color": "#0A2463",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "file_00000000d3d4720ab491ef5cc601a455.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "file_00000000d3d4720ab491ef5cc601a455.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
