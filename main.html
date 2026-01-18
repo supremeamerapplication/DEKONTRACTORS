@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dekontractors Nig. Ltd - Engineering Excellence & Construction Solutions</title>
     <meta name="description" content="Building Nigeria's future with precision, quality, and professional expertise.">
-    
+
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#0A2463">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="file_00000000d3d4720ab491ef5cc601a455.png">
     <link rel="manifest" href="manifest.json">
-    
+
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <style>
         /* ===== RESET & BASE ===== */
         * {
@@ -69,15 +69,13 @@
             align-items: center;
             justify-content: center;
             padding: 5px;
-            
         }
 
         .logo-image img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-          border-radius: 10px;
-
+            border-radius: 10px;
         }
 
         body.dark-mode .logo-image {
@@ -247,6 +245,7 @@
             font-size: 1.5rem;
             color: #0A2463;
             cursor: pointer;
+            z-index: 1001;
         }
 
         body.dark-mode .mobile-menu-btn {
@@ -862,14 +861,14 @@
             .hero h2 {
                 font-size: 2.5rem;
             }
-            
+
             .about-content,
             .ceo-content,
             .contact-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-            
+
             .ceo-image,
             .about-image {
                 height: 300px;
@@ -880,7 +879,7 @@
             .mobile-menu-btn {
                 display: block;
             }
-            
+
             .nav-menu ul {
                 position: fixed;
                 top: 70px;
@@ -888,42 +887,55 @@
                 width: 100%;
                 background: white;
                 flex-direction: column;
-                padding: 20px;
+                padding: 30px 20px;
                 gap: 15px;
                 transform: translateY(-100%);
                 opacity: 0;
                 visibility: hidden;
-                transition: all 0.3s;
+                transition: all 0.3s ease;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
                 z-index: 999;
+                height: auto;
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
             }
-            
+
             body.dark-mode .nav-menu ul {
                 background: #1e293b;
             }
-            
+
             .nav-menu ul.show {
                 transform: translateY(0);
                 opacity: 1;
                 visibility: visible;
             }
-            
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu a {
+                width: 100%;
+                padding: 12px 16px;
+                justify-content: flex-start;
+            }
+
             .hero {
                 padding: 140px 0 80px;
             }
-            
+
             .hero h2 {
                 font-size: 2rem;
             }
-            
+
             .section-title h2 {
                 font-size: 2rem;
             }
-            
+
             .hero-stats {
                 gap: 30px;
             }
-            
+
             .stat-number {
                 font-size: 2rem;
             }
@@ -933,25 +945,25 @@
             .hero h2 {
                 font-size: 1.8rem;
             }
-            
+
             .hero p {
                 font-size: 1rem;
             }
-            
+
             .logo-image {
                 width: 50px;
                 height: 50px;
             }
-            
+
             .logo-text h1 {
                 font-size: 1.3rem;
             }
-            
+
             .btn {
                 padding: 10px 20px;
                 font-size: 0.9rem;
             }
-            
+
             .whatsapp-float {
                 width: 50px;
                 height: 50px;
@@ -959,7 +971,7 @@
                 bottom: 20px;
                 right: 20px;
             }
-            
+
             .pwa-prompt {
                 right: 20px;
                 left: 20px;
@@ -982,7 +994,7 @@
                     <span>Engineering Excellence</span>
                 </div>
             </a>
-            
+
             <div class="nav-menu">
                 <ul id="mainMenu">
                     <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
@@ -993,9 +1005,7 @@
                     <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
                     <li><a href="terms.html">Terms and conditions</a></li>
                     <li><a href="privacy.html">Privacy</a></li>
-                    <li><a href="community.html">Join community </a></li>
-
-
+                    <li><a href="community.html">Join community</a></li>
 
                     <li>
                         <button class="install-nav-btn" id="installNavBtn">
@@ -1008,8 +1018,8 @@
                         </button>
                     </li>
                 </ul>
-                
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -1025,7 +1035,7 @@
                 <a href="#contact" class="btn btn-primary">Start Your Project <i class="fas fa-arrow-right"></i></a>
                 <a href="#projects" class="btn btn-secondary">View Our Work</a>
             </div>
-            
+
             <div class="hero-stats">
                 <div class="stat-item">
                     <div class="stat-number">50+</div>
@@ -1051,7 +1061,7 @@
                 <h2>Professional Construction Services</h2>
                 <p>Comprehensive construction solutions tailored to meet your project requirements</p>
             </div>
-            
+
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
@@ -1060,7 +1070,7 @@
                     <h3>Building Construction</h3>
                     <p>Complete construction of residential, commercial, and industrial buildings from foundation to finishing.</p>
                 </div>
-                
+
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-hard-hat"></i>
@@ -1068,7 +1078,7 @@
                     <h3>General Contracting</h3>
                     <p>End-to-end project management, coordinating all construction phases, subcontractors, and timelines.</p>
                 </div>
-                
+
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-tools"></i>
@@ -1088,7 +1098,7 @@
                 <h2>Featured Projects</h2>
                 <p>Showcasing our portfolio of completed and ongoing construction projects</p>
             </div>
-            
+
             <div class="projects-grid">
                 <!-- Project 1 -->
                 <div class="project-card">
@@ -1111,7 +1121,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Project 2 -->
                 <div class="project-card">
                     <button class="project-share" onclick="shareProject(2)">
@@ -1133,7 +1143,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Project 3 -->
                 <div class="project-card">
                     <button class="project-share" onclick="shareProject(3)">
@@ -1167,7 +1177,7 @@
                 <h2>Building Excellence Since 2010</h2>
                 <p>Engineering excellence, structural integrity, and reliable delivery of construction projects</p>
             </div>
-            
+
             <div class="about-content">
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="About Dekontractors">
@@ -1210,7 +1220,7 @@
                     <h2>Bldr. Jabir Shehu Na'Allah (MNIOB)</h2>
                     <p>With over 15 years of experience in the construction industry, Bldr. Jabir Shehu Na'Allah brings extensive expertise in project management, structural engineering, and construction supervision to Dekontractors Nig. Ltd.</p>
                     <p>As a registered member of the Nigerian Institute of Building (MNIOB), he ensures that all projects adhere to the highest professional standards and regulatory requirements. His leadership philosophy centers on integrity, quality craftsmanship, and client satisfaction.</p>
-                    
+
                     <div class="qualifications">
                         <h4 style="margin-bottom: 15px;">Professional Qualifications:</h4>
                         <ul style="columns: 2; list-style: none; color: #64748b;">
@@ -1233,12 +1243,12 @@
                 <h2>Start Your Project Today</h2>
                 <p>Contact our engineering team to discuss your construction project requirements</p>
             </div>
-            
+
             <div class="contact-content">
                 <div class="contact-info">
                     <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Contact Information</h3>
                     <p style="opacity: 0.9; margin-bottom: 30px;">Get in touch with our team for consultation</p>
-                    
+
                     <div class="contact-details">
                         <div class="contact-item">
                             <div class="contact-icon">
@@ -1249,7 +1259,7 @@
                                 <p>29/10 Bauchi Road, Jos, Plateau State, Nigeria</p>
                             </div>
                         </div>
-                        
+
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-phone-alt"></i>
@@ -1259,7 +1269,7 @@
                                 <p>08064731042</p>
                             </div>
                         </div>
-                        
+
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
@@ -1269,7 +1279,7 @@
                                 <p>dekontractors@gmail.com</p>
                             </div>
                         </div>
-                        
+
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-clock"></i>
@@ -1281,23 +1291,23 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="contact-form">
                     <h3 style="font-size: 1.5rem; margin-bottom: 25px;">Send Message</h3>
-                    
+
                     <form id="contactForm">
                         <div class="form-group">
                             <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <input type="email" name="email" class="form-control" placeholder="Your Email" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <input type="tel" name="phone" class="form-control" placeholder="Phone Number">
                         </div>
-                        
+
                         <div class="form-group">
                             <select name="service" class="form-control" required>
                                 <option value="">Select Service</option>
@@ -1307,11 +1317,11 @@
                                 <option value="Project Supervision">Project Supervision</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <textarea name="message" class="form-control" placeholder="Your Message" rows="4" required></textarea>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary" style="width: 100%;">
                             Send Message <i class="fas fa-paper-plane"></i>
                         </button>
@@ -1339,7 +1349,7 @@
                         Building Nigeria's future with engineering excellence and professional craftsmanship since 2010.
                     </p>
                 </div>
-                
+
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
@@ -1349,7 +1359,7 @@
                         <li><a href="#projects">Projects</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-links">
                     <h4>Our Services</h4>
                     <ul>
@@ -1359,7 +1369,7 @@
                         <li><a href="#services">Project Supervision</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-links">
                     <h4>Legal</h4>
                     <ul>
@@ -1368,15 +1378,14 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 Dekontractors Nig. Ltd. All Rights Reserved. | Registered Limited Liability Construction Company</p>
-              </div>
+            </div>
         </div>
-         <div id="logo-image">
-                <p>Design and deployed by <link href="supreme-amerweb.vercel.app><img src="IMG-2026016-WA0008.jgp">SupremeAmer</link></p>
-         </div> 
-            
+        <div id="logo-image">
+            <p>Design and deployed by <a href="https://supreme-amerweb.vercel.app">SupremeAmer</a></p>
+        </div>
     </footer>
 
     <!-- WhatsApp Float -->
@@ -1407,7 +1416,7 @@
         // ====================
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
-        
+
         // Check saved theme or system preference
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
@@ -1417,17 +1426,17 @@
         } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
             enableDarkMode();
         }
-        
+
         function enableDarkMode() {
             body.classList.add('dark-mode');
             themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         }
-        
+
         function enableLightMode() {
             body.classList.remove('dark-mode');
             themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         }
-        
+
         themeToggle.addEventListener('click', () => {
             if (body.classList.contains('dark-mode')) {
                 enableLightMode();
@@ -1443,19 +1452,46 @@
         // ====================
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainMenu = document.getElementById('mainMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mainMenu.classList.toggle('show');
-            mobileMenuBtn.innerHTML = mainMenu.classList.contains('show') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+
+        // Close menu function
+        function closeMobileMenu() {
+            mainMenu.classList.remove('show');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+
+        // Toggle menu function
+        function toggleMobileMenu() {
+            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+            
+            if (isExpanded) {
+                closeMobileMenu();
+            } else {
+                mainMenu.classList.add('show');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        // Mobile menu button click
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!mainMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mainMenu.classList.remove('show');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                closeMobileMenu();
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
             }
         });
 
@@ -1476,7 +1512,7 @@
         // ====================
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
-        
+
         function setActiveLink() {
             let current = '';
             sections.forEach(section => {
@@ -1486,7 +1522,7 @@
                     current = section.getAttribute('id');
                 }
             });
-            
+
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${current}`) {
@@ -1494,7 +1530,7 @@
                 }
             });
         }
-        
+
         window.addEventListener('scroll', setActiveLink);
 
         // ====================
@@ -1519,6 +1555,12 @@
                 installNavBtn.innerHTML = '<i class="fas fa-check"></i> Installed';
                 installNavBtn.classList.add('installed');
                 installNavBtn.disabled = true;
+                installNavBtn.style.cursor = 'not-allowed';
+            } else {
+                installNavBtn.innerHTML = '<i class="fas fa-download"></i> Install';
+                installNavBtn.classList.remove('installed');
+                installNavBtn.disabled = false;
+                installNavBtn.style.cursor = 'pointer';
             }
         }
 
@@ -1526,41 +1568,27 @@
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            
+
             // Show install button if not installed
             if (!isPWAInstalled()) {
                 installNavBtn.style.display = 'flex';
-                
+
                 // Show prompt after delay
                 setTimeout(() => {
                     if (!localStorage.getItem('pwaPromptDismissed')) {
                         pwaPrompt.classList.add('show');
                     }
-                }, 3000);
+                }, 5000);
             }
-            
+
             updateInstallButton();
         });
 
         // Install button click
         installNavBtn.addEventListener('click', async () => {
             if (!deferredPrompt || isPWAInstalled()) return;
-            
-            deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            
-            if (outcome === 'accepted') {
-                localStorage.setItem('pwaInstalled', 'true');
-                updateInstallButton();
-                showNotification('App installed successfully!');
-            }
-            
-            deferredPrompt = null;
-        });
 
-        // PWA prompt buttons
-        installPwaBtn.addEventListener('click', async () => {
-            if (deferredPrompt) {
+            try {
                 deferredPrompt.prompt();
                 const { outcome } = await deferredPrompt.userChoice;
                 
@@ -1568,8 +1596,33 @@
                     localStorage.setItem('pwaInstalled', 'true');
                     updateInstallButton();
                     showNotification('App installed successfully!');
+                    pwaPrompt.classList.remove('show');
+                } else {
+                    showNotification('Installation cancelled');
                 }
-                
+            } catch (error) {
+                console.error('Installation error:', error);
+                showNotification('Installation failed. Please try again.');
+            }
+            
+            deferredPrompt = null;
+        });
+
+        // PWA prompt buttons
+        installPwaBtn.addEventListener('click', async () => {
+            if (deferredPrompt && !isPWAInstalled()) {
+                try {
+                    deferredPrompt.prompt();
+                    const { outcome } = await deferredPrompt.userChoice;
+
+                    if (outcome === 'accepted') {
+                        localStorage.setItem('pwaInstalled', 'true');
+                        updateInstallButton();
+                        showNotification('App installed successfully!');
+                    }
+                } catch (error) {
+                    console.error('Installation error:', error);
+                }
                 deferredPrompt = null;
             }
             pwaPrompt.classList.remove('show');
@@ -1592,7 +1645,7 @@
         // Check on load
         window.addEventListener('load', () => {
             updateInstallButton();
-            
+
             // Hide install button if app is already running as PWA
             if (isPWAInstalled()) {
                 installNavBtn.style.display = 'none';
@@ -1620,9 +1673,9 @@
                     url: window.location.href
                 }
             };
-            
+
             const project = projects[projectId];
-            
+
             if (navigator.share) {
                 try {
                     await navigator.share({
@@ -1644,7 +1697,7 @@
                 text: "Meet the CEO of Dekontractors Nig. Ltd - A leader in construction excellence with over 15 years of experience.",
                 url: window.location.href
             };
-            
+
             if (navigator.share) {
                 try {
                     await navigator.share(shareData);
@@ -1691,7 +1744,7 @@
             `;
             notification.textContent = message;
             document.body.appendChild(notification);
-            
+
             setTimeout(() => {
                 notification.remove();
             }, 3000);
@@ -1702,13 +1755,13 @@
         // ====================
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const name = this.name.value;
             const email = this.email.value;
             const phone = this.phone.value;
             const service = this.service.value;
             const message = this.message.value;
-            
+
             // Create WhatsApp message
             const whatsappMessage = `Hello Dekontractors Team,
 
@@ -1718,16 +1771,16 @@ Phone: ${phone}
 Service: ${service}
 
 Message: ${message}`;
-            
+
             const encodedMessage = encodeURIComponent(whatsappMessage);
             const whatsappURL = `https://wa.me/2348064731042?text=${encodedMessage}`;
-            
+
             // Open WhatsApp
             window.open(whatsappURL, '_blank');
-            
+
             // Reset form
             this.reset();
-            
+
             // Show notification
             showNotification('Message sent to WhatsApp!');
         });
@@ -1738,16 +1791,15 @@ Message: ${message}`;
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
+
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     // Close mobile menu
-                    mainMenu.classList.remove('show');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    
+                    closeMobileMenu();
+
                     // Scroll to element
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
@@ -1762,11 +1814,19 @@ Message: ${message}`;
         // ====================
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(error => {
+                navigator.serviceWorker.register('sw.js').then(registration => {
+                    console.log('Service Worker registered successfully:', registration);
+                }).catch(error => {
                     console.log('Service Worker registration failed:', error);
                 });
             });
         }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setActiveLink();
+            updateInstallButton();
+        });
     </script>
 </body>
 </html>
